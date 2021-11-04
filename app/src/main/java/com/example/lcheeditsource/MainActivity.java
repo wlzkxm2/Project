@@ -12,4 +12,5 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 밑으로 이름을 적어주세요요
+        // 이지원입니다
     }
