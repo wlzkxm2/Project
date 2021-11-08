@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 *       수정한 Line도 상세히 적을것
 * 
 *       211108 / 17:30 데이터 테이블 생성
-*       Line 19 ~ 129                   - 이지원
+*       Line 19 ~ 141                  - 이지원
 * 
 * */         // 코드 변경시 여기에 변경한 코드에 대한 정보 입력
 
@@ -20,7 +20,9 @@ import androidx.room.PrimaryKey;
 // 유저 정보 테이블
 @Entity
 public class UserInfo {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private int DefaultUserCode = 0;
+
     private String UserId;          // 유저의 아이디
     
     private String Password;        // 유저의 비밀번호
@@ -38,6 +40,16 @@ public class UserInfo {
 
 
     // 여기서부터 유저의 정보를 받아오는 Getter & Setter
+
+
+    public int getDefaultUserCode() {
+        return DefaultUserCode;
+    }
+
+    public void setDefaultUserCode(int defaultUserCode) {
+        DefaultUserCode = defaultUserCode;
+    }
+
     public String getUserId() {
         return UserId;
     }
