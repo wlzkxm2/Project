@@ -15,5 +15,7 @@ public class Production {
     private int ProducttionCode = 0;
 
 
+    private String Company;
+
 
 }
