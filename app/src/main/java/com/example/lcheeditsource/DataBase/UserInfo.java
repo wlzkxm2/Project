@@ -36,11 +36,9 @@ public class UserInfo {
     private String birth_Day;       // 태어난 일
     
     private String PhoneNumber;     // 개인 전화번호
-    private String UserAddress;     // 집주소
-
-
-    // 여기서부터 유저의 정보를 받아오는 Getter & Setter
-
+    private String UserAddressNumber;     // 우편번호
+    private String UserAddressDefault;      // 기본주소
+    private String UserAddressMore;         // 상세주소
 
     public int getDefaultUserCode() {
         return DefaultUserCode;
@@ -79,7 +77,7 @@ public class UserInfo {
     }
 
     public void setName(String name) {
-        this.Name = name;
+        Name = name;
     }
 
     public String getBirth_Year() {
@@ -114,13 +112,34 @@ public class UserInfo {
         PhoneNumber = phoneNumber;
     }
 
-    public String getUserAddress() {
-        return UserAddress;
+    public String getUserAddressNumber() {
+        return UserAddressNumber;
     }
 
-    public void setUserAddress(String userAddress) {
-        UserAddress = userAddress;
+    public void setUserAddressNumber(String userAddressNumber) {
+        UserAddressNumber = userAddressNumber;
     }
+
+    public String getUserAddressDefault() {
+        return UserAddressDefault;
+    }
+
+    public void setUserAddressDefault(String userAddressDefault) {
+        UserAddressDefault = userAddressDefault;
+    }
+
+    public String getUserAddressMore() {
+        return UserAddressMore;
+    }
+
+    public void setUserAddressMore(String userAddressMore) {
+        UserAddressMore = userAddressMore;
+    }
+
+
+    // 여기서부터 유저의 정보를 받아오는 Getter & Setter
+
+
 
 
     // 데이터 내부 데이터를 출력하는 함수입니다.
@@ -136,7 +155,7 @@ public class UserInfo {
         DBOutput.append(" birth_Month : ").append(birth_Month);
         DBOutput.append(" birth_Day : ").append(birth_Day);
         DBOutput.append(" PhoneNumber : ").append(PhoneNumber);
-        DBOutput.append(" UserAddress : ").append(UserAddress);
+        DBOutput.append(" UserAddress : ").append("우편번호" + UserAddressNumber + "/" + UserAddressDefault + "/" + UserAddressMore);
         DBOutput.append("\n-----------------------------------\n");
         return DBOutput.toString();
 
