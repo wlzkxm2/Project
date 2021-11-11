@@ -40,6 +40,9 @@ public class UserInfo {
     private String UserAddressDefault;      // 기본주소
     private String UserAddressMore;         // 상세주소
 
+
+    // 여기서부터 유저의 정보를 받아오는 Getter & Setter
+
     public int getDefaultUserCode() {
         return DefaultUserCode;
     }
@@ -137,7 +140,6 @@ public class UserInfo {
     }
 
 
-    // 여기서부터 유저의 정보를 받아오는 Getter & Setter
 
 
 

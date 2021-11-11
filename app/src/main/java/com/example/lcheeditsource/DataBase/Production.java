@@ -14,4 +14,6 @@ public class Production {
     @PrimaryKey(autoGenerate = true)
     private int ProducttionCode = 0;
 
+
+
 }
