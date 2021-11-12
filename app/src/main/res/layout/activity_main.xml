@@ -114,13 +114,18 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/imageButton13"
-                        android:layout_width="270dp"
-                        android:layout_height="210dp"
+                        android:id="@+id/imageButton16"
+                        android:layout_width="294dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="0"
-                        android:background="@color/white"
-                        android:outlineAmbientShadowColor="@color/white"
                         app:srcCompat="@drawable/squidgame" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton15"
+                        android:layout_width="118dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/cola" />
 
                 </LinearLayout>
             </LinearLayout>
