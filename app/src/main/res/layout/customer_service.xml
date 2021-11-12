@@ -8,10 +8,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="52dp"
             android:layout_height="733dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -26,42 +28,30 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@"
-                    android:layout_width="58dp"
+                    android:id="@drawable/back"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
                     android:outlineAmbientShadowColor="@color/white"
-                    app:srcCompat="@" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="51dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/img" />
-
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/back" />
             </LinearLayout>
-
-            <ScrollView
-                android:layout_width="411dp"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="134dp"
+            android:layout_height="62dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/img" />
 
-    <TextView
-        android:id="@+id/tex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="고객센터"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="133dp" />
+        <TextView
+            android:id="@+id/tex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고객센터" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
