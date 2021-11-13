@@ -18,6 +18,9 @@ import java.util.List;
  *      211108 / 17:45 데이터 Dao 생성
  *      Line 23 ~ 43                   - 이지원
  *
+ *      211113 / 16:20 DataSearch Code
+ *      Line 48 ~50
+ *
  * */       // 코드 변경시 여기에 변경한 코드에 대한 정보 입력
 
 // 데이터베이스에 엑세스 할 수 있는 개체
@@ -41,4 +44,14 @@ public interface DataBaseDao {
     // 데이터 삭제
     @Query("DELETE FROM UserInfo WHERE Name = :name")
     void DeleteUserInfomation(String name);
+
+    // ID DataSeach
+    @Query("SELECT * FROM UserInfo WHERE UserId = :id")
+    List<UserInfo> FindID(String id);
+
+    // Password DataSeach
+    @Query("SELECT * FROM UserInfo WHERE Password = :password")
+    List<UserInfo> FindPassword(String password);
+
+
 }
