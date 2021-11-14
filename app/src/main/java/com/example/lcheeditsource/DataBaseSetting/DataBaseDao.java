@@ -45,11 +45,11 @@ public interface DataBaseDao {
     @Query("DELETE FROM UserInfo WHERE Name = :name")
     void DeleteUserInfomation(String name);
 
-    // ID DataSeach
+    // 아이디 중복검사
     @Query("SELECT * FROM UserInfo WHERE UserId = :id")
     List<UserInfo> FindID(String id);
 
-    // Password DataSeach
+    // 패스워드 검사
     @Query("SELECT * FROM UserInfo WHERE Password = :password")
     List<UserInfo> FindPassword(String password);
 

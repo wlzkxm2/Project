@@ -19,101 +19,138 @@
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
+        android:id="@+id/edit_registerID"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Input Id"
+        android:text=""
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginLogo" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/edit_registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="password"
+        android:text=""
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/text_IDcheackMessage" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/edit_registerPasswordC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="passwordCheack"
+        android:text=""
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerPassword" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/edit_registerEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Email"
+        android:text=""
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerPasswordC" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/edit_registerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="UserName"
+        android:text=""
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerEmail" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text_Birth"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:gravity="center"
         android:text="Year / Month / Days"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintEnd_toStartOf="@+id/btn_choiceBirth"
+        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerName" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_choiceBirth"
         android:layout_width="75dp"
         android:layout_height="44dp"
         android:layout_marginEnd="100dp"
         android:text="선택"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/edit_registerPhoneCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="PhoneCallNumber"
+        android:text=""
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/text_Birth" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_SingComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="SIGN UP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerPhoneCall" />
+
+    <Button
+        android:id="@+id/btn_IDcheackButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="중복확인"
+        app:layout_constraintBottom_toTopOf="@+id/edit_registerPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/edit_registerID"
+        app:layout_constraintTop_toBottomOf="@+id/loginLogo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/text_IDcheackMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="중복확인을 해주세요"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_IDcheackButton"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_registerID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
