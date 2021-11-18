@@ -95,19 +95,20 @@ public class Register extends Activity {
                 // 만약에 데이터가 존재하면 가입이 안됨
 
                 _registerId = registerID.getText().toString();
+                Toast.makeText(getApplicationContext(), registerID.getText(), Toast.LENGTH_SHORT).show();
 
-                List<UserInfo> IDcheack = mDatabaseDao.FindID(_registerId);
-                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
-                for (int i = 0; i < IDcheack.size(); i++) {
-                    String CheackID = IDcheack.get(i).getUserId();
-                    if(CheackID.equals(_registerId)){
-                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
-                        IdCheack_bool = false;
-                    }else {
-                        IdCheack_bool = true;
-                        IDCheack_textView.setText("사용가능한 아이디 입니다.");
-                    }
-                }
+//                List<UserInfo> IDcheack = mDatabaseDao.FindID(_registerId);
+//                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
+//                for (int i = 0; i < IDcheack.size(); i++) {
+//                    String CheackID = IDcheack.get(i).getUserId();
+//                    if(CheackID.equals(_registerId)){
+//                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
+//                        IdCheack_bool = false;
+//                    }else {
+//                        IdCheack_bool = true;
+//                        IDCheack_textView.setText("사용가능한 아이디 입니다.");
+//                    }
+//                }
             }
         });
 
