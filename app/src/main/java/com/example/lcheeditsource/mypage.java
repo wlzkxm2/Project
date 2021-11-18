@@ -1,4 +1,4 @@
 package com.example.lcheeditsource;
 
-public class mypage {
+public class  mypage extends activity {
 }
