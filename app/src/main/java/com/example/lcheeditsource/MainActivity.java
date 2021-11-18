@@ -5,7 +5,11 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
+import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     Intent Page;
 
+    ImageButton MyPage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,32 @@ public class MainActivity extends AppCompatActivity {
         // 데이터베이스 객체 생성
         mDatabaseDao = dataBase.dataBaseDao();
 
+        MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
+
+        MyPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Page = new Intent(getApplicationContext(), Login.class);
+                startActivity(Page);
+            }
+        });
+/*
+        UserInfo user = new UserInfo();
+        user.setUserId("Admin");          // 유저의 아이디
+        user.setPassword("admin");        // 유저의 비밀번호
+        user.setEmail("admin@gmail.com");           // 복구할 이메일
+        user.setName("Admin");            // 유저의 이름
+        user.setSex("Male");             // 유저의 성별
+        user.setRigisterDate("2021-11-18");    // 가입 날짜
+        user.setBirth_Year("0000-00-00");      // 태어난해
+        user.setBirth_Month("0000-00-00");     // 태어난 월
+        user.setBirth_Day("0000-00-00");       // 태어난 일
+        user.setPhoneNumber("000-0000-000");     // 개인 전화번호
+        user.setUserAddressNumber("0000-00-00");     // 우편번호
+        user.setUserAddressDefault("0000-00-00");      // 기본주소
+        user.setUserAddressMore("0000-00-00");         // 상세주소
+        mDatabaseDao.setInsertUser(user);
+ */     // 최초 어드민 어카운트
 
          /*
 

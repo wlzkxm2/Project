@@ -1,5 +1,6 @@
 package com.example.lcheeditsource;
 import android.app.Activity;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.service.autofill.UserData;
@@ -36,7 +37,9 @@ public class Login extends Activity {
 
 
     EditText LoginID, LoginPassword;
-    ImageButton Loginbtn, SignUpbtn;
+    Button Loginbtn, SignUpbtn;
+
+    Intent Page;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         
@@ -45,8 +48,8 @@ public class Login extends Activity {
 
         LoginID = (EditText) findViewById(R.id.edit_LoginID);
         LoginPassword = (EditText) findViewById(R.id.edit_LoginPassword);
-        Loginbtn = (ImageButton) findViewById(R.id.btn_Login);
-        SignUpbtn = (ImageButton) findViewById(R.id.btn_SignUp);
+        Loginbtn = (Button) findViewById(R.id.btn_Login);
+        SignUpbtn = (Button) findViewById(R.id.btn_SignUp);
 
         String inputId = LoginID.getText().toString();
         String inputPassword = LoginPassword.getText().toString();
@@ -76,6 +79,8 @@ public class Login extends Activity {
             @Override
             public void onClick(View view) {
                 // Sign Page Move
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
             }
         });
     }

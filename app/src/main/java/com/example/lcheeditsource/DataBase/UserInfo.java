@@ -46,6 +46,9 @@ public class UserInfo {
     private String UserAddressMore;         // 상세주소
 
 
+
+
+
     // 여기서부터 유저의 정보를 받아오는 Getter & Setter
 
 
