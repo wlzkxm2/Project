@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<EditText
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="LCHE OF MYPAGE" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="131dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/user" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="155dp"
+            android:layout_height="161dp"
+            android:layout_weight="1"
+            android:text="Button" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/star"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="즐겨찾기" />
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
