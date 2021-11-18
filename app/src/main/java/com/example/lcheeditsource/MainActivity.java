@@ -3,6 +3,7 @@ package com.example.lcheeditsource;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DataBaseDao mDatabaseDao;       // Dao 객체 생성
 
+    Intent Page;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 데이터베이스 객체 생성
         mDatabaseDao = dataBase.dataBaseDao();
+
 
          /*
 

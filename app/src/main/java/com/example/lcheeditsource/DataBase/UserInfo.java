@@ -29,6 +29,10 @@ public class UserInfo {
     
     private String Email;           // 복구할 이메일
     private String Name;            // 유저의 이름
+    private String Sex;             // 유저의 성별
+
+    private String RigisterDate;    // 가입 날짜
+
     
     // 유저 생년월일
     private String birth_Year;      // 태어난해
@@ -36,12 +40,14 @@ public class UserInfo {
     private String birth_Day;       // 태어난 일
     
     private String PhoneNumber;     // 개인 전화번호
+
     private String UserAddressNumber;     // 우편번호
     private String UserAddressDefault;      // 기본주소
     private String UserAddressMore;         // 상세주소
 
 
     // 여기서부터 유저의 정보를 받아오는 Getter & Setter
+
 
     public int getDefaultUserCode() {
         return DefaultUserCode;
@@ -81,6 +87,22 @@ public class UserInfo {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public String getSex() {
+        return Sex;
+    }
+
+    public void setSex(String sex) {
+        Sex = sex;
+    }
+
+    public String getRigisterDate() {
+        return RigisterDate;
+    }
+
+    public void setRigisterDate(String rigisterDate) {
+        RigisterDate = rigisterDate;
     }
 
     public String getBirth_Year() {
@@ -139,11 +161,6 @@ public class UserInfo {
         UserAddressMore = userAddressMore;
     }
 
-
-
-
-
-
     // 데이터 내부 데이터를 출력하는 함수입니다.
     @NonNull
     @Override
@@ -153,7 +170,8 @@ public class UserInfo {
         DBOutput.append(" Password : ").append(Password);
         DBOutput.append(" Email : ").append(Email);
         DBOutput.append(" Name : ").append(Name);
-        DBOutput.append(" birth_Year : ").append(birth_Year);
+        DBOutput.append(" birth_Year : ").append(Sex);
+        DBOutput.append(" birth_Month : ").append(RigisterDate);
         DBOutput.append(" birth_Month : ").append(birth_Month);
         DBOutput.append(" birth_Day : ").append(birth_Day);
         DBOutput.append(" PhoneNumber : ").append(PhoneNumber);
@@ -163,3 +181,5 @@ public class UserInfo {
 
     }
 }
+
+
