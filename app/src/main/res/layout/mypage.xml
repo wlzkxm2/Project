@@ -17,11 +17,11 @@
         android:inputType="textPersonName"
         android:text="LCHE OF MYPAGE" />
 
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -54,8 +54,38 @@
     <TextView
         android:id="@+id/star"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="35dp"
         android:text="즐겨찾기" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/brand"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:text="브랜드" />
+
+        <Button
+            android:id="@+id/product"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:text="제품" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translation" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
