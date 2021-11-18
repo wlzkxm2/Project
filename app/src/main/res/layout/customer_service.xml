@@ -113,7 +113,7 @@
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="LCHE 소개"
-        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="498dp" />
 
     <TextView
