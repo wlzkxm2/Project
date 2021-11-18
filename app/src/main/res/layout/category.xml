@@ -13,10 +13,10 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            tools:srcCompat="@drawable/line"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,94 +53,93 @@
             android:textStyle="bold"
             android:translationX="20dp" />
 
-        <ImageView
-            android:id="@+id/imageView6"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Category"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:scaleType="centerCrop"
-            tools:srcCompat="@drawable/line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                app:srcCompat="@drawable/electronics" />
-
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/fashion" />
-
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/car" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:orientation="horizontal">
+            android:layout_height="462dp">
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="150sp"
-                android:layout_height="170dp"
+                android:layout_width="109dp"
+                android:layout_height="114dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/pet" />
+                app:srcCompat="@drawable/pet"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <ImageView
                 android:id="@+id/imageView10"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
+                android:layout_width="105dp"
+                android:layout_height="114dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/books" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sport" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:orientation="horizontal">
+                app:srcCompat="@drawable/books"
+                tools:layout_editor_absoluteX="150dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <ImageView
                 android:id="@+id/imageView12"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
+                android:layout_width="104dp"
+                android:layout_height="110dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/outdoor" />
+                app:srcCompat="@drawable/outdoor"
+                tools:layout_editor_absoluteX="276dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="108dp"
+                android:layout_height="127dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/car"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="146dp" />
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
+                android:layout_width="109dp"
+                android:layout_height="125dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/dailynecessities" />
+                app:srcCompat="@drawable/dailynecessities"
+                tools:layout_editor_absoluteX="150dp"
+                tools:layout_editor_absoluteY="146dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="115dp"
+                android:layout_height="134dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/fashion"
+                tools:layout_editor_absoluteX="139dp"
+                tools:layout_editor_absoluteY="319dp" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="118dp"
+                android:layout_height="131dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/sport"
+                tools:layout_editor_absoluteX="276dp"
+                tools:layout_editor_absoluteY="319dp" />
 
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="150dp"
-                android:layout_height="170dp"
+                android:layout_width="107dp"
+                android:layout_height="140dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/food" />
-        </LinearLayout>
+                app:srcCompat="@drawable/food"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="319dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="111dp"
+                android:layout_height="133dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                app:srcCompat="@drawable/electronics"
+                tools:layout_editor_absoluteX="276dp"
+                tools:layout_editor_absoluteY="149dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 </LinearLayout>
