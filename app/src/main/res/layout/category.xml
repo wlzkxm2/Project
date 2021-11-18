@@ -58,92 +58,103 @@
             android:layout_width="match_parent"
             android:layout_height="462dp">
 
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="109dp"
-                android:layout_height="114dp"
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="100dp"
+                android:layout_height="105dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toStartOf="@+id/imageView10"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/pet" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="105dp"
-                android:layout_height="114dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/books"
-                tools:layout_editor_absoluteX="150dp" />
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="104dp"
-                android:layout_height="110dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/outdoor" />
-
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="108dp"
-                android:layout_height="127dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/car"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="146dp" />
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="109dp"
-                android:layout_height="125dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/dailynecessities"
-                tools:layout_editor_absoluteX="150dp"
-                tools:layout_editor_absoluteY="146dp" />
+                app:srcCompat="@drawable/electronics" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
-                android:layout_width="115dp"
-                android:layout_height="134dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/fashion"
-                tools:layout_editor_absoluteX="139dp"
-                tools:layout_editor_absoluteY="319dp" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="118dp"
-                android:layout_height="131dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/sport"
-                tools:layout_editor_absoluteX="276dp"
-                tools:layout_editor_absoluteY="319dp" />
-
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="107dp"
-                android:layout_height="140dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/food"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="319dp" />
+                android:layout_width="95dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fashion" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="111dp"
-                android:layout_height="133dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                app:srcCompat="@drawable/electronics"
-                tools:layout_editor_absoluteX="276dp"
-                tools:layout_editor_absoluteY="149dp" />
+                android:id="@+id/imageButton8"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintStart_toEndOf="@+id/imageButton5"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/car" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton10"
+                app:layout_constraintHorizontal_bias="0.361"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+                app:srcCompat="@drawable/pet" />
+
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton13"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+                app:srcCompat="@drawable/books" />
+
+            <ImageButton
+                android:id="@+id/imageButton13"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton8"
+                app:srcCompat="@drawable/sport" />
+
+            <ImageButton
+                android:id="@+id/imageButton14"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton17"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+                app:srcCompat="@drawable/outdoor" />
+
+            <ImageButton
+                android:id="@+id/imageButton17"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton19"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton10"
+                app:srcCompat="@drawable/dailynecessities" />
+
+            <ImageButton
+                android:id="@+id/imageButton19"
+                android:layout_width="100dp"
+                android:layout_height="115dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageButton13"
+                app:srcCompat="@drawable/food" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
