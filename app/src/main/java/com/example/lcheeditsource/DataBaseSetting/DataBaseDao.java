@@ -27,6 +27,11 @@ import java.util.List;
 @Dao
 public interface DataBaseDao {
 
+    // 데이터 조회 쿼리
+    // UserInfo의 모든 정보를 불러온다.
+    @Query("SELECT * FROM UserInfo")
+    List<UserInfo> getUserAll();
+
     @Insert     // 데이터 삽입
     void setInsertUser(UserInfo userInfo);
 
@@ -36,18 +41,13 @@ public interface DataBaseDao {
     @Delete     // 데이터 삭제
     void setDeleteUser(UserInfo userInfo);
 
-    // 데이터 조회 쿼리
-    // UserInfo의 모든 정보를 불러온다.
-    @Query("SELECT * FROM UserInfo")
-    List<UserInfo> getUserAll();
-
     // 데이터 삭제
     @Query("DELETE FROM UserInfo WHERE Name = :name")
     void DeleteUserInfomation(String name);
 
     // 아이디 중복검사
-    @Query("SELECT * FROM UserInfo WHERE UserId = :id")
-    List<UserInfo> FindID(String id);
+    @Query("SELECT * FROM UserInfo WHERE UserId = :userid")
+    List<UserInfo> getID(String userid);
 
     // 패스워드 검사
     @Query("SELECT * FROM UserInfo WHERE Password = :password")
