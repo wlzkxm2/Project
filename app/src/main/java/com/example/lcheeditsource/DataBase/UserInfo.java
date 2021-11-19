@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 /*
 * 
 *       수정 정보 알려줄것
@@ -19,7 +21,7 @@ import androidx.room.PrimaryKey;
 
 // 유저 정보 테이블
 @Entity
-public class UserInfo {
+public class UserInfo implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int DefaultUserCode = 0;
 
@@ -178,7 +180,7 @@ public class UserInfo {
         DBOutput.append(" birth_Month : ").append(birth_Month);
         DBOutput.append(" birth_Day : ").append(birth_Day);
         DBOutput.append(" PhoneNumber : ").append(PhoneNumber);
-        DBOutput.append(" UserAddress : ").append("우편번호" + UserAddressNumber + "/" + UserAddressDefault + "/" + UserAddressMore);
+//        DBOutput.append(" UserAddress : ").append("우편번호" + UserAddressNumber + "/" + UserAddressDefault + "/" + UserAddressMore);
         DBOutput.append("\n-----------------------------------\n");
         return DBOutput.toString();
 

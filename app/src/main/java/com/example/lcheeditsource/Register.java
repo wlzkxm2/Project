@@ -1,6 +1,7 @@
 package com.example.lcheeditsource;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,13 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.room.Room;
 
 import com.example.lcheeditsource.DataBase.UserInfo;
+import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
+
+
+
 
 
 /*
@@ -28,18 +32,20 @@ import java.util.List;
  */
 
 public class Register extends Activity {
+
     private DataBaseDao mDatabaseDao;
 
-    EditText registerID,
+    AlertDialog.Builder dl;
+
+    private EditText registerID,
             registerPassword,
             registerPasswordCheack,
             registerEmail,
             registerName,
             registerPhoneCall;
 
-    TextView Birth_textView, IDCheack_textView;
-    Button choiceBirth_btn, SignUpComplete_btn, IdCheack_btn;
-
+    private TextView Birth_textView, IDCheack_textView, debug_textView;
+    private Button choiceBirth_btn, SignUpComplete_btn, IdCheack_btn;
 
     // 아이디 중복체크 bool 함수
     // false 일경우 아이디 중복확인을 하지 않았거나 중복된 아이디가 있다는 의미미
@@ -55,7 +61,7 @@ public class Register extends Activity {
     private Boolean NameEmptyCheack_bool = false;
     private Boolean PhoneCallEmptyCheack_bool = false;
 
-    String _registerId,
+    private String _registerId,
             _registerPassword,
             _registerPasswordCheack,
             _registerEmail,
@@ -67,8 +73,16 @@ public class Register extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        registerID = (EditText) findViewById(R.id.edit_LoginID);
-        registerPassword = (EditText) findViewById(R.id.edit_LoginPassword);
+        DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mDatabaseDao = dataBase.dataBaseDao();
+
+        registerID = (EditText) findViewById(R.id.edit_registerID);
+        registerPassword = (EditText) findViewById(R.id.edit_registerPassword);
         registerPasswordCheack = (EditText) findViewById(R.id.edit_registerPasswordC);
         registerEmail = (EditText) findViewById(R.id.edit_registerEmail);
         registerName = (EditText) findViewById(R.id.edit_registerName);
@@ -81,11 +95,13 @@ public class Register extends Activity {
         SignUpComplete_btn = (Button) findViewById(R.id.btn_SingComplete);
         IdCheack_btn = (Button) findViewById(R.id.btn_IDcheackButton);
 
+        debug_textView = (TextView) findViewById(R.id.debug_textView);
+
 
        // 아이디 중복체크 TextView 초기화
        IDCheack_textView.setText("중복확인을 해주세요");
 
-        IdCheack_btn.setOnClickListener(new View.OnClickListener() {
+       IdCheack_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -95,22 +111,26 @@ public class Register extends Activity {
                 // 만약에 데이터가 존재하면 가입이 안됨
 
                 _registerId = registerID.getText().toString();
-                Toast.makeText(getApplicationContext(), registerID.getText(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), registerID.getText(), Toast.LENGTH_SHORT).show();
 
-//                List<UserInfo> IDcheack = mDatabaseDao.FindID(_registerId);
+                List<UserInfo> userList = mDatabaseDao.getUserAll();
 //                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
-//                for (int i = 0; i < IDcheack.size(); i++) {
-//                    String CheackID = IDcheack.get(i).getUserId();
-//                    if(CheackID.equals(_registerId)){
-//                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
-//                        IdCheack_bool = false;
-//                    }else {
-//                        IdCheack_bool = true;
-//                        IDCheack_textView.setText("사용가능한 아이디 입니다.");
-//                    }
-//                }
+                for (int count = 0; count < userList.size(); count++) {
+                    String ListId = userList.get(count).getUserId();
+
+//                    Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
+                    if(ListId.equals(_registerId)){
+                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
+                        IdCheack_bool = false;
+                        break;
+                    }else {
+                        IDCheack_textView.setText("사용가능한 아이디 입니다.");
+                        IdCheack_bool = true;
+                    }
+                }
+               Toast.makeText(getApplicationContext(), "실행종료" + IdCheack_bool, Toast.LENGTH_SHORT).show();
             }
-        });
+       });
 
         choiceBirth_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +150,7 @@ public class Register extends Activity {
                 _registerEmail = registerEmail.getText().toString();
                 _registerName = registerName.getText().toString();
                 _registerPhoncall = registerPhoneCall.getText().toString();
+                choiceBirth_btn
 
                 // 아이디가 비어져있는지 여부 검사
                 if(_registerId.equals(""))
@@ -144,9 +165,9 @@ public class Register extends Activity {
 
                     // 패스워드가 같은지 여부 검사
                     if(_registerPassword.equals(_registerPasswordCheack)) {
-                        PasswordCheack_bool = false;
-                    }else
                         PasswordCheack_bool = true;
+                    }else
+                        PasswordCheack_bool = false;
                 }
 
                 if(_registerEmail.equals(""))
@@ -163,6 +184,8 @@ public class Register extends Activity {
                     PhoneCallEmptyCheack_bool = false;
                 else
                     PhoneCallEmptyCheack_bool = true;
+
+
 //
 //                private Boolean IdEmptyCheack_bool = false;
 //                private Boolean PasswordEmptyCheack_bool = false;
@@ -170,6 +193,12 @@ public class Register extends Activity {
 //                private Boolean NameEmptyCheack_bool = false;
 //                private Boolean PhoneCallEmptyCheack_boo = false;
 
+                debug_textView.setText("아이디체크" + IdCheack_bool + "\n" +
+                        "비밀번호체크" + PasswordCheack_bool + "\n" +
+                        "비밀번호 비어있는지" + PasswordEmptyCheack_bool + "\n" +
+                        "이메일체크" + EmailEmptyCheack_bool + "\n" +
+                        "이름체크" + NameEmptyCheack_bool + "\n" +
+                        "전화번호체크" + PhoneCallEmptyCheack_bool);
                 // 가입 데이터 DB에 저장
                 if(IdCheack_bool == true &&
                         PasswordCheack_bool == true &&
@@ -184,11 +213,12 @@ public class Register extends Activity {
                     registerUser.setPassword(_registerPassword);
                     registerUser.setEmail(_registerEmail);
                     registerUser.setName(_registerName);
-//                    registerUser.setBirth_Day();
+                    registerUser.setBirth_Day();
                     registerUser.setPhoneNumber(_registerPhoncall);
-//                    registerUser.setUserAddressDefault();
-//                    registerUser.setUserAddressMore();
-//                    registerUser.setUserAddressNumber();
+                    registerUser.setUserAddressDefault();
+                    registerUser.setUserAddressMore();
+                    registerUser.setUserAddressNumber();
+                    mDatabaseDao.setInsertUser(registerUser);
                 }else{
                     
                     // 가입실패
