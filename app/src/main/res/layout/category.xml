@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/CategoryText"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:text="카테고리"
