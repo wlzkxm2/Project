@@ -4,7 +4,7 @@
  *      수정한 Line도 상세히 적을것
  *
  *      211115 카테고리 페이지 생성
- *      -- 김종원
+ *      -- 김종원,최지욱
  */
 
 package com.example.lcheeditsource;

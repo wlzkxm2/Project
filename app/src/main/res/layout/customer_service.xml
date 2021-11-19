@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tex"
+        android:id="@+id/CustomerServiceText"
         android:layout_width="120dp"
         android:layout_height="31dp"
         android:layout_marginStart="10dp"
@@ -41,11 +41,17 @@
             app:srcCompat="@drawable/back" />
 
         <ImageView
-            android:id="@drawable/img"
-            android:layout_width="287dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/loginLogo5"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/img" />
+            android:background="#FAFAFA"
+            android:backgroundTint="#FAFAFA"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo" />
+
     </LinearLayout>
 
     <ImageView
@@ -67,7 +73,7 @@
         tools:layout_editor_absoluteY="167dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TextboxView"
         android:layout_width="181dp"
         android:layout_height="104dp"
         android:text="LCHE 이용시 불편한 점 궁금한 점을 말씀해 주세요!"
@@ -109,7 +115,7 @@
         tools:layout_editor_absoluteY="457dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button5"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="LCHE 소개"
@@ -117,7 +123,7 @@
         tools:layout_editor_absoluteY="498dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/TextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="입점 제휴문의"
@@ -127,7 +133,7 @@
         tools:layout_editor_absoluteY="579dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/TextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="광고문의"
@@ -137,7 +143,7 @@
         tools:layout_editor_absoluteY="579dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/TextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이용약관"
@@ -147,7 +153,7 @@
         tools:layout_editor_absoluteY="579dp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/TextView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="개인정보 처리방침"
