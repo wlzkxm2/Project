@@ -57,7 +57,7 @@ public class Login extends Activity {
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<UserInfo> userData = mDatabaseDao.FindID(LoginID.getText().toString());
+                List<UserInfo> userData = mDatabaseDao.getID(LoginID.getText().toString());
                 String DBPassword, InputPassword;
                 InputPassword = LoginPassword.getText().toString();
 

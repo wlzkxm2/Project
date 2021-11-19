@@ -13,6 +13,8 @@ import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
+import java.util.List;
+
 
 /*
  *
@@ -30,7 +32,7 @@ import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DataBaseDao mDatabaseDao;       // Dao 객체 생성
+    public DataBaseDao mDatabaseDao;       // Dao 객체 생성
 
     Intent Page;
 
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // 데이터 베이스삽입
         // !! 수정 금지 !!
         DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         // 데이터베이스 객체 생성
         mDatabaseDao = dataBase.dataBaseDao();
+
+
+        List<UserInfo> userList = mDatabaseDao.getUserAll();
 
         MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
 
@@ -62,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
         });
 /*
         UserInfo user = new UserInfo();
-        user.setUserId("Admin");          // 유저의 아이디
-        user.setPassword("admin");        // 유저의 비밀번호
+        user.setUserId("Admin2");          // 유저의 아이디
+        user.setPassword("admin2");        // 유저의 비밀번호
         user.setEmail("admin@gmail.com");           // 복구할 이메일
-        user.setName("Admin");            // 유저의 이름
+        user.setName("Admin2");            // 유저의 이름
         user.setSex("Male");             // 유저의 성별
-        user.setRigisterDate("2021-11-18");    // 가입 날짜
+        user.setRigisterDate("2021-11-19");    // 가입 날짜
         user.setBirth_Year("0000-00-00");      // 태어난해
         user.setBirth_Month("0000-00-00");     // 태어난 월
         user.setBirth_Day("0000-00-00");       // 태어난 일
@@ -76,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         user.setUserAddressDefault("0000-00-00");      // 기본주소
         user.setUserAddressMore("0000-00-00");         // 상세주소
         mDatabaseDao.setInsertUser(user);
- */     // 최초 어드민 어카운트
+*/ // 최초 어드민 어카운트
 
          /*
 
