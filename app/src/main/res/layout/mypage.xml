@@ -8,53 +8,68 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/loginLogo5"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-<EditText
-        android:id="@+id/top"
+    <EditText
+        android:id="@+id/mypage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="LCHE OF MYPAGE" />
+        android:text="Mypage" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="164dp"
         android:orientation="horizontal">
 
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="131dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/user" />
+            android:id="@+id/imageButton5"
+            android:layout_width="180dp"
+            android:layout_height="161dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/account"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="167dp" />
 
         <Button
-            android:id="@+id/button11"
-            android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:id="@+id/g"
+            android:layout_width="125dp"
+            android:layout_height="164dp"
             android:text="Button" />
 
         <Button
             android:id="@+id/button12"
             android:layout_width="95dp"
-            android:layout_height="wrap_content"
+            android:layout_height="76dp"
             android:text="Button" />
 
         <Button
             android:id="@+id/button13"
-            android:layout_width="155dp"
-            android:layout_height="161dp"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Button" />
 
 
     </LinearLayout>
 
-    <TextView
+    <Button
         android:id="@+id/star"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:text="즐겨찾기" />
 
     <LinearLayout
@@ -82,10 +97,32 @@
         android:layout_height="wrap_content"
         android:text="Translation" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip4"
+    <Button
+        android:id="@+id/event"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="LCHE EVENT" />
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/event2"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:text="이벤트 신청내역" />
+
+        <Button
+            android:id="@+id/event3"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="굿즈이벤트" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
