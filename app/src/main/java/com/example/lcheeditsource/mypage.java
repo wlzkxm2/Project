@@ -1,6 +1,7 @@
 package com.example.lcheeditsource;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class mypage extends Activity {
     Button inf,rev,scr,sta,bra,pro,eve,eve2,eve3 ;
     ImageButton ima1;
     ImageView log;
+    Intent Page;
+    View.OnClickListener cl ;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,9 +46,36 @@ public class mypage extends Activity {
         ima1 =(ImageButton) findViewById(R.id.image1);
         log = (ImageView) findViewById(R.id.loginLogo6);
 
+        cl = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+
+        };
+        inf.setOnClickListener(cl);
+        rev.setOnClickListener(cl);
+        scr.setOnClickListener(cl);
+        sta.setOnClickListener(cl);
+        bra.setOnClickListener(cl);
+        pro.setOnClickListener(cl);
+        eve.setOnClickListener(cl);
+        eve2.setOnClickListener(cl);
+        eve3.setOnClickListener(cl);
 
 
-        }
+
+
+
+
+
+
+
+
+
+
+
+    }
     }
 
 
