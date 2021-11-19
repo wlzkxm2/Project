@@ -8,14 +8,101 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/loginLogo6"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="0"
+        android:rotationX="0"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_settingBack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-<EditText
-        android:id="@+id/top"
+    <EditText
+        android:id="@+id/mypage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="LCHE OF MYPAGE" />
+        android:text="Mypage" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="164dp"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/image1"
+            android:layout_width="180dp"
+            android:layout_height="161dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/account"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="167dp" />
+
+        <Button
+            android:id="@+id/information"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:text="내 정보 수정" />
+
+        <Button
+            android:id="@+id/review"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:text="내 리뷰" />
+
+        <Button
+            android:id="@+id/scrap"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="스크랩" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/star"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="즐겨찾기" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/brand"
+            android:layout_width="203dp"
+            android:layout_height="wrap_content"
+            android:text="브랜드" />
+
+        <Button
+            android:id="@+id/product"
+            android:layout_width="219dp"
+            android:layout_height="wrap_content"
+            android:text="제품" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Translation" />
+
+    <Button
+        android:id="@+id/event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LCHE EVENT" />
+
 
 
     <LinearLayout
@@ -23,39 +110,19 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="131dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/user" />
-
         <Button
-            android:id="@+id/button11"
-            android:layout_width="wrap_content"
-            android:layout_height="66dp"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/button12"
-            android:layout_width="95dp"
+            android:id="@+id/event2"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="이벤트 신청내역" />
 
         <Button
-            android:id="@+id/button13"
-            android:layout_width="155dp"
-            android:layout_height="161dp"
-            android:layout_weight="1"
-            android:text="Button" />
-
+            android:id="@+id/event3"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:text="굿즈이벤트" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/star"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:text="즐겨찾기" />
 
 
 </LinearLayout>
