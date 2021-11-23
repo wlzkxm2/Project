@@ -16,11 +16,12 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <ImageButton
+                android:id="@+id/back3"
                 android:layout_width="61dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@color/white"
                 app:srcCompat="@drawable/back2" />
 
             <ImageView
@@ -65,7 +66,7 @@
         android:text="나의 관심 키워드 알림" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/noticetext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -74,7 +75,7 @@
         android:text="" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/noticebutton1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -85,7 +86,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/noticebutton2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -96,7 +97,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/noticebutton3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -107,7 +108,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/noticebutton4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
@@ -118,7 +119,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/noticebutton5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00FFFFFF"
