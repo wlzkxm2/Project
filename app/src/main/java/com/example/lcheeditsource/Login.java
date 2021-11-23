@@ -27,6 +27,9 @@ import java.util.List;
  *
  *      211113 로그인 페이지
  *      -- 이지원
+ * 
+ *      211123 로그인 분기 체크 추가
+ *      -- 이지원
  */
 
 
@@ -41,34 +44,48 @@ public class Login extends Activity {
 
     Intent Page;
 
+    String inputId, inputPassword;
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mDatabaseDao = dataBase.dataBaseDao();
 
         LoginID = (EditText) findViewById(R.id.edit_LoginID);
         LoginPassword = (EditText) findViewById(R.id.edit_LoginPassword);
         Loginbtn = (Button) findViewById(R.id.btn_Login);
         SignUpbtn = (Button) findViewById(R.id.btn_SignUp);
 
-        String inputId = LoginID.getText().toString();
-        String inputPassword = LoginPassword.getText().toString();
+        inputId = LoginID.getText().toString();
+        inputPassword = LoginPassword.getText().toString();
 
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<UserInfo> userData = mDatabaseDao.getID(LoginID.getText().toString());
-                String DBPassword, InputPassword;
-                InputPassword = LoginPassword.getText().toString();
+                List<UserInfo> userData = mDatabaseDao.getUserAll();
+
 
                 for (int i = 0; i < userData.size(); i++) {
                     //Password Check
-                    DBPassword = userData.get(i).getPassword();
-                    if(DBPassword.equals(InputPassword)){
-                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-
+                    String DBID = userData.get(i).getUserId();
+                    String DBPassword = userData.get(i).getPassword();
+                    
+                    // 아이디가 같은지 다른지부터 체크
+                    if(DBID.equals(inputId)){
+                        if(DBPassword.equals(inputPassword)){
+                            // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
+                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                        }
                         // Login EV
                     }else{
+                        // 만약 아이디와 패스워드가 다르다면 나오는 이벤트
                         Toast.makeText(getApplicationContext(), "LoginFail", Toast.LENGTH_SHORT).show();
                     }
                 }

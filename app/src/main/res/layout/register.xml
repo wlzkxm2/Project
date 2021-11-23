@@ -20,14 +20,16 @@
 
     <EditText
         android:id="@+id/edit_registerID"
-        android:layout_width="0dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
         android:ems="10"
         android:hint="Input Id"
-        android:text=""
         android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginLogo" />
 
@@ -90,8 +92,8 @@
         android:gravity="center"
         android:text="Year / Month / Days"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_choiceBirth"
-        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_registerName" />
 
@@ -131,27 +133,26 @@
 
     <Button
         android:id="@+id/btn_IDcheackButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="39dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
         android:text="중복확인"
         app:layout_constraintBottom_toTopOf="@+id/edit_registerPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/edit_registerID"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginLogo"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/text_IDcheackMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_width="178dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="30dp"
         android:text="중복확인을 해주세요"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_IDcheackButton"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_registerID" />
 

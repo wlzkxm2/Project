@@ -2,9 +2,13 @@ package com.example.lcheeditsource;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +20,11 @@ import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 
 
@@ -29,13 +37,16 @@ import java.util.List;
  *
  *      211114 회원가입 페이지
  *      -- 이지원
+ *
+ *      211123 회원가입 아이디 중복확인 패스워드 등 회원가입 페이지 완성
+ *      -- 이지원
  */
 
 public class Register extends Activity {
 
     private DataBaseDao mDatabaseDao;
 
-    AlertDialog.Builder dl;
+    Intent GotoLogin;
 
     private EditText registerID,
             registerPassword,
@@ -66,7 +77,15 @@ public class Register extends Activity {
             _registerPasswordCheack,
             _registerEmail,
             _registerName,
-            _registerPhoncall;
+            _registerPhoncall,
+            _registerBirthYear,
+            _registerBirthMonth,
+            _registerBirthDay,
+            _registerBirth;
+
+    // 날짜 입력을 위한 함수
+
+    DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,37 +130,82 @@ public class Register extends Activity {
                 // 만약에 데이터가 존재하면 가입이 안됨
 
                 _registerId = registerID.getText().toString();
+                // debug
 //                Toast.makeText(getApplicationContext(), registerID.getText(), Toast.LENGTH_SHORT).show();
-
+                
+                // 데이터내부 정보를 전부 불러옴
                 List<UserInfo> userList = mDatabaseDao.getUserAll();
+                // debug
 //                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
+                // 데이터베이스 데이터 수만큼 반복
                 for (int count = 0; count < userList.size(); count++) {
+                    // 데이터베이스 count 번째 데이터의 아이디를 ListId에 저장
                     String ListId = userList.get(count).getUserId();
 
+                    // debug
 //                    Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
+                    
+                    // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
                     if(ListId.equals(_registerId)){
+                        // 만약 같다면 아이디가 존재한다는 팝업이벤트
                         IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
                         IdCheack_bool = false;
                         break;
                     }else {
+                        // 같지 않다면 회원가입이 가능하다는 팝업 이벤트
                         IDCheack_textView.setText("사용가능한 아이디 입니다.");
+                        // bool 값을 통해 중복검사를 하지 않고 회원가입 하는 행위를 차단
                         IdCheack_bool = true;
                     }
                 }
-               Toast.makeText(getApplicationContext(), "실행종료" + IdCheack_bool, Toast.LENGTH_SHORT).show();
+                // debug
+//               Toast.makeText(getApplicationContext(), "실행종료" + IdCheack_bool, Toast.LENGTH_SHORT).show();
             }
        });
 
+       // 생일 입력 함수
         choiceBirth_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                // 생일 선택 함수
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+                int Year = c.get(Calendar.YEAR);
+                int Month = c.get(Calendar.MONTH);
+                int Day = c.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog BirthPicker = new DatePickerDialog(Register.this,
+                        new DatePickerDialog.OnDateSetListener(){
+                            @Override
+                            public void onDateSet(DatePicker v, int year, int month, int dayOfMonth){
+                                Birth_textView.setText(year + " / " + (month+1) + " / " + dayOfMonth);
+                                // 입력한 함수를 String 변수에 삽입
+                                _registerBirthYear = Integer.toString(year);
+                                _registerBirthMonth = Integer.toString(month+1);
+                                _registerBirthDay = Integer.toString(dayOfMonth);
+                                Toast.makeText(getApplicationContext() , _registerBirthYear + " " +
+                                        _registerBirthMonth + " " +
+                                        _registerBirthDay, Toast.LENGTH_SHORT).show();
+                                _registerBirth = _registerBirthYear + "-" + _registerBirthMonth + "-" + _registerBirthDay;
+                                Toast.makeText(getApplicationContext(), _registerBirth, Toast.LENGTH_SHORT).show();
+                            }
+                        }, Year, Month, Day);
+                BirthPicker.show();
+
+
             }
         });
+
+
 
         SignUpComplete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                GotoLogin = new Intent(getApplicationContext(), Login.class);
+
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String getTime = dateFormat.format(date);
 
 
                 _registerId = registerID.getText().toString();
@@ -150,7 +214,7 @@ public class Register extends Activity {
                 _registerEmail = registerEmail.getText().toString();
                 _registerName = registerName.getText().toString();
                 _registerPhoncall = registerPhoneCall.getText().toString();
-                choiceBirth_btn
+//                choiceBirth_btn
 
                 // 아이디가 비어져있는지 여부 검사
                 if(_registerId.equals(""))
@@ -213,12 +277,15 @@ public class Register extends Activity {
                     registerUser.setPassword(_registerPassword);
                     registerUser.setEmail(_registerEmail);
                     registerUser.setName(_registerName);
-                    registerUser.setBirth_Day();
+                    registerUser.setRigisterDate(getTime);
+                    registerUser.setBirth_Day(_registerBirth);
                     registerUser.setPhoneNumber(_registerPhoncall);
-                    registerUser.setUserAddressDefault();
-                    registerUser.setUserAddressMore();
-                    registerUser.setUserAddressNumber();
+//                    registerUser.setUserAddressDefault();
+//                    registerUser.setUserAddressMore();
+//                    registerUser.setUserAddressNumber();
                     mDatabaseDao.setInsertUser(registerUser);
+
+                    startActivity(GotoLogin);
                 }else{
                     
                     // 가입실패

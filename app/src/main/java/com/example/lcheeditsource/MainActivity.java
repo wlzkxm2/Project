@@ -25,8 +25,12 @@ import java.util.List;
  *      Line 25 Dao객체 생성
  *      Line 32 ~ 76 데이터베이스 접근 함수 생성
  *      -- 이지원
+ *
  *      211111 / 메인페이지 XML완성
  *      -- 김종원
+ *
+ *      211123 / 로그인 페이지로 이동하는 분기생성
+ *      -- 이지원
  *
  * */
 
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     Intent Page;
 
     ImageButton MyPage;
+    
+    // 로그인 여부를 확인할 bool함수
+    Boolean LoginCheack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +69,12 @@ public class MainActivity extends AppCompatActivity {
         MyPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Page = new Intent(getApplicationContext(), Login.class);
-                startActivity(Page);
+                if(LoginCheack == false){
+                    Page = new Intent(getApplicationContext(), Login.class);
+//                    Page.putExtra()
+                    startActivity(Page);
+                }
+
             }
         });
 /*
