@@ -45,6 +45,7 @@ public class Login extends Activity {
     Intent Page;
 
     String inputId, inputPassword;
+    Boolean LoginCheack = false;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +81,11 @@ public class Login extends Activity {
                     // 아이디가 같은지 다른지부터 체크
                     if(DBID.equals(inputId)){
                         if(DBPassword.equals(inputPassword)){
+                            Page = new Intent();
+                            Page.putExtra("Bool_LoginCheack", LoginCheack);
+                            setResult(101, Page);
+                            finish();
+
                             // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
                             Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                         }

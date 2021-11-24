@@ -1,5 +1,6 @@
 package com.example.lcheeditsource;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -71,7 +72,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(LoginCheack == false){
                     Page = new Intent(getApplicationContext(), Login.class);
-//                    Page.putExtra()
+                    startActivityForResult(Page, 100);
+//                    startActivity(Page);
+                } else{
+                    Page = new Intent(getApplicationContext(), mypage.class);
                     startActivity(Page);
                 }
 
@@ -134,5 +138,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100){
+            if(requestCode == 101){
+                LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
+            }
+        }
     }
 }
