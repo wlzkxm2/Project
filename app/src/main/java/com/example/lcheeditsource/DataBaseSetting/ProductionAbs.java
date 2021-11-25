@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
 
-@Database(entities = {Production.class}, version = 1)
+@Database(entities = {Production.class}, version = 2)
 public abstract class ProductionAbs extends RoomDatabase {
     // Dao 선언
     public abstract ProductionDAO productionDAO();

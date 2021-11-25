@@ -4,11 +4,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
+    Boolean AdminCheack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +91,14 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(Page, 100);
 //                    startActivity(Page);
                 } else{
-                    Page = new Intent(getApplicationContext(), mypage.class);
-                    startActivity(Page);
+                    if(AdminCheack == true){
+                        Page = new Intent(getApplicationContext(), ItemAdd.class);
+                        startActivity(Page);
+                    }else{
+                        Page = new Intent(getApplicationContext(), mypage.class);
+                        startActivity(Page);
+                    }
+
                 }
 
             }
@@ -109,14 +118,17 @@ public class MainActivity extends AppCompatActivity {
         user.setUserAddressNumber("0000-00-00");     // 우편번호
         user.setUserAddressDefault("0000-00-00");      // 기본주소
         user.setUserAddressMore("0000-00-00");         // 상세주소
+        user.setAdmin(true);
         mDatabaseDao.setInsertUser(user);
-*/ // 최초 어드민 어카운트
-
+*/// 최초 어드민 어카운트
+/*
         Production production = new Production();
         production.setItemName("testItem");          // 유저의 아이디
         production.setPrice(12000);        // 유저의 비밀번호
         production.setItemProduction("shingu");           // 복구할 이메일
         mItemDao.setInsertItem(production);
+
+ */ // 상품 추가코드
 
          /*
 
@@ -165,7 +177,9 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 100){
             if(resultCode == 101){
                 LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
-
+                AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
+                if(AdminCheack.equals(true))
+                    Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
             }
         }
     }

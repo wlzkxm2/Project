@@ -47,6 +47,8 @@ public class UserInfo implements Serializable {
     private String UserAddressDefault;      // 기본주소
     private String UserAddressMore;         // 상세주소
 
+    private Boolean Admin;
+
 
 
 
@@ -164,6 +166,14 @@ public class UserInfo implements Serializable {
 
     public void setUserAddressMore(String userAddressMore) {
         UserAddressMore = userAddressMore;
+    }
+
+    public Boolean getAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        Admin = admin;
     }
 
     // 데이터 내부 데이터를 출력하는 함수입니다.

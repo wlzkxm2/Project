@@ -16,7 +16,7 @@ import com.example.lcheeditsource.DataBase.UserInfo;
  * */       // 코드 변경시 여기에 변경한 코드에 대한 정보 입력
 
 // 데이터베이스 접속하는 추상 클래스 입니다
-@Database(entities = {UserInfo.class}, version = 1)
+@Database(entities = {UserInfo.class}, version = 2)
 public abstract class DataBaseAbs extends RoomDatabase {
     // Dao 선언
     public abstract DataBaseDao dataBaseDao();
