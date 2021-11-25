@@ -34,102 +34,153 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/Goods_comparison"
-        android:layout_width="409dp"
-        android:layout_height="654dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="657dp"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="138dp"
-            android:layout_height="36dp"
-            android:text="구매하기"
-            tools:layout_editor_absoluteX="226dp"
-            tools:layout_editor_absoluteY="313dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="188dp"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/UserImage"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/UserImage"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ipad" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:translationY="70dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/lenovo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ipad"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            <Space
+                android:layout_width="27dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이패드 미니6"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <Space
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lenovo Tab P11"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="VS"
-            android:textColor="@color/black"
-            android:textSize="25dp"
-            tools:layout_editor_absoluteX="174dp"
-            tools:layout_editor_absoluteY="96dp" />
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="187dp"
-            android:layout_height="186dp"
-            app:srcCompat="@drawable/lenovo"
-            tools:layout_editor_absoluteX="204dp"
-            tools:layout_editor_absoluteY="26dp" />
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최저가"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="아이패드 미니6"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="39dp"
-            tools:layout_editor_absoluteY="219dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11번가 813,820원 무료배송"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11번가 170,250원 무료배송"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lenovo Tab P11"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            tools:layout_editor_absoluteX="236dp"
-            tools:layout_editor_absoluteY="219dp" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="최저가"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="255dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11번가 813,820원 무료배송"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="293dp" />
+            <Button
+                android:id="@+id/btn_FirstItemBuy"
+                android:layout_width="138dp"
+                android:layout_height="36dp"
+                android:text="구매하기" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="138dp"
-            android:layout_height="36dp"
-            android:text="구매하기"
-            tools:layout_editor_absoluteX="37dp"
-            tools:layout_editor_absoluteY="313dp" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="11번가 170,250원 무료배송"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            tools:layout_editor_absoluteX="204dp"
-            tools:layout_editor_absoluteY="293dp" />
+            <Button
+                android:id="@+id/btn_SecondeItemBuy"
+                android:layout_width="138dp"
+                android:layout_height="36dp"
+                android:text="구매하기" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
