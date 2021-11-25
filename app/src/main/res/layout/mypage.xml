@@ -75,7 +75,7 @@
         android:layout_weight="0"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="회원혜택" />
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
@@ -84,7 +84,7 @@
         android:layout_weight="0"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="LCHE 새로운 기능" />
 
 
     </LinearLayout>
