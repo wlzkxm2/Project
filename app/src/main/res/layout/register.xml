@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <ImageView
         android:id="@+id/loginLogo"
-        android:layout_width="0dp"
-        android:layout_height="83dp"
+        android:layout_width="216dp"
+        android:layout_height="80dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="30dp"
@@ -16,156 +17,248 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        android:src="@drawable/logo" />
 
-    <EditText
-        android:id="@+id/edit_registerID"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:ems="10"
-        android:hint="Input Id"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLogo" />
-
-    <EditText
-        android:id="@+id/edit_registerPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="password"
-        android:text=""
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_IDcheackMessage" />
-
-    <EditText
-        android:id="@+id/edit_registerPasswordC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="passwordCheack"
-        android:text=""
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerPassword" />
-
-    <EditText
-        android:id="@+id/edit_registerEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email"
-        android:text=""
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerPasswordC" />
-
-    <EditText
-        android:id="@+id/edit_registerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="UserName"
-        android:text=""
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerEmail" />
-
-    <TextView
-        android:id="@+id/text_Birth"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:gravity="center"
-        android:text="Year / Month / Days"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerName" />
-
-    <Button
-        android:id="@+id/btn_choiceBirth"
-        android:layout_width="75dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="100dp"
-        android:text="선택"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerName" />
-
-    <EditText
-        android:id="@+id/edit_registerPhoneCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="PhoneCallNumber"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Birth" />
-
-    <Button
-        android:id="@+id/btn_SingComplete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="SIGN UP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerPhoneCall" />
-
-    <Button
-        android:id="@+id/btn_IDcheackButton"
-        android:layout_width="94dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="30dp"
-        android:text="중복확인"
-        app:layout_constraintBottom_toTopOf="@+id/edit_registerPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.98"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLogo"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/text_IDcheackMessage"
-        android:layout_width="178dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="30dp"
-        android:text="중복확인을 해주세요"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_registerID" />
-
-    <TextView
-        android:id="@+id/debug_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="350dp"
-        android:text="TextView"
+    <LinearLayout
+        android:layout_width="379dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/loginLogo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="아이디" />
+
+            <EditText
+                android:id="@+id/edit_registerID"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Input Id"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_IDcheackButton"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:text="중복확인" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_IDcheackMessage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="4dp"
+                android:text="중복확인을 해주세요"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="비밀번호" />
+
+            <EditText
+                android:id="@+id/edit_registerPassword"
+                android:layout_width="210dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="password"
+                android:inputType="textPassword"
+                android:text="" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="비밀번호확인"
+                android:textSize="13" />
+
+            <EditText
+                android:id="@+id/edit_registerPasswordC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="passwordCheack"
+                android:inputType="textPassword"
+                android:text="" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="이메일" />
+
+            <EditText
+                android:id="@+id/edit_registerEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="이름" />
+
+            <EditText
+                android:id="@+id/edit_registerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="UserName"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="생년월일" />
+
+            <TextView
+                android:id="@+id/text_Birth"
+                android:layout_width="209dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Year / Month / Days"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_choiceBirth"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:text="선택" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="전화번호" />
+
+            <EditText
+                android:id="@+id/edit_registerPhoneCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="PhoneCallNumber"
+                android:inputType="textPersonName"
+                android:text="" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="94dp"
+                android:layout_height="39dp"
+                android:background="#00FFFFFF"
+                android:backgroundTint="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_SingComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:text="SIGN UP"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
