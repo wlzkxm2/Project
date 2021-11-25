@@ -64,14 +64,13 @@ public class Login extends Activity {
         Loginbtn = (Button) findViewById(R.id.btn_Login);
         SignUpbtn = (Button) findViewById(R.id.btn_SignUp);
 
-        inputId = LoginID.getText().toString();
-        inputPassword = LoginPassword.getText().toString();
-
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<UserInfo> userData = mDatabaseDao.getUserAll();
 
+                inputId = LoginID.getText().toString();
+                inputPassword = LoginPassword.getText().toString();
 
                 for (int i = 0; i < userData.size(); i++) {
                     //Password Check
@@ -82,6 +81,7 @@ public class Login extends Activity {
                     if(DBID.equals(inputId)){
                         if(DBPassword.equals(inputPassword)){
                             Page = new Intent();
+                            LoginCheack = true;
                             Page.putExtra("Bool_LoginCheack", LoginCheack);
                             setResult(101, Page);
                             finish();

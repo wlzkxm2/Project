@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(LoginCheack == false){
                     Page = new Intent(getApplicationContext(), Login.class);
+                    Page.putExtra("Login", LoginCheack);
                     startActivityForResult(Page, 100);
 //                    startActivity(Page);
                 } else{
@@ -144,8 +145,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 100){
-            if(requestCode == 101){
+            if(resultCode == 101){
                 LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
+
             }
         }
     }
