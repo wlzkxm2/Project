@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
 
 import java.util.List;
@@ -52,6 +53,8 @@ public interface DataBaseDao {
     // 패스워드 검사
     @Query("SELECT * FROM UserInfo WHERE Password = :password")
     List<UserInfo> FindPassword(String password);
+
+
 
 
 }

@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
+import com.example.lcheeditsource.DataBaseSetting.ProductionAbs;
+import com.example.lcheeditsource.DataBaseSetting.ProductionDAO;
 
 import java.util.List;
 
@@ -38,6 +41,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public DataBaseDao mDatabaseDao;       // Dao 객체 생성
+    public ProductionDAO mItemDao;
 
     Intent Page;
 
@@ -61,6 +65,14 @@ public class MainActivity extends AppCompatActivity {
 
         // 데이터베이스 객체 생성
         mDatabaseDao = dataBase.dataBaseDao();
+
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
 
 
         List<UserInfo> userList = mDatabaseDao.getUserAll();
@@ -99,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
         user.setUserAddressMore("0000-00-00");         // 상세주소
         mDatabaseDao.setInsertUser(user);
 */ // 최초 어드민 어카운트
+
+        Production production = new Production();
+        production.setItemName("testItem");          // 유저의 아이디
+        production.setPrice(12000);        // 유저의 비밀번호
+        production.setItemProduction("shingu");           // 복구할 이메일
+        mItemDao.setInsertItem(production);
 
          /*
 

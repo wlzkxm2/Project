@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(tableName = "ItemTable")
 public class Production implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ProducttionCode = 0;

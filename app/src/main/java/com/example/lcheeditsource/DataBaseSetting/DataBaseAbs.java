@@ -3,6 +3,7 @@ package com.example.lcheeditsource.DataBaseSetting;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
+import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
 
 /*

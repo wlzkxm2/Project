@@ -20,7 +20,7 @@ import java.io.Serializable;
 
 
 // 유저 정보 테이블
-@Entity
+@Entity(tableName = "UserInfo")
 public class UserInfo implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int DefaultUserCode = 0;
@@ -186,5 +186,4 @@ public class UserInfo implements Serializable {
 
     }
 }
-
 
