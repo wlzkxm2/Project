@@ -110,7 +110,7 @@ public class Register extends Activity {
         SignUpComplete_btn = (Button) findViewById(R.id.btn_SingComplete);
         IdCheack_btn = (Button) findViewById(R.id.btn_IDcheackButton);
 
-        debug_textView = (TextView) findViewById(R.id.debug_textView);
+//        debug_textView = (TextView) findViewById(R.id.debug_textView);
 
 
        // 아이디 중복체크 TextView 초기화
