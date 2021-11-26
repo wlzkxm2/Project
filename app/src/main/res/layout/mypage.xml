@@ -55,16 +55,12 @@
             tools:layout_editor_absoluteY="167dp" />
 
 
-
-
-        <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="김종원" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="김종원" />
 
         </LinearLayout>
 
@@ -77,6 +73,13 @@
             android:inputType="textPersonName"
             android:text="Name" />
 
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="회원혜택" />
+
         <EditText
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="match_parent"
@@ -86,6 +89,13 @@
         android:inputType="textPersonName"
         android:text="Name" />
 
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="LCHE 새로운 기능" />
 
     </LinearLayout>
 
@@ -139,7 +149,7 @@
 
         <Button
             android:id="@+id/product"
-            android:layout_width="207dp"
+            android:layout_width="219dp"
             android:layout_height="wrap_content"
             android:text="제품" />
 
