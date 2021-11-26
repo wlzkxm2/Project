@@ -46,6 +46,7 @@ public class Login extends Activity {
 
     String inputId, inputPassword;
     Boolean LoginCheack = false;
+    Boolean AdminCheack = false;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,30 +65,46 @@ public class Login extends Activity {
         Loginbtn = (Button) findViewById(R.id.btn_Login);
         SignUpbtn = (Button) findViewById(R.id.btn_SignUp);
 
-        inputId = LoginID.getText().toString();
-        inputPassword = LoginPassword.getText().toString();
-
         Loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<UserInfo> userData = mDatabaseDao.getUserAll();
 
+                inputId = LoginID.getText().toString();
+                inputPassword = LoginPassword.getText().toString();
 
                 for (int i = 0; i < userData.size(); i++) {
                     //Password Check
                     String DBID = userData.get(i).getUserId();
                     String DBPassword = userData.get(i).getPassword();
+                    Boolean Admin = userData.get(i).getAdmin();
                     
                     // 아이디가 같은지 다른지부터 체크
                     if(DBID.equals(inputId)){
                         if(DBPassword.equals(inputPassword)){
-                            Page = new Intent();
-                            Page.putExtra("Bool_LoginCheack", LoginCheack);
-                            setResult(101, Page);
-                            finish();
+                            if(Admin.equals(true)){
+                                Page = new Intent();
+                                LoginCheack = true;
+                                AdminCheack = true;
+                                Page.putExtra("Bool_LoginCheack", LoginCheack);
+                                Page.putExtra("Bool_AdminCheack", AdminCheack);
+                                setResult(101, Page);
+                                finish();
 
-                            // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
-                            Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                                // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
+                                Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+
+                            }else {
+                                Page = new Intent();
+                                LoginCheack = true;
+                                Page.putExtra("Bool_LoginCheack", LoginCheack);
+                                setResult(101, Page);
+                                finish();
+
+                                // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
+                                Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                            }
+
                         }
                         // Login EV
                     }else{

@@ -4,15 +4,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
+import com.example.lcheeditsource.DataBaseSetting.ProductionAbs;
+import com.example.lcheeditsource.DataBaseSetting.ProductionDAO;
 
 import java.util.List;
 
@@ -38,6 +43,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public DataBaseDao mDatabaseDao;       // Dao 객체 생성
+    public ProductionDAO mItemDao;
 
     Intent Page;
 
@@ -45,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
+    Boolean AdminCheack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
         // 데이터베이스 객체 생성
         mDatabaseDao = dataBase.dataBaseDao();
 
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
 
         List<UserInfo> userList = mDatabaseDao.getUserAll();
 
@@ -72,11 +87,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(LoginCheack == false){
                     Page = new Intent(getApplicationContext(), Login.class);
+                    Page.putExtra("Login", LoginCheack);
                     startActivityForResult(Page, 100);
 //                    startActivity(Page);
                 } else{
-                    Page = new Intent(getApplicationContext(), mypage.class);
-                    startActivity(Page);
+                    if(AdminCheack == true){
+                        Page = new Intent(getApplicationContext(), ItemAdd.class);
+                        startActivity(Page);
+                    }else{
+                        Page = new Intent(getApplicationContext(), mypage.class);
+                        startActivity(Page);
+                    }
+
                 }
 
             }
@@ -96,8 +118,17 @@ public class MainActivity extends AppCompatActivity {
         user.setUserAddressNumber("0000-00-00");     // 우편번호
         user.setUserAddressDefault("0000-00-00");      // 기본주소
         user.setUserAddressMore("0000-00-00");         // 상세주소
+        user.setAdmin(true);
         mDatabaseDao.setInsertUser(user);
-*/ // 최초 어드민 어카운트
+*/// 최초 어드민 어카운트
+/*
+        Production production = new Production();
+        production.setItemName("testItem");          // 유저의 아이디
+        production.setPrice(12000);        // 유저의 비밀번호
+        production.setItemProduction("shingu");           // 복구할 이메일
+        mItemDao.setInsertItem(production);
+
+ */ // 상품 추가코드
 
          /*
 
@@ -144,8 +175,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 100){
-            if(requestCode == 101){
+            if(resultCode == 101){
                 LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
+                AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
+                if(AdminCheack.equals(true))
+                    Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
             }
         }
     }

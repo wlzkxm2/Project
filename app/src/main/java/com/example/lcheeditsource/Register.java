@@ -128,7 +128,7 @@ public class Register extends Activity {
                 _registerId = registerID.getText().toString();
                 // debug
 //                Toast.makeText(getApplicationContext(), registerID.getText(), Toast.LENGTH_SHORT).show();
-                
+
                 // 데이터내부 정보를 전부 불러옴
                 List<UserInfo> userList = mDatabaseDao.getUserAll();
                 // debug
@@ -140,7 +140,7 @@ public class Register extends Activity {
 
                     // debug
 //                    Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
-                    
+
                     // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
                     if(ListId.equals(_registerId)){
                         // 만약 같다면 아이디가 존재한다는 팝업이벤트
@@ -196,6 +196,7 @@ public class Register extends Activity {
             @Override
             public void onClick(View view) {
 
+
                 GotoLogin = new Intent(getApplicationContext(), Login.class);
 
                 long now = System.currentTimeMillis();
@@ -210,8 +211,8 @@ public class Register extends Activity {
                 _registerEmail = registerEmail.getText().toString();
                 _registerName = registerName.getText().toString();
                 _registerPhoncall = registerPhoneCall.getText().toString();
-//                choiceBirth_btn
 
+//
                 // 아이디가 비어져있는지 여부 검사
                 if(_registerId.equals(""))
                     IdEmptyCheack_bool = false;
@@ -229,7 +230,7 @@ public class Register extends Activity {
                     }else
                         PasswordCheack_bool = false;
                 }
-
+//
                 if(_registerEmail.equals(""))
                     EmailEmptyCheack_bool = false;
                 else
@@ -246,19 +247,12 @@ public class Register extends Activity {
                     PhoneCallEmptyCheack_bool = true;
 
 
-//
-//                private Boolean IdEmptyCheack_bool = false;
-//                private Boolean PasswordEmptyCheack_bool = false;
-//                private Boolean EmailEmptyCheack_bool = false;
-//                private Boolean NameEmptyCheack_bool = false;
-//                private Boolean PhoneCallEmptyCheack_boo = false;
-
-                debug_textView.setText("아이디체크" + IdCheack_bool + "\n" +
-                        "비밀번호체크" + PasswordCheack_bool + "\n" +
-                        "비밀번호 비어있는지" + PasswordEmptyCheack_bool + "\n" +
-                        "이메일체크" + EmailEmptyCheack_bool + "\n" +
-                        "이름체크" + NameEmptyCheack_bool + "\n" +
-                        "전화번호체크" + PhoneCallEmptyCheack_bool);
+//                debug_textView.setText("아이디체크" + IdCheack_bool + "\n" +
+//                        "비밀번호체크" + PasswordCheack_bool + "\n" +
+//                        "비밀번호 비어있는지" + PasswordEmptyCheack_bool + "\n" +
+//                        "이메일체크" + EmailEmptyCheack_bool + "\n" +
+//                        "이름체크" + NameEmptyCheack_bool + "\n" +
+//                        "전화번호체크" + PhoneCallEmptyCheack_bool);
                 // 가입 데이터 DB에 저장
                 if(IdCheack_bool == true &&
                         PasswordCheack_bool == true &&
@@ -283,7 +277,7 @@ public class Register extends Activity {
 
                     startActivity(GotoLogin);
                 }else{
-                    
+
                     // 가입실패
                     Toast.makeText(getApplicationContext(), "정보가 비어있거나 비밀번호가 잘못입력되었습니다", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "정보를 재입력해주세요", Toast.LENGTH_SHORT).show();

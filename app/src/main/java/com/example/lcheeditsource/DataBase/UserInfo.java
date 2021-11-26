@@ -20,7 +20,7 @@ import java.io.Serializable;
 
 
 // 유저 정보 테이블
-@Entity
+@Entity(tableName = "UserInfo")
 public class UserInfo implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int DefaultUserCode = 0;
@@ -46,6 +46,8 @@ public class UserInfo implements Serializable {
     private String UserAddressNumber;     // 우편번호
     private String UserAddressDefault;      // 기본주소
     private String UserAddressMore;         // 상세주소
+
+    private Boolean Admin;
 
 
 
@@ -166,6 +168,14 @@ public class UserInfo implements Serializable {
         UserAddressMore = userAddressMore;
     }
 
+    public Boolean getAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        Admin = admin;
+    }
+
     // 데이터 내부 데이터를 출력하는 함수입니다.
     @NonNull
     @Override
@@ -186,5 +196,4 @@ public class UserInfo implements Serializable {
 
     }
 }
-
 

@@ -9,24 +9,36 @@ package com.example.lcheeditsource.DataBase;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
-public class Production {
+import java.io.Serializable;
+
+@Entity(tableName = "ItemTable")
+public class Production implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int ProducttionCode = 0;
 
-    private String ItemName;
-    private int Price;
-    private String ItemProduction;
+    private String ItemName;        // 아이템 이름
+    private int Price;              // 아이템 가격
+    private String ItemProduction;  // 아이템 제작사
 
     private String ItemPicture;     // 아이템 사진
 
-    private int ReviewCount;
+    private int ReviewCount;        // 리뷰수
 
-    private int SellCount;
-    private int EmptyItemCount;
-    private int ItemDiscount;
+    private int SellCount;          // 판매수
+    private int EmptyItemCount;     // 잔량
+    private int ItemDiscount;       // 아이템 할인
+
+    private String ItemTag;
 
     private String ItemUploadDate;
+
+    public String getItemTag() {
+        return ItemTag;
+    }
+
+    public void setItemTag(String itemTag) {
+        ItemTag = itemTag;
+    }
 
     public int getProducttionCode() {
         return ProducttionCode;
