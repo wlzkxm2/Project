@@ -55,37 +55,30 @@
             tools:layout_editor_absoluteY="167dp" />
 
 
-
-
-        <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="김종원" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="김종원" />
 
         </LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="회원혜택" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="LCHE 새로운 기능" />
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="회원혜택" />
 
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="LCHE 새로운 기능" />
 
     </LinearLayout>
 
@@ -145,11 +138,28 @@
 
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/translate"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="366dp"
         android:layout_height="wrap_content"
-        android:text="Translation" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/trans"
+            android:layout_width="323dp"
+            android:layout_height="52dp"
+            android:text="번역">
+
+        </TextView>
+
+
+        <Spinner
+            android:id="@+id/translation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/event"

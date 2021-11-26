@@ -17,6 +17,7 @@ import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
 public class mypage extends Activity {
+    private DataBaseDao mDataBaseDao;
 
     EditText myp;
     //information = inf, review = rev, scrap = scr, star = sta , brand = bra,
@@ -49,10 +50,81 @@ public class mypage extends Activity {
         cl = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //뒤로가기
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
 
             }
 
+
         };
+
+        inf.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+        //내 정보 수정 페이지로 이동
+            }
+        });
+
+        rev.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //내 리뷰 페이지로 이동
+            }
+        });
+
+        scr.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //스크랩 페이지로 이동
+            }
+        });
+
+        sta.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //즐겨찾기 페이지로 이동
+            }
+        });
+
+        bra.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //브랜드 페이지로 이동
+            }
+        });
+
+        pro.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //제품 페이지로 이동
+            }
+        });
+
+        eve.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //이벤트 페이지로 이동
+            }
+        });
+
+        eve2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //이벤트 신청내역 페이지로 이동
+            }
+        });
+
+        eve3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //굿즈 이벤트 페이지로 이동
+            }
+        });
+
+
+
+
         inf.setOnClickListener(cl);
         rev.setOnClickListener(cl);
         scr.setOnClickListener(cl);
