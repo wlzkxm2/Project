@@ -3,6 +3,7 @@ package com.example.lcheeditsource;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.service.autofill.UserData;
@@ -34,6 +35,8 @@ public class goods_comparison extends Activity {
 
     Intent Page;
 
+
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -57,6 +60,10 @@ public class goods_comparison extends Activity {
         back23 = (ImageButton) findViewById(R.id.back23);
         btn_FirstItemBuy = (Button) findViewById(R.id.btn_FirstItemBuy);
         btn_SecondeItemBuy = (Button) findViewById(R.id.btn_SecondeItemBuy);
+
+
+
+
 
         back23.setOnClickListener(new View.OnClickListener() {
             @Override

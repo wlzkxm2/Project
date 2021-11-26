@@ -6,7 +6,9 @@ package com.example.lcheeditsource.DataBase;
 *       수정한 Line도 상세히 적을것
 */
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -19,6 +21,20 @@ public class Production implements Serializable {
     private String ItemName;        // 아이템 이름
     private int Price;              // 아이템 가격
     private String ItemProduction;  // 아이템 제작사
+
+    // 전자제품일 경우의 스팩
+    private String Spec1 = null;
+    private String Spec2 = null;;
+    private String Spec3 = null;;
+    private String Spec4 = null;;
+    private String Sepc5 = null;;
+
+    //의류일경우의 스펙
+    private String WashSpec = null;     // 세탁
+    private String Bleaching = null;    // 표백
+    private String Steam = null;        // 다림질
+    private String Dry = null;          // 드라이
+    private String Dryer = null;        // 건조방법
 
     private String ItemPicture;     // 아이템 사진
 
@@ -121,5 +137,4 @@ public class Production implements Serializable {
     }
 
 }
-
 
