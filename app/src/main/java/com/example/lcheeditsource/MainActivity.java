@@ -191,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 //        Toast.makeText(getApplicationContext(), "페이지 선택 " + Page, Toast.LENGTH_SHORT).show();
         wherePage = _Page;
 
+        // 페이지 이동
         if(wherePage == 1){
             Page = new Intent(getApplicationContext(), ItemAdd.class);
             startActivity(Page);
