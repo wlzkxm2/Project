@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -40,7 +41,7 @@ import java.util.List;
  *
  * */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Mypageadminchoice.MypagePageChoiceListener {
 
     public DataBaseDao mDatabaseDao;       // Dao 객체 생성
     public ProductionDAO mItemDao;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
     Boolean AdminCheack = false;
+    private int wherePage = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 //                    startActivity(Page);
                 } else{
                     if(AdminCheack == true){
-                        Page = new Intent(getApplicationContext(), ItemAdd.class);
-                        startActivity(Page);
+                        Mypageadminchoice itemaddchoice = new Mypageadminchoice();
+                        itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
                     }else{
                         Page = new Intent(getApplicationContext(), mypage.class);
                         startActivity(Page);
@@ -130,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
  */ // 상품 추가코드
 
-         /*
+/*
 
         // 데이터 삽입
         User user = new User();     //  객체 인스턴스
@@ -164,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         mUserDao.setDeleteUser(user3);
         */ // 데이터 베이스의 기본형
 
-        // !! 여기까지 수정금지 !!
+// !! 여기까지 수정금지 !!
 
 
 
@@ -182,5 +184,21 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void onButtonClicked(int _Page) {
+//        Toast.makeText(getApplicationContext(), "페이지 선택 " + Page, Toast.LENGTH_SHORT).show();
+        wherePage = _Page;
+
+        // 페이지 이동
+        if(wherePage == 1){
+            Page = new Intent(getApplicationContext(), ItemAdd.class);
+            startActivity(Page);
+        }else if(wherePage == 0){
+            Page = new Intent(getApplicationContext(), mypage.class);
+            startActivity(Page);
+        }
+
     }
 }
