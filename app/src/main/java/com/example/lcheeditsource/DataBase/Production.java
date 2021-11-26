@@ -22,6 +22,8 @@ public class Production implements Serializable {
     private int Price;              // 아이템 가격
     private String ItemProduction;  // 아이템 제작사
 
+    private String ItemDetailStories;
+
     // 전자제품일 경우의 스팩
     private String Spec1 = null;
     private String Spec2 = null;;
@@ -62,6 +64,86 @@ public class Production implements Serializable {
 
     public void setProducttionCode(int producttionCode) {
         ProducttionCode = producttionCode;
+    }
+
+    public String getSpec1() {
+        return Spec1;
+    }
+
+    public void setSpec1(String spec1) {
+        Spec1 = spec1;
+    }
+
+    public String getSpec2() {
+        return Spec2;
+    }
+
+    public void setSpec2(String spec2) {
+        Spec2 = spec2;
+    }
+
+    public String getSpec3() {
+        return Spec3;
+    }
+
+    public void setSpec3(String spec3) {
+        Spec3 = spec3;
+    }
+
+    public String getSpec4() {
+        return Spec4;
+    }
+
+    public void setSpec4(String spec4) {
+        Spec4 = spec4;
+    }
+
+    public String getSepc5() {
+        return Sepc5;
+    }
+
+    public void setSepc5(String sepc5) {
+        Sepc5 = sepc5;
+    }
+
+    public String getWashSpec() {
+        return WashSpec;
+    }
+
+    public void setWashSpec(String washSpec) {
+        WashSpec = washSpec;
+    }
+
+    public String getBleaching() {
+        return Bleaching;
+    }
+
+    public void setBleaching(String bleaching) {
+        Bleaching = bleaching;
+    }
+
+    public String getSteam() {
+        return Steam;
+    }
+
+    public void setSteam(String steam) {
+        Steam = steam;
+    }
+
+    public String getDry() {
+        return Dry;
+    }
+
+    public void setDry(String dry) {
+        Dry = dry;
+    }
+
+    public String getDryer() {
+        return Dryer;
+    }
+
+    public void setDryer(String dryer) {
+        Dryer = dryer;
     }
 
     public String getItemName() {
@@ -136,5 +218,12 @@ public class Production implements Serializable {
         ItemUploadDate = itemUploadDate;
     }
 
+    public String getItemDetailStories() {
+        return ItemDetailStories;
+    }
+
+    public void setItemDetailStories(String itemDetailStories) {
+        ItemDetailStories = itemDetailStories;
+    }
 }
 

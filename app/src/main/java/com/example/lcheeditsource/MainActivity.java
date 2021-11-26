@@ -2,10 +2,14 @@ package com.example.lcheeditsource;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.room.Room;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +59,29 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
     Boolean AdminCheack = false;
     private int wherePage = 3;
 
+    
+    // 이미지를 불러오는데 필요한 권한을 유저에게 요청함
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    public static void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 //                    startActivity(Page);
                 } else{
                     if(AdminCheack == true){
+                        // 하단 팝업이 나오게끔
                         Mypageadminchoice itemaddchoice = new Mypageadminchoice();
                         itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
                     }else{
@@ -202,3 +230,5 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
     }
 }
+
+
