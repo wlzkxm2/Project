@@ -120,8 +120,6 @@ public class Production implements Serializable {
         ItemUploadDate = itemUploadDate;
     }
 
-
-
-
-
 }
+
+
