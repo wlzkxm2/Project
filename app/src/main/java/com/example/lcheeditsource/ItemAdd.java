@@ -37,13 +37,13 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
     public ProductionDAO mItemDao;
 
     Intent Page;
-    
+
     ImageView _Itemimage;
     Button _picAdd, _itemSave, _itemCancel;
     EditText _itemName, _itemPrice, _itemProduction;
-    
+
     String Tag;
-    
+
     String[] itemTagArr = {"가전제품", "의류", "자동차", "반려동물",
             "도서음반", "스포츠", "아웃도어", "생화용품", "식품"};
 
@@ -53,6 +53,10 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
     Boolean ItemAddQus;
 
+
+    // 의류일경우 입력받는 데이터의 값
+    String _Wash, _Bleaching, _Steam, _Dry, _Dryer;
+    Boolean ClothCheack = false;
 
 
     @Override
@@ -86,25 +90,25 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
         _itemName = findViewById(R.id.edit_ItemName);
         _itemPrice = findViewById(R.id.edit_ItemPrice);
         _itemProduction = findViewById(R.id.edit_ItemProduction);
-        
+
         // Spinner 선언
         Spinner spinner = findViewById(R.id.box_ItemTag);
-        
+
         // Spinner 배열선언으로 simple_spinner_item API사용하여 어댑터 선언
-        ArrayAdapter<String> ItemTag = 
+        ArrayAdapter<String> ItemTag =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, itemTagArr);
-        
+
         // 미리 정의된 레이아웃 사용
         ItemTag.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        
+
         // 스피너 객체에 어댑터 삽입
         spinner.setAdapter(ItemTag);
-        
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             // 선택되면
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Tag = itemTagArr[position].toString() ;
+                Tag = itemTagArr[position].toString();
                 Toast.makeText(getApplicationContext(), Tag, Toast.LENGTH_SHORT).show();
             }
 
@@ -121,14 +125,14 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
             Bitmap bm = BitmapFactory.decodeFile(imgpath);
             _Itemimage.setImageBitmap(bm);          // 내부 저장소애 저장된 이미지를 set
             Toast.makeText(getApplicationContext(), "파일 로드 성공", Toast.LENGTH_SHORT).show();
-        } catch (Exception e){
+        } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "파일 로드 실패", Toast.LENGTH_SHORT).show();
         }
 
         btn = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()){
+                switch (v.getId()) {
                     // 이미지 추가버튼
                     case R.id.btn_itemPictureAdd:
                         Page = new Intent();
@@ -137,19 +141,18 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                         startActivityForResult(Page, 101);
                         break;
 
-//                    // 저장버튼
+////                    // 저장버튼
                     case R.id.btn_ItemaddSave:
-
-                        if(Tag.equals("의류")){
-
-                        }else{
+                        if (Tag.equals("의류")) {
+                            Page = new Intent(getApplicationContext(), ClothDetails.class);
+                            startActivityForResult(Page, 201);
+                        } else {
                             ItemAddOne itemAddQus = new ItemAddOne();
                             itemAddQus.show(getSupportFragmentManager(), "ItemAddQus");
-                            break;
                         }
+                        break;
 
-
-                    // 최소 버튼
+                        // 최소 버튼
                     case R.id.btn_itemaddCancel:
                         Page = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(Page);
@@ -163,14 +166,15 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
         _itemSave.setOnClickListener(btn);
         _itemCancel.setOnClickListener(btn);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 101){
-            if(resultCode == RESULT_OK){
+        if (requestCode == 101) {
+            if (resultCode == RESULT_OK) {
 //                Uri fileUri = data.getData();
 //                ContentResolver resolver = getContentResolver();
-                try{
+                try {
 //                    InputStream instream = resolver.openInputStream(fileUri);
                     InputStream instream = getContentResolver().openInputStream(data.getData());
                     Bitmap imgBitmap = BitmapFactory.decodeStream(instream);
@@ -181,6 +185,20 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "파일 불러오기 실패", Toast.LENGTH_SHORT).show();
                 }
+            }
+            // ClothDetails에서 입력받은 값
+        } else if (requestCode == 201) {
+            if (resultCode == RESULT_OK) {
+                _Wash = data.getStringExtra("Wash");
+                _Bleaching = data.getStringExtra("Bleaching");
+                _Steam = data.getStringExtra("Steam");
+                _Dry = data.getStringExtra("Dry");
+                _Dryer = data.getStringExtra("Dryer");
+                ClothCheack = data.getBooleanExtra("ClothCheackBool", false);
+
+                ItemAddOne itemAddQus = new ItemAddOne();
+                itemAddQus.show(getSupportFragmentManager(), "ItemAddQus");
+
             }
         }
     }
@@ -198,21 +216,21 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 //        }
 
 
-            File storage = getCacheDir(); //  path = /data/user/0/YOUR_PACKAGE_NAME/cache
-            String fileName = ImageName + ".jpg";
-            File imgFile = new File(storage, fileName);
-            try {
-                imgFile.createNewFile();
-                FileOutputStream out = new FileOutputStream(imgFile);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 10, out); //썸네일로 사용하므로 퀄리티를 낮게설정
-                out.close();
-            } catch (FileNotFoundException e) {
-                Log.e("saveBitmapToJpg","FileNotFoundException : " + e.getMessage());
-            } catch (IOException e) {
-                Log.e("saveBitmapToJpg","IOException : " + e.getMessage());
-            }
-            Log.d("imgPath" , getCacheDir() + "/" +fileName);
-            return getCacheDir() + "/" +fileName;
+        File storage = getCacheDir(); //  path = /data/user/0/YOUR_PACKAGE_NAME/cache
+        String fileName = ImageName + ".jpg";
+        File imgFile = new File(storage, fileName);
+        try {
+            imgFile.createNewFile();
+            FileOutputStream out = new FileOutputStream(imgFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, out); //썸네일로 사용하므로 퀄리티를 낮게설정
+            out.close();
+        } catch (FileNotFoundException e) {
+            Log.e("saveBitmapToJpg", "FileNotFoundException : " + e.getMessage());
+        } catch (IOException e) {
+            Log.e("saveBitmapToJpg", "IOException : " + e.getMessage());
+        }
+        Log.d("imgPath", getCacheDir() + "/" + fileName);
+        return getCacheDir() + "/" + fileName;
 
 
     }
@@ -222,23 +240,31 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
     public void onButtonClicked(Boolean ItemAddQus) {
         this.ItemAddQus = ItemAddQus;
 
-        if(this.ItemAddQus == true){
+        if (this.ItemAddQus == true) {
             Page = new Intent(getApplicationContext(), MainActivity.class);
             Toast.makeText(getApplicationContext(), "아이템을 추가하였습니다", Toast.LENGTH_SHORT).show();
 
             String _ItemNameStr = _itemName.getText().toString();
             int _ItemPriceInt = Integer.parseInt(_itemPrice.getText().toString());
             String _ItemProductStr = _itemProduction.getText().toString();
-
             Production productionAdd = new Production();
-            productionAdd.setItemName(_ItemNameStr);
-            productionAdd.setPrice(_ItemPriceInt);
-            productionAdd.setItemProduction(_ItemProductStr);
+
+            if(Tag.equals("의류")){
+                productionAdd.setItemName(_ItemNameStr);
+                productionAdd.setPrice(_ItemPriceInt);
+                productionAdd.setItemProduction(_ItemProductStr);
+
+            }else {
+                productionAdd.setItemName(_ItemNameStr);
+                productionAdd.setPrice(_ItemPriceInt);
+                productionAdd.setItemProduction(_ItemProductStr);
+            }
+
 
             mItemDao.setInsertItem(productionAdd);
 
             startActivity(Page);
-        }else if(this.ItemAddQus == false){
+        } else if (this.ItemAddQus == false) {
 //            finish();
         }
 
