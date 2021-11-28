@@ -24,6 +24,7 @@ public class ItemAddOne extends BottomSheetDialogFragment {
         Button _ItemAddCheackOK = v.findViewById(R.id.btn_Addcheack);
         Button _ItemAddCheackNO = v.findViewById(R.id.btn_AddcheackNo);
 
+        // 아이템을 추가한다고 했을때
         _ItemAddCheackOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

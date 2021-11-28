@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import com.example.lcheeditsource.DataBase.Production;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 import com.example.lcheeditsource.DataBaseSetting.ProductionAbs;
@@ -223,6 +224,19 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
         if(this.ItemAddQus == true){
             Page = new Intent(getApplicationContext(), MainActivity.class);
+            Toast.makeText(getApplicationContext(), "아이템을 추가하였습니다", Toast.LENGTH_SHORT).show();
+
+            String _ItemNameStr = _itemName.getText().toString();
+            int _ItemPriceInt = Integer.parseInt(_itemPrice.getText().toString());
+            String _ItemProductStr = _itemProduction.getText().toString();
+
+            Production productionAdd = new Production();
+            productionAdd.setItemName(_ItemNameStr);
+            productionAdd.setPrice(_ItemPriceInt);
+            productionAdd.setItemProduction(_ItemProductStr);
+
+            mItemDao.setInsertItem(productionAdd);
+
             startActivity(Page);
         }else if(this.ItemAddQus == false){
 //            finish();
