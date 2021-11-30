@@ -46,8 +46,41 @@ public class myprofile extends Activity {
                 startActivity(Page);
             }
         });
+        ps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //내 정보 수정 페이지로 이동
+            }
+        });
 
-        }
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // email 페이지로 이동
+            }
+
+        });
+
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // PhonecallNumber 페이지로 이동
+            }
+        });
+
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //add to shop 페이지로 이동
+            }
+        });
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // show all comment 페이지로 이동
+            }
+        });
+
 
     }
 
