@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -67,6 +68,95 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/mib01"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="17dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="0"
+                    android:background="@color/white"
+                    android:outlineAmbientShadowColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/mib03"
+                    app:layout_constraintEnd_toStartOf="@+id/mib02"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ipad" />
+
+                <ImageButton
+                    android:id="@+id/mib02"
+                    android:layout_width="212dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/mib03"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/mib01"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/lenovo" />
+
+                <ImageButton
+                    android:id="@+id/mib03"
+                    android:layout_width="407dp"
+                    android:layout_height="136dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mib01"
+                    app:srcCompat="@drawable/iphone" />
+
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="362dp"
+                    android:layout_height="187dp"
+                    android:layout_marginStart="34dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/imageButton9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mib03"
+                    app:srcCompat="@drawable/squidgame" />
+
+                <ImageButton
+                    android:id="@+id/imageButton8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="49dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+                    app:srcCompat="@drawable/cola" />
+
+                <ImageButton
+                    android:id="@+id/imageButton9"
+                    android:layout_width="138dp"
+                    android:layout_height="269dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="51dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageButton8"
+                    app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+                    app:srcCompat="@drawable/pepsi" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
