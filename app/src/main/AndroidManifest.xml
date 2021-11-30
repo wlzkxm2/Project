@@ -54,6 +54,8 @@
         <activity android:name=".ClothDetails">
 
         </activity>
+        <activity android:name=".DataBaseSetting.alexanderwang"/>
+
 
     </application>
 

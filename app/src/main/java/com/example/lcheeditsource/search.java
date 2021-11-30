@@ -32,6 +32,7 @@ import androidx.room.Room;
 import com.example.lcheeditsource.DataBase.UserInfo;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
+import com.example.lcheeditsource.DataBaseSetting.alexanderwang;
 
 import java.util.List;
 
@@ -70,6 +71,8 @@ public class search extends Activity {
         sb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Page = new Intent(getApplicationContext(), alexanderwang.class);
+                startActivity(Page);
                 //검색 순위 1위 화면으로 이동
             }
         });
