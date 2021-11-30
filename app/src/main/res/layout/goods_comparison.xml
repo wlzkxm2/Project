@@ -479,7 +479,7 @@
                         tools:layout_editor_absoluteY="212dp" />
 
                     <TextView
-                        android:id="@+id/textView45"
+                        android:id="@+id/textView47"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="게임하기에 불편한 주사율"
