@@ -20,7 +20,6 @@ public class ItemDetail implements Serializable {
     private String Processor2 = "Apple M1";
     private int ProcessorCost2 = 85;
 
-
     public int getDetailsCode() {
         return DetailsCode;
     }

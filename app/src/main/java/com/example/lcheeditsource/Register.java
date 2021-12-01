@@ -26,17 +26,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.SimpleTimeZone;
 
-/*
- *
- *      수정 정보 알려줄것
- *      수정한 Line도 상세히 적을것
- *
- *      211114 회원가입 페이지
- *      -- 이지원
- *
- *      211123 회원가입 아이디 중복확인 패스워드 등 회원가입 페이지 완성
- *      -- 이지원
- */
 
 public class Register extends Activity {
 

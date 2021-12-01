@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,8 @@ public class search extends Activity {
     ImageButton back;
     EditText st;
 
+    SearchView Sv;
+
     Intent Page;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,13 +61,36 @@ public class search extends Activity {
         sb4 = (Button) findViewById(R.id.searchbutton4);
         sb5 = (Button) findViewById(R.id.searchbutton5);
         sb6 = (Button) findViewById(R.id.searchbutton6);
-        st = (EditText) findViewById(R.id.searchtext);
+
+        // 서치뷰 추가 이지원
+        Sv = findViewById(R.id.searchv_SearchBtn);
+        Sv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 서치뷰의 어떤 부분이든 출력되는 함수
+                Sv.setIconified(false);
+            }
+        });
+
+        Sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // 입력받은 문자열 처리
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // 입력란의 문자열이 바뀔때 처리
+                return true;
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //뒤로가기
-                Page = new Intent(getApplicationContext(), Register.class);
+                Page = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(Page);
             }
         });

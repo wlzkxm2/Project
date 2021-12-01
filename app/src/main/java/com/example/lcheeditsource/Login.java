@@ -20,17 +20,7 @@ import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 import java.util.List;
 
 
-/*
- *
- *      수정 정보 알려줄것
- *      수정한 Line도 상세히 적을것
- *
- *      211113 로그인 페이지
- *      -- 이지원
- * 
- *      211123 로그인 분기 체크 추가
- *      -- 이지원
- */
+
 
 
 

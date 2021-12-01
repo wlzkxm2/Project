@@ -1,5 +1,6 @@
 package com.example.lcheeditsource;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,6 +11,8 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,27 +26,20 @@ import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 import com.example.lcheeditsource.DataBaseSetting.ProductionAbs;
 import com.example.lcheeditsource.DataBaseSetting.ProductionDAO;
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
+import com.google.android.ads.nativetemplates.TemplateView;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.nativead.NativeAd;
+import com.google.android.gms.ads.nativead.NativeAdOptions;
 
 import java.util.List;
 
 
-/*
- *
- *      수정 정보 알려줄것
- *      수정한 Line도 상세히 적을것
- *
- *      211108 / 18:00 데이터베이스 접근함수 생성
- *      Line 25 Dao객체 생성
- *      Line 32 ~ 76 데이터베이스 접근 함수 생성
- *      -- 이지원
- *
- *      211111 / 메인페이지 XML완성
- *      -- 김종원
- *
- *      211123 / 로그인 페이지로 이동하는 분기생성
- *      -- 이지원
- *
- * */
+
 
 public class MainActivity extends AppCompatActivity implements Mypageadminchoice.MypagePageChoiceListener {
 
@@ -52,14 +48,16 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
     Intent Page;
 
-    ImageButton MyPage;
+    ImageButton MyPage, SearchBtn;
     
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
     Boolean AdminCheack = false;
     private int wherePage = 3;
 
-    
+
+
+
     // 이미지를 불러오는데 필요한 권한을 유저에게 요청함
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
@@ -87,6 +85,45 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 광고 삽입
+//        MobileAds.initialize(this);
+//        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+//                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+//                    @Override
+//                    public void onNativeAdLoaded(@NonNull NativeAd nativeAd) {
+//                        NativeTemplateStyle styles = new
+//                                NativeTemplateStyle.Builder().withMainBackgroundColor(0xFFFFFFFF).build();
+//                        TemplateView template = findViewById(R.id.templead);
+//                        template.setStyles(styles);
+//                        template.setNativeAd(nativeAd);
+//                    }
+//                });
+//        adLoader.loadAd(new AdRequest.Builder().build());
+
+        AdLoader adLoader = new AdLoader.Builder(MainActivity.this, "ca-app-pub-3940256099942544/2247696110")
+                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+                    @Override
+                    public void onNativeAdLoaded(NativeAd nativeAd) {
+                        NativeTemplateStyle styles = new
+                                NativeTemplateStyle.Builder().build();
+                        TemplateView template = findViewById(R.id.templead);
+                        template.setStyles(styles);
+                        template.setNativeAd(nativeAd);
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    private void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                    }
+                })
+                .withNativeAdOptions(new NativeAdOptions.Builder()
+                        // Methods in the NativeAdOptions.Builder class can be
+                        // used here to specify individual options settings.
+                        .build())
+                .build();
+
+        adLoader.loadAd(new AdRequest.Builder().build());
+
 
         // 데이터 베이스삽입
         // !! 수정 금지 !!
@@ -108,8 +145,10 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
 
         List<UserInfo> userList = mDatabaseDao.getUserAll();
+        List<Production> itemList = mItemDao.getAllItemData();
 
         MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
+        SearchBtn = (ImageButton) findViewById(R.id.btn_mainSearch);
 
         MyPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +172,15 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
             }
         });
+
+        SearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Page = new Intent(getApplicationContext(), search.class);
+                startActivity(Page);
+            }
+        });
+
 /*
         UserInfo user = new UserInfo();
         user.setUserId("Admin2");          // 유저의 아이디
@@ -151,14 +199,27 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         user.setAdmin(true);
         mDatabaseDao.setInsertUser(user);
 */// 최초 어드민 어카운트
-/*
-        Production production = new Production();
-        production.setItemName("testItem");          // 유저의 아이디
-        production.setPrice(12000);        // 유저의 비밀번호
-        production.setItemProduction("shingu");           // 복구할 이메일
-        mItemDao.setInsertItem(production);
 
- */ // 상품 추가코드
+//        Production production = new Production();
+//        production.setItemName("Lenovo P11 64GB");          // 상품이름
+//        production.setPrice(320000);                    // 상품 가격
+//        production.setItemProduction("Lenovo");        // 상품 제조사
+//        production.setSpec1("스냅드래곤662");
+//        production.setSpec2("램 4GB");
+//        production.setSpec3("11인치");
+//        mItemDao.setInsertItem(production);
+
+//        Production editpro = new Production();
+//        editpro.setProducttionCode(1);
+//        editpro.setPrice(320000);
+//        mItemDao.setUpdateItem(editpro);
+
+//        Production delpro = new Production();
+//        delpro.setProducttionCode(1);
+//        mItemDao.setDeleteItem(delpro);
+
+
+ // 상품 추가코드
 
 /*
 

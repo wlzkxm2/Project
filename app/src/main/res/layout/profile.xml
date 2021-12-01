@@ -229,10 +229,17 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:background="@drawable/buttonstyleidient"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
+        android:text="정보수정"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="내 정보수정"/>
+       />
+
+    android:textStyle="bold"
+    android:textColor="#fff"
+    android:background="@drawable/buttonstyleidient"
+    android:layout_gravity="center_horizontal"
+    android:text="정보수정"
 
 </LinearLayout>

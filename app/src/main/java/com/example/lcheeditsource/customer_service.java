@@ -20,9 +20,7 @@ import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 
 import java.util.List;
-/* 고객센터 페이지
-    최지욱
- */
+
 public class customer_service extends Activity {
     private DataBaseDao mDataBaseDao;
 

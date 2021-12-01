@@ -17,7 +17,7 @@ public interface ProductionDAO {
     // 데이터 조회 쿼리
     // UserInfo의 모든 정보를 불러온다.
     @Query("SELECT * FROM ItemTable")
-    List<Production> ItemData();
+    List<Production> getAllItemData();
 
     @Insert
         // 데이터 삽입

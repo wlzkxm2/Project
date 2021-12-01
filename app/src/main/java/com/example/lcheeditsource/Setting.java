@@ -8,14 +8,6 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 
-/*
- *
- *      수정 정보 알려줄것
- *      수정한 Line도 상세히 적을것
- *
- *      211115 설정 페이지
- *      -- 이지원
- */
 
 public class Setting extends Activity {
     
