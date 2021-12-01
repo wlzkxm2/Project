@@ -59,11 +59,12 @@
         <activity android:name=".search">
 
         </activity>
+        <activity android:name=".ItemlistView">
+
+        </activity>
 
 
-
-
-<!--        광고를 위한 코드-->
+        <!--        광고를 위한 코드-->
         <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

@@ -1,6 +1,5 @@
 package com.example.lcheeditsource;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -8,15 +7,10 @@ import androidx.room.Room;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ExpandableListAdapter;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -31,8 +25,6 @@ import com.google.android.ads.nativetemplates.TemplateView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
 
@@ -147,6 +139,8 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         List<UserInfo> userList = mDatabaseDao.getUserAll();
         List<Production> itemList = mItemDao.getAllItemData();
 
+//        Toast.makeText(getApplicationContext(), "1번칸" + itemList.get(0).getItemName(), Toast.LENGTH_SHORT).show();
+
         MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
         SearchBtn = (ImageButton) findViewById(R.id.btn_mainSearch);
 
@@ -176,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         SearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Page = new Intent(getApplicationContext(), search.class);
+//                Page = new Intent(getApplicationContext(), search.class);
+                Page = new Intent(getApplicationContext(), ItemlistView.class);
                 startActivity(Page);
             }
         });
