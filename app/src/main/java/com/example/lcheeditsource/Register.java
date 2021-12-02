@@ -267,6 +267,7 @@ public class Register extends Activity {
                     registerUser.setRigisterDate(getTime);
                     registerUser.setBirth_Day(_registerBirth);
                     registerUser.setPhoneNumber(_registerPhoncall);
+                    registerUser.setAdmin(false);
 //                    registerUser.setUserAddressDefault();
 //                    registerUser.setUserAddressMore();
 //                    registerUser.setUserAddressNumber();
