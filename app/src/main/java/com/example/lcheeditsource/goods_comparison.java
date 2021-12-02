@@ -35,7 +35,7 @@ public class goods_comparison extends Activity {
             Weakness_three, Weakness_four;
     ImageView loginLogo2, UserImage, imageView4;
     ImageButton back23;
-    Button btn_FirstItemBuy, btn_SecondeItemBuy;
+    Button btn_FirstItemBuy, btn_SecondItemBuy;
 
     Intent Page;
 
@@ -85,7 +85,7 @@ public class goods_comparison extends Activity {
         imageView4 = (ImageView) findViewById(R.id.imageView4);
         back23 = (ImageButton) findViewById(R.id.back23);
         btn_FirstItemBuy = (Button) findViewById(R.id.btn_FirstItemBuy);
-        btn_SecondeItemBuy = (Button) findViewById(R.id.btn_SecondeItemBuy);
+        btn_SecondItemBuy = (Button) findViewById(R.id.btn_SecondItemBuy);
 
 
 
@@ -105,7 +105,7 @@ public class goods_comparison extends Activity {
                 // 구매하기 페이지로 이동
             }
         });
-        btn_SecondeItemBuy.setOnClickListener(new View.OnClickListener() {
+        btn_SecondItemBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 구매하기 페이지로 이동

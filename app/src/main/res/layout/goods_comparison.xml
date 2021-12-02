@@ -171,7 +171,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/btn_SecondeItemBuy"
+                android:id="@+id/btn_SecondItemBuy"
                 android:layout_width="138dp"
                 android:layout_height="36dp"
                 android:text="구매하기" />
