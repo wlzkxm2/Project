@@ -122,27 +122,35 @@ public class Register extends Activity {
                 List<UserInfo> userList = mDatabaseDao.getUserAll();
                 // debug
 //                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
-                // 데이터베이스 데이터 수만큼 반복
-                for (int count = 0; count < userList.size(); count++) {
-                    // 데이터베이스 count 번째 데이터의 아이디를 ListId에 저장
-                    String ListId = userList.get(count).getUserId();
 
-                    // debug
+                if(userList.size() <= 0){
+                    IDCheack_textView.setText("사용가능한 아이디 입니다.");
+                    IdCheack_bool = true;
+
+                }else{
+                    for (int count = 0; count < userList.size(); count++) {
+                        // 데이터베이스 count 번째 데이터의 아이디를 ListId에 저장
+                        String ListId = userList.get(count).getUserId();
+
+                        // debug
 //                    Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
 
-                    // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
-                    if(ListId.equals(_registerId)){
-                        // 만약 같다면 아이디가 존재한다는 팝업이벤트
-                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
-                        IdCheack_bool = false;
-                        break;
-                    }else {
-                        // 같지 않다면 회원가입이 가능하다는 팝업 이벤트
-                        IDCheack_textView.setText("사용가능한 아이디 입니다.");
-                        // bool 값을 통해 중복검사를 하지 않고 회원가입 하는 행위를 차단
-                        IdCheack_bool = true;
+                        // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
+                        if(ListId.equals(_registerId)){
+                            // 만약 같다면 아이디가 존재한다는 팝업이벤트
+                            IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
+                            IdCheack_bool = false;
+                            break;
+                        }else {
+                            // 같지 않다면 회원가입이 가능하다는 팝업 이벤트
+                            IDCheack_textView.setText("사용가능한 아이디 입니다.");
+                            // bool 값을 통해 중복검사를 하지 않고 회원가입 하는 행위를 차단
+                            IdCheack_bool = true;
+                        }
                     }
                 }
+                // 데이터베이스 데이터 수만큼 반복
+
                 // debug
 //               Toast.makeText(getApplicationContext(), "실행종료" + IdCheack_bool, Toast.LENGTH_SHORT).show();
             }
