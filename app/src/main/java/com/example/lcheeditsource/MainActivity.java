@@ -275,7 +275,9 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         user.setUserAddressMore("0000-00-00");         // 상세주소
         user.setAdmin(true);
         mDatabaseDao.setInsertUser(user);
-*/// 최초 어드민 어카운트
+
+ */
+// 최초 어드민 어카운트
 
 //        Production production = new Production();
 //        production.setItemName("Lenovo P11 64GB");          // 상품이름
@@ -298,8 +300,8 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
  // 상품 추가코드
 
-/*
 
+/*
         // 데이터 삽입
         User user = new User();     //  객체 인스턴스
         user.setName("입력할 이름");
@@ -325,12 +327,16 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         user2.setPhoneNumber("010-1234-0000");
         mUserDao.setUpdateUser(user2);      // 데이터 수정
 
+ */
+
 
         // 데이터 삭제
-        User user3 = new User();
-        user3.setId(4);
-        mUserDao.setDeleteUser(user3);
-        */ // 데이터 베이스의 기본형
+//        UserInfo user3 = new UserInfo();
+//        user3.setDefaultUserCode(3);
+//        mDatabaseDao.setDeleteUser(user3);
+
+
+         // 데이터 베이스의 기본형
 
 // !! 여기까지 수정금지 !!
 
