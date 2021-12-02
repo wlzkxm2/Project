@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
     Intent Page;
 
-    ImageButton MyPage, SearchBtn;
+
+    ImageButton MyPage, SearchBtn, notice, mib1, mib2 ,mib3, mib4, mib5, mib6, mib7;
     
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
@@ -76,6 +77,87 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        notice = (ImageButton) findViewById(R.id.btn_notice);
+        mib1 = (ImageButton) findViewById(R.id.mib01);
+        mib2 = (ImageButton) findViewById(R.id.mib02);
+        mib3 = (ImageButton) findViewById(R.id.mib03);
+        mib4 = (ImageButton) findViewById(R.id.mib04);
+        mib5 = (ImageButton) findViewById(R.id.mib05);
+        mib6 = (ImageButton) findViewById(R.id.mib06);
+        mib7 = (ImageButton) findViewById(R.id.mib07);
+
+        notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //알림 페이지로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템1번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템2번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템3번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템4번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템5번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템6번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
+
+        mib7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //메인페이지 아이템7번으로 가기.
+                Page = new Intent(getApplicationContext(), Register.class);
+                startActivity(Page);
+            }
+        });
 
         // 광고 삽입
 //        MobileAds.initialize(this);
