@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             @Override
             public void onClick(View v) {
 //                Page = new Intent(getApplicationContext(), search.class);
-                Page = new Intent(getApplicationContext(), ItemlistView.class);
+                Page = new Intent(getApplicationContext(), search.class);
                 startActivity(Page);
             }
         });
