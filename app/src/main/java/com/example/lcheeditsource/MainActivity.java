@@ -365,7 +365,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             Page = new Intent(getApplicationContext(), ItemAdd.class);
             startActivity(Page);
         }else if(wherePage == 0){
-            Page = new Intent(getApplicationContext(), mypage.class);
+            Page = new Intent(getApplicationContext(), myprofile.class);
             startActivity(Page);
         }
 
