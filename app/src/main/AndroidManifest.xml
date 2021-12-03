@@ -43,10 +43,6 @@
 
         </activity>
 
-        <activity android:name=".mypage">
-
-        </activity>
-
         <activity android:name=".ItemAdd">
 
         </activity>
