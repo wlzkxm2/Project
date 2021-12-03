@@ -54,12 +54,14 @@
         <activity android:name=".ClothDetails">
 
         </activity>
-        <activity android:name=".DataBaseSetting.alexanderwang"/>
 
         <activity android:name=".search">
 
         </activity>
         <activity android:name=".ItemlistView">
+
+        </activity>
+        <activity android:name=".myprofile">
 
         </activity>
 

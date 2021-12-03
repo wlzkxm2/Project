@@ -42,8 +42,7 @@ public class myprofile extends Activity {
             @Override
             public void onClick(View view) {
                 //뒤로가기
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
+                finish();
             }
         });
         ps.setOnClickListener(new View.OnClickListener() {

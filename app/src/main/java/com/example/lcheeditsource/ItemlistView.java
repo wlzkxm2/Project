@@ -1,5 +1,6 @@
 package com.example.lcheeditsource;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 
@@ -21,10 +22,16 @@ public class ItemlistView extends AppCompatActivity {
     private RecyclerAdapter adapter;
     public ProductionDAO mItemDao;
 
+    Intent Page;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itemlistview);
+
+        // Search 에서 보낸 값을 받아옴
+        Page = getIntent();
+        String SearchTxt = Page.getStringExtra("SearchData");
 
         init();
 

@@ -60,6 +60,7 @@ public class Login extends Activity {
             public void onClick(View view) {
                 List<UserInfo> userData = mDatabaseDao.getUserAll();
 
+                // 이용자에게 입력받은 아이디 를 inputID에 적용
                 inputId = LoginID.getText().toString();
                 inputPassword = LoginPassword.getText().toString();
 
@@ -76,14 +77,14 @@ public class Login extends Activity {
                                 Page = new Intent();
                                 LoginCheack = true;
                                 AdminCheack = true;
-                                Page.putExtra("Bool_LoginCheack", LoginCheack);
-                                Page.putExtra("Bool_AdminCheack", AdminCheack);
+                                Page.putExtra("Bool_LoginCheack", LoginCheack);     // MainActivity에 LoginCheack값 전송
+                                Page.putExtra("Bool_AdminCheack", AdminCheack);     // MainActivity에 AdminCheack값 전송
                                 setResult(101, Page);
                                 finish();
 
                                 // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
                                 Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-
+                                break;
                             }else {
                                 Page = new Intent();
                                 LoginCheack = true;
@@ -93,6 +94,7 @@ public class Login extends Activity {
 
                                 // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
                                 Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                                break;
                             }
 
                         }
