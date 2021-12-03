@@ -3,6 +3,7 @@ package com.example.lcheeditsource;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -47,21 +48,22 @@ public class ItemlistView extends AppCompatActivity {
 
         getData(SearchTxt);
 
-        SearchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Page = new Intent(getApplicationContext(), search.class);
-                startActivity(Page);
-
-            }
-        });
+//        SearchBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Page = new Intent(getApplicationContext(), search.class);
+//                startActivity(Page);
+//
+//            }
+//        });
 
         // 아이템 클릭시 아이템을 알려주는 함수
         adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(RecyclerAdapter.ItemViewHolder holder, View v, int pos) {
-                ItemData item = adapter.getItem(pos);
-                Toast.makeText(getApplicationContext(), "아이템선택" + item.getItemName(), Toast.LENGTH_SHORT).show();
+            public void onItemClick(View v, int pos) {
+//                ItemData item = adapter.getItem(pos);
+//                Toast.makeText(getApplicationContext(), "아이템선택", Toast.LENGTH_SHORT).show();
+                Log.v("onclick", "받아옴");
             }
         });
 

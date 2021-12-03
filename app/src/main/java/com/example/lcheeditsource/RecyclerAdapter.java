@@ -1,6 +1,8 @@
 package com.example.lcheeditsource;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     // 커스텀 리스너 인터페이스
     public interface OnItemClickListener
     {
-        void onItemClick(ItemViewHolder holder, View v, int pos);
+        void onItemClick(View v, int pos);
     }
 
     private OnItemClickListener mListener;
@@ -79,7 +81,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
                 public void onClick(View v) {
                     int ItemPosition = getAdapterPosition();
                     if(ItemPosition != RecyclerView.NO_POSITION){
-                        mListener.onItemClick(ItemViewHolder.this, v, ItemPosition);
+//                        mListener.onItemClick(v, ItemPosition);
+                        Intent Page = new Intent(v.getContext(), MainActivity.class);
+                        Page.putExtra("ClickEV", ItemPosition);
+                        Log.v("onclick", "position " + ItemPosition);
+
+
                     }
                 }
             });
