@@ -54,7 +54,7 @@ public class search extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
 
-        back = (ImageButton) findViewById(R.id.back);
+        back = (ImageButton) findViewById(R.id.btn_back);
         sb1 = (Button) findViewById(R.id.searchbutton1);
         sb2 = (Button) findViewById(R.id.searchbutton2);
         sb3 = (Button) findViewById(R.id.searchbutton3);
@@ -76,6 +76,7 @@ public class search extends Activity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 // 입력받은 문자열 처리
+                Toast.makeText(getApplicationContext(), query + "검색 중입니다", Toast.LENGTH_SHORT).show();
                 return true;
             }
 

@@ -48,7 +48,7 @@ public class notice extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
 
-        back = (ImageButton) findViewById(R.id.back);
+        back = (ImageButton) findViewById(R.id.back3);
         nb1 = (Button) findViewById(R.id.noticebutton1);
         nb2 = (Button) findViewById(R.id.noticebutton2);
         nb3 = (Button) findViewById(R.id.noticebutton3);

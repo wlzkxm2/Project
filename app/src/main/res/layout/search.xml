@@ -9,10 +9,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/back"
+            android:id="@+id/btn_back"
             android:layout_width="46dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -25,6 +26,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:rotationX="0"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,87 +35,159 @@
             app:srcCompat="@drawable/logo" />
     </LinearLayout>
 
-    <SearchView
-        android:id="@+id/searchv_SearchBtn"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <SearchView
+            android:id="@+id/searchv_SearchBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:iconifiedByDefault="false" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/searchbutton1"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="1. 메그제이"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="61dp" />
-
-        <Button
-            android:id="@+id/searchbutton2"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="2. 접이식 테이블"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="96dp" />
-
-        <Button
-            android:id="@+id/searchbutton3"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="3. 오디쨈"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="131dp" />
-
-        <Button
-            android:id="@+id/searchbutton4"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="4. apple 아이폰 13 pro"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="166dp" />
-
-        <Button
-            android:id="@+id/searchbutton5"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="5. 아이폰 13 pro max"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="201dp" />
-
-        <Button
-            android:id="@+id/searchbutton6"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="left"
-            android:text="6. 우영미"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="236dp" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
-            android:gravity="center|center_vertical"
-            android:text="인기 검색어"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="26dp" />
-
-        <TextView
-            android:id="@+id/textView11"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="272dp"
-            tools:layout_editor_absoluteY="34dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center|center_vertical"
+                android:text="인기 검색어"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/searchbutton1"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="1. 메그제이" />
+
+            <Button
+                android:id="@+id/searchbutton2"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="2. 접이식 테이블" />
+
+            <Button
+                android:id="@+id/searchbutton3"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="3. 오디쨈" />
+
+            <Button
+                android:id="@+id/searchbutton4"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="4. apple 아이폰 13 pro" />
+
+            <Button
+                android:id="@+id/searchbutton5"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="5. 아이폰 13 pro max" />
+
+            <Button
+                android:id="@+id/searchbutton6"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="6. 우영미" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_searchlist"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center|center_vertical"
+                android:text="최근 검색어"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_searchlist01"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_searchlist02"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_searchlist03"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_searchlist04"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_searchlist05"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+            <Button
+                android:id="@+id/btn_searchlist06"
+                style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="left"
+                android:text="" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

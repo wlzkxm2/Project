@@ -78,6 +78,73 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        // 광고 삽입
+//        MobileAds.initialize(this);
+//        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+//                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+//                    @Override
+//                    public void onNativeAdLoaded(@NonNull NativeAd nativeAd) {
+//                        NativeTemplateStyle styles = new
+//                                NativeTemplateStyle.Builder().withMainBackgroundColor(0xFFFFFFFF).build();
+//                        TemplateView template = findViewById(R.id.templead);
+//                        template.setStyles(styles);
+//                        template.setNativeAd(nativeAd);
+//                    }
+//                });
+//        adLoader.loadAd(new AdRequest.Builder().build());
+
+        AdLoader adLoader = new AdLoader.Builder(MainActivity.this, "ca-app-pub-3940256099942544/2247696110")
+                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+                    @Override
+                    public void onNativeAdLoaded(NativeAd nativeAd) {
+                        NativeTemplateStyle styles = new
+                                NativeTemplateStyle.Builder().build();
+                        TemplateView template = findViewById(R.id.templead);
+                        template.setStyles(styles);
+                        template.setNativeAd(nativeAd);
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    private void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                    }
+                })
+                .withNativeAdOptions(new NativeAdOptions.Builder()
+                        // Methods in the NativeAdOptions.Builder class can be
+                        // used here to specify individual options settings.
+                        .build())
+                .build();
+
+        adLoader.loadAd(new AdRequest.Builder().build());
+
+
+        // 데이터 베이스삽입
+        // !! 수정 금지 !!
+        DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mDatabaseDao = dataBase.dataBaseDao();
+
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
+
+        List<UserInfo> userList = mDatabaseDao.getUserAll();
+        List<Production> itemList = mItemDao.getAllItemData();
+
+//        Toast.makeText(getApplicationContext(), "1번칸" + itemList.get(0).getItemName(), Toast.LENGTH_SHORT).show();
+
+        MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
+        SearchBtn = (ImageButton) findViewById(R.id.btn_mainSearch);
         notice = (ImageButton) findViewById(R.id.btn_notice);
         mib1 = (ImageButton) findViewById(R.id.mib01);
         mib2 = (ImageButton) findViewById(R.id.mib02);
@@ -86,6 +153,39 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         mib5 = (ImageButton) findViewById(R.id.mib05);
         mib6 = (ImageButton) findViewById(R.id.mib06);
         mib7 = (ImageButton) findViewById(R.id.mib07);
+
+
+        MyPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(LoginCheack == false){
+                    Page = new Intent(getApplicationContext(), Login.class);
+                    Page.putExtra("Login", LoginCheack);
+                    startActivityForResult(Page, 100);
+//                    startActivity(Page);
+                } else{
+                    if(AdminCheack == true){
+                        // 하단 팝업이 나오게끔
+                        Mypageadminchoice itemaddchoice = new Mypageadminchoice();
+                        itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
+                    }else{
+                        Page = new Intent(getApplicationContext(), mypage.class);
+                        startActivity(Page);
+                    }
+
+                }
+
+            }
+        });
+
+        SearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Page = new Intent(getApplicationContext(), search.class);
+                Page = new Intent(getApplicationContext(), search.class);
+                startActivity(Page);
+            }
+        });
 
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,105 +255,6 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             public void onClick(View view) {
                 //메인페이지 아이템7번으로 가기.
                 Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        // 광고 삽입
-//        MobileAds.initialize(this);
-//        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
-//                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-//                    @Override
-//                    public void onNativeAdLoaded(@NonNull NativeAd nativeAd) {
-//                        NativeTemplateStyle styles = new
-//                                NativeTemplateStyle.Builder().withMainBackgroundColor(0xFFFFFFFF).build();
-//                        TemplateView template = findViewById(R.id.templead);
-//                        template.setStyles(styles);
-//                        template.setNativeAd(nativeAd);
-//                    }
-//                });
-//        adLoader.loadAd(new AdRequest.Builder().build());
-
-        AdLoader adLoader = new AdLoader.Builder(MainActivity.this, "ca-app-pub-3940256099942544/2247696110")
-                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-                    @Override
-                    public void onNativeAdLoaded(NativeAd nativeAd) {
-                        NativeTemplateStyle styles = new
-                                NativeTemplateStyle.Builder().build();
-                        TemplateView template = findViewById(R.id.templead);
-                        template.setStyles(styles);
-                        template.setNativeAd(nativeAd);
-                    }
-                })
-                .withAdListener(new AdListener() {
-                    private void onAdFailedToLoad(int errorCode) {
-                        // Handle the failure by logging, altering the UI, and so on.
-                    }
-                })
-                .withNativeAdOptions(new NativeAdOptions.Builder()
-                        // Methods in the NativeAdOptions.Builder class can be
-                        // used here to specify individual options settings.
-                        .build())
-                .build();
-
-        adLoader.loadAd(new AdRequest.Builder().build());
-
-
-        // 데이터 베이스삽입
-        // !! 수정 금지 !!
-        DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
-                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
-                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
-                .build();
-
-        // 데이터베이스 객체 생성
-        mDatabaseDao = dataBase.dataBaseDao();
-
-        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
-                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
-                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
-                .build();
-
-        // 데이터베이스 객체 생성
-        mItemDao = itemDB.productionDAO();
-
-
-        List<UserInfo> userList = mDatabaseDao.getUserAll();
-        List<Production> itemList = mItemDao.getAllItemData();
-
-//        Toast.makeText(getApplicationContext(), "1번칸" + itemList.get(0).getItemName(), Toast.LENGTH_SHORT).show();
-
-        MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
-        SearchBtn = (ImageButton) findViewById(R.id.btn_mainSearch);
-
-        MyPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(LoginCheack == false){
-                    Page = new Intent(getApplicationContext(), Login.class);
-                    Page.putExtra("Login", LoginCheack);
-                    startActivityForResult(Page, 100);
-//                    startActivity(Page);
-                } else{
-                    if(AdminCheack == true){
-                        // 하단 팝업이 나오게끔
-                        Mypageadminchoice itemaddchoice = new Mypageadminchoice();
-                        itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
-                    }else{
-                        Page = new Intent(getApplicationContext(), mypage.class);
-                        startActivity(Page);
-                    }
-
-                }
-
-            }
-        });
-
-        SearchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Page = new Intent(getApplicationContext(), search.class);
-                Page = new Intent(getApplicationContext(), search.class);
                 startActivity(Page);
             }
         });
