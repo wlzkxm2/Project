@@ -36,7 +36,16 @@ public class ItemlistView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itemlistview);
 
+        init();
+
         SearchBtn = findViewById(R.id.btn_listSearch);
+        RecyclerAdapter adapter = new RecyclerAdapter();
+
+        // Search 에서 보낸 값을 받아옴
+        Page = getIntent();
+        String SearchTxt = Page.getStringExtra("SearchData");
+
+        getData(SearchTxt);
 
         SearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,14 +56,15 @@ public class ItemlistView extends AppCompatActivity {
             }
         });
 
+        // 아이템 클릭시 아이템을 알려주는 함수
+        adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(RecyclerAdapter.ItemViewHolder holder, View v, int pos) {
+                ItemData item = adapter.getItem(pos);
+                Toast.makeText(getApplicationContext(), "아이템선택" + item.getItemName(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        // Search 에서 보낸 값을 받아옴
-        Page = getIntent();
-        String SearchTxt = Page.getStringExtra("SearchData");
-
-        init();
-
-        getData(SearchTxt);
     }
 
     private void init() {
