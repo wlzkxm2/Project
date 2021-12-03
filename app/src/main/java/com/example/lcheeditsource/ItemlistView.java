@@ -3,6 +3,10 @@ package com.example.lcheeditsource;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +26,8 @@ public class ItemlistView extends AppCompatActivity {
     private RecyclerAdapter adapter;
     public ProductionDAO mItemDao;
 
+    ImageButton SearchBtn;
+
     Intent Page;
 
     @Override
@@ -29,13 +35,25 @@ public class ItemlistView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itemlistview);
 
+        SearchBtn = findViewById(R.id.btn_listSearch);
+
+        SearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Page = new Intent(getApplicationContext(), search.class);
+                startActivity(Page);
+
+            }
+        });
+
+
         // Search 에서 보낸 값을 받아옴
         Page = getIntent();
         String SearchTxt = Page.getStringExtra("SearchData");
 
         init();
 
-        getData();
+        getData(SearchTxt);
     }
 
     private void init() {
@@ -48,7 +66,8 @@ public class ItemlistView extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void getData() {
+    private void getData(String ItemTag) {
+        String Tag = ItemTag;
 
         ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
                 .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
@@ -59,7 +78,8 @@ public class ItemlistView extends AppCompatActivity {
         mItemDao = itemDB.productionDAO();
 
         // 상품의 데이터를 List에 삽입
-        List<Production> DBitemList = mItemDao.getAllItemData();
+//        List<Production> DBitemList = mItemDao.getAllItemData();
+        List<Production> DBitemList = mItemDao.getItemFind(Tag);
         // 상품의 이미지를 대입
         List<Integer> Imagelist = Arrays.asList(R.drawable.lenovo, R.drawable.ipad);
 

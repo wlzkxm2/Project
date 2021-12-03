@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/btn_mainSearch"
+        android:id="@+id/btn_listSearch"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#00FFFFFF"

@@ -194,6 +194,100 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             }
         });
 
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100){
+            if(resultCode == 101){
+                LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
+                AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
+                if(AdminCheack.equals(true))
+                    Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @Override
+    public void onButtonClicked(int _Page) {
+//        Toast.makeText(getApplicationContext(), "페이지 선택 " + Page, Toast.LENGTH_SHORT).show();
+        wherePage = _Page;
+
+        // 페이지 이동
+        if(wherePage == 1){
+            Page = new Intent(getApplicationContext(), ItemAdd.class);
+            startActivity(Page);
+        }else if(wherePage == 0){
+            Page = new Intent(getApplicationContext(), myprofile.class);
+            startActivity(Page);
+        }
+
+    }
+
+    private void DefaultItemAdd(){
+
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
+        Production production = new Production();
+        production.setItemName("Lenovo P11 64GB");          // 상품이름
+        production.setPrice(320000);                    // 상품 가격
+        production.setItemProduction("Lenovo");        // 상품 제조사
+        production.setSpec1("스냅드래곤662");
+        production.setSpec2("램 4GB");
+        production.setSpec3("11인치");
+        production.setItemTag("tablet, 태블릿");
+        mItemDao.setInsertItem(production);
+
+        Production production2 = new Production();
+        production2.setItemName("IPadPro 11인치 3세대");          // 상품이름
+        production2.setPrice(920000);                    // 상품 가격
+        production2.setItemProduction("Apple");        // 상품 제조사
+        production2.setSpec1("APPLE M1");
+        production2.setSpec2("램 8GB");
+        production2.setSpec3("11인치");
+        production2.setItemTag("tablet, 태블릿");
+        mItemDao.setInsertItem(production2);
+
+        Production production3 = new Production();
+        production3.setItemName("마블 후드티");          // 상품이름
+        production3.setPrice(120000);                    // 상품 가격
+        production3.setItemProduction("ABC");        // 상품 제조사
+        production3.setWashSpec("95도");
+        production3.setBleaching("염소산소표백");
+        production3.setSteam("210도");
+        production3.setDry("전문드라이");
+        production3.setDryer("햇빛건조");
+        production3.setItemTag("의류");
+        mItemDao.setInsertItem(production3);
+    }
+
+    private void DeleteItem(int i){
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
+        Production delpro = new Production();
+        delpro.setProducttionCode(i);
+        mItemDao.setDeleteItem(delpro);
+
+    }
+}
+
+
+
 //        mib1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -278,11 +372,11 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
  */
 // 최초 어드민 어카운트
 
-        // 상품추가 데이터베이스
-        // 실행시 한번 실행해주길 바람
+// 상품추가 데이터베이스
+// 실행시 한번 실행해주길 바람
 //        DefaultItemAdd();
 
-        // 상품 삭제 데이터베이스
+// 상품 삭제 데이터베이스
 //        삭제하고싶을땐 i대신 숫자를 넣을것
 //        DeleteItem(i);
 
@@ -294,7 +388,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
 
 
- // 상품 추가코드
+// 상품 추가코드
 
 
 
@@ -327,95 +421,16 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
  */
 
 
-        // 데이터 삭제
+// 데이터 삭제
 //        UserInfo user3 = new UserInfo();
 //        user3.setDefaultUserCode(3);
 //        mDatabaseDao.setDeleteUser(user3);
 
 
-         // 데이터 베이스의 기본형
+// 데이터 베이스의 기본형
 
 // !! 여기까지 수정금지 !!
 
 
-
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 100){
-            if(resultCode == 101){
-                LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
-                AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
-                if(AdminCheack.equals(true))
-                    Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    @Override
-    public void onButtonClicked(int _Page) {
-//        Toast.makeText(getApplicationContext(), "페이지 선택 " + Page, Toast.LENGTH_SHORT).show();
-        wherePage = _Page;
-
-        // 페이지 이동
-        if(wherePage == 1){
-            Page = new Intent(getApplicationContext(), ItemAdd.class);
-            startActivity(Page);
-        }else if(wherePage == 0){
-            Page = new Intent(getApplicationContext(), myprofile.class);
-            startActivity(Page);
-        }
-
-    }
-
-    private void DefaultItemAdd(){
-
-        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
-                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
-                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
-                .build();
-
-        // 데이터베이스 객체 생성
-        mItemDao = itemDB.productionDAO();
-
-        Production production = new Production();
-        production.setItemName("Lenovo P11 64GB");          // 상품이름
-        production.setPrice(320000);                    // 상품 가격
-        production.setItemProduction("Lenovo");        // 상품 제조사
-        production.setSpec1("스냅드래곤662");
-        production.setSpec2("램 4GB");
-        production.setSpec3("11인치");
-        production.setItemTag("tablet, 태블릿");
-        mItemDao.setInsertItem(production);
-
-        Production production2 = new Production();
-        production2.setItemName("IPadPro 11인치 3세대");          // 상품이름
-        production2.setPrice(920000);                    // 상품 가격
-        production2.setItemProduction("Apple");        // 상품 제조사
-        production2.setSpec1("APPLE M1");
-        production2.setSpec2("램 8GB");
-        production2.setSpec3("11인치");
-        production2.setItemTag("tablet, 태블릿");
-        mItemDao.setInsertItem(production2);
-    }
-
-    private void DeleteItem(int i){
-        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
-                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
-                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
-                .build();
-
-        // 데이터베이스 객체 생성
-        mItemDao = itemDB.productionDAO();
-
-        Production delpro = new Production();
-        delpro.setProducttionCode(i);
-        mItemDao.setDeleteItem(delpro);
-
-    }
-}
 
 

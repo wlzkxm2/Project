@@ -31,7 +31,7 @@ public interface ProductionDAO {
         // 데이터 삭제
     void setDeleteItem(Production production);
 
-    @Query("SELECT * FROM itemtable WHERE ItemName LIKE :finditem || ItemTag LIKE :finditem")
+    @Query("SELECT * FROM itemTable WHERE ItemTag LIKE :finditem")
     List<Production> getItemFind(String finditem);
 
 }
