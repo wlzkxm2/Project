@@ -139,6 +139,9 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         List<UserInfo> userList = mDatabaseDao.getUserAll();
         List<Production> itemList = mItemDao.getAllItemData();
 
+        // 프로젝트 단 한번도 실행 안했을 경우만 주석풀고 실행후에 바로 주석 해줄것
+//        DefaultItemAdd();
+//        adduserAdmin();
 //        Toast.makeText(getApplicationContext(), "1번칸" + itemList.get(0).getItemName(), Toast.LENGTH_SHORT).show();
 
         MyPage = (ImageButton) findViewById(R.id.btn_MyPage);
@@ -284,7 +287,36 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         mItemDao.setDeleteItem(delpro);
 
     }
+
+    private void addUserAdmin(){
+
+        DataBaseAbs dataBase = Room.databaseBuilder(getApplicationContext(), DataBaseAbs.class, "UserInformation.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mDatabaseDao = dataBase.dataBaseDao();
+        UserInfo user = new UserInfo();
+        user.setUserId("Admin2");          // 유저의 아이디
+        user.setPassword("admin2");        // 유저의 비밀번호
+        user.setEmail("admin@gmail.com");           // 복구할 이메일
+        user.setName("Admin2");            // 유저의 이름
+        user.setSex("Male");             // 유저의 성별
+        user.setRigisterDate("2021-11-19");    // 가입 날짜
+        user.setBirth_Year("0000-00-00");      // 태어난해
+        user.setBirth_Month("0000-00-00");     // 태어난 월
+        user.setBirth_Day("0000-00-00");       // 태어난 일
+        user.setPhoneNumber("000-0000-000");     // 개인 전화번호
+        user.setUserAddressNumber("0000-00-00");     // 우편번호
+        user.setUserAddressDefault("0000-00-00");      // 기본주소
+        user.setUserAddressMore("0000-00-00");         // 상세주소
+        user.setAdmin(true);
+        mDatabaseDao.setInsertUser(user);
+
+    }
 }
+
 
 
 
