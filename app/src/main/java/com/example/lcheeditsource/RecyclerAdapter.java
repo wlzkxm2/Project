@@ -1,6 +1,7 @@
 package com.example.lcheeditsource;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +22,15 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
     private ArrayList<ItemData> itemdata = new ArrayList<>();
+    private Context context;
 
+    // context를 입력받아 intent 이벤트를 실행 가능함
+    public RecyclerAdapter(Context context){
+        this.context = context;
+    }
+
+    
+    // 레이아웃을 생성한다.
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -28,41 +38,41 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         return new ItemViewHolder(v);
     }
 
+    // 레이아웃(뷰홀더) 가 재활용 될때 실행되는 메서드
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         // item을 하나 보여주는 함수
         holder.onBind(itemdata.get(position));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // context를 선언함으로 써 intent를 사용하게 해줌
+                Context context = v.getContext();
+                Intent Page;
+                Page = new Intent(v.getContext(), goods_comparison.class);
+                // Login.class를 변경하여 클래스 이동
+
+                context.startActivity(Page);
+            }
+        });
     }
 
+    // 아이템 개수를 조회 할 수 있다
     @Override
     public int getItemCount() {
         // item의 총갯수
         return itemdata.size();
     }
-
-    public ItemData getItem(int position){
-        return itemdata.get(position);
-    }
-
+    
+    // 아이템을 추가한다
     void addItem(ItemData ItemData){
         itemdata.add(ItemData);
     }
 
-    // 커스텀 리스너 인터페이스
-    public interface OnItemClickListener
-    {
-        void onItemClick(View v, int pos);
-    }
 
-    private OnItemClickListener mListener;
-
-    // 어댑터 내부 커스텀 리스터 정의
-    // OnItemClickListener 객체 참조를 어댑터에 전달하는 메서드
-    public void setOnItemClickListener(OnItemClickListener listener)
-    {
-        this.mListener = listener;
-    }
-
+    // 추가한 아이템을 지정된 textview나 imageview에 보여주는 역할을 함
     class ItemViewHolder extends RecyclerView.ViewHolder{
         private TextView ItemName;
         private TextView ItemPrice;
@@ -74,22 +84,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             ItemName = itemView.findViewById(R.id.cardv_ItemName);
             ItemPrice = itemView.findViewById(R.id.cardv_ItemPrice);
             ItemImage = itemView.findViewById(R.id.cardv_Itemimage);
-
-            // 아이템 클릭시 이벤트 처리
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int ItemPosition = getAdapterPosition();
-                    if(ItemPosition != RecyclerView.NO_POSITION){
-//                        mListener.onItemClick(v, ItemPosition);
-                        Intent Page = new Intent(v.getContext(), MainActivity.class);
-                        Page.putExtra("ClickEV", ItemPosition);
-                        Log.v("onclick", "position " + ItemPosition);
-
-
-                    }
-                }
-            });
+            
         }
 
         void onBind(ItemData data){

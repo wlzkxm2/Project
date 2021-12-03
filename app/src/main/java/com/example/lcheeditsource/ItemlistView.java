@@ -40,7 +40,7 @@ public class ItemlistView extends AppCompatActivity {
         init();
 
         SearchBtn = findViewById(R.id.btn_listSearch);
-        RecyclerAdapter adapter = new RecyclerAdapter();
+        RecyclerAdapter adapter = new RecyclerAdapter(getApplicationContext());
 
         // Search 에서 보낸 값을 받아옴
         Page = getIntent();
@@ -48,24 +48,17 @@ public class ItemlistView extends AppCompatActivity {
 
         getData(SearchTxt);
 
-//        SearchBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Page = new Intent(getApplicationContext(), search.class);
-//                startActivity(Page);
-//
-//            }
-//        });
-
-        // 아이템 클릭시 아이템을 알려주는 함수
-        adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+        SearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(View v, int pos) {
-//                ItemData item = adapter.getItem(pos);
-//                Toast.makeText(getApplicationContext(), "아이템선택", Toast.LENGTH_SHORT).show();
-                Log.v("onclick", "받아옴");
+            public void onClick(View v) {
+                Page = new Intent(getApplicationContext(), search.class);
+                startActivity(Page);
+
             }
         });
+
+        // 아이템 클릭시 아이템을 알려주는 함수
+
 
     }
 
@@ -75,7 +68,7 @@ public class ItemlistView extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        adapter = new RecyclerAdapter();
+        adapter = new RecyclerAdapter(getApplicationContext());
         recyclerView.setAdapter(adapter);
     }
 
