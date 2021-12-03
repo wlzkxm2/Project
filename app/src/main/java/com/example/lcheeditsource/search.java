@@ -15,27 +15,17 @@ package com.example.lcheeditsource;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.service.autofill.UserData;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.room.Room;
 
-import com.example.lcheeditsource.DataBase.UserInfo;
-import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
-import com.example.lcheeditsource.DataBaseSetting.alexanderwang;
-
-import java.util.List;
 
 
 public class search extends Activity {
@@ -99,43 +89,43 @@ public class search extends Activity {
                 startActivity(Page);
             }
         });
-        sb1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Page = new Intent(getApplicationContext(), alexanderwang.class);
-                startActivity(Page);
-                //검색 순위 1위 화면으로 이동
-            }
-        });
-        sb2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //검색 순위 2위 화면으로 이동
-            }
-        });
-        sb3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //검색 순위 3위 화면으로 이동
-            }
-        });
-        sb4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //검색 순위 4위 화면으로 이동
-            }
-        });
-        sb5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //검색 순위 5위 화면으로 이동
-            }
-        });
-        sb6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //검색 순위 6위 화면으로 이동
-            }
-        });
+//        sb1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Page = new Intent(getApplicationContext(),);
+//                startActivity(Page);
+//                //검색 순위 1위 화면으로 이동
+//            }
+//        });
+//        sb2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //검색 순위 2위 화면으로 이동
+//            }
+//        });
+//        sb3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //검색 순위 3위 화면으로 이동
+//            }
+//        });
+//        sb4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //검색 순위 4위 화면으로 이동
+//            }
+//        });
+//        sb5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //검색 순위 5위 화면으로 이동
+//            }
+//        });
+//        sb6.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //검색 순위 6위 화면으로 이동
+//            }
+//        });
     }
 }

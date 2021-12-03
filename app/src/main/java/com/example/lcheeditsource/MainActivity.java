@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
                         Mypageadminchoice itemaddchoice = new Mypageadminchoice();
                         itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
                     }else{
-                        Page = new Intent(getApplicationContext(), mypage.class);
+                        Page = new Intent(getApplicationContext(), myprofile.class);
                         startActivity(Page);
                     }
 
