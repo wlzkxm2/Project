@@ -77,6 +77,10 @@ public class search extends Activity {
             public boolean onQueryTextSubmit(String query) {
                 // 입력받은 문자열 처리
                 Toast.makeText(getApplicationContext(), query + "검색 중입니다", Toast.LENGTH_SHORT).show();
+                // 입력받은 문자 query를 검색리스트에 보내고 검색리스트는 해당 내용에 부합하는 결과물을 출력
+                Page = new Intent(getApplicationContext(), ItemlistView.class);
+                Page.putExtra("SearchData", query);
+                startActivityForResult(Page, 100);
                 return true;
             }
 

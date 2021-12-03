@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
     private int wherePage = 3;
 
 
-
-
     // 이미지를 불러오는데 필요한 권한을 유저에게 요청함
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
@@ -196,68 +194,68 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             }
         });
 
-        mib1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템1번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템2번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템3번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템4번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템5번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템6번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        mib7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메인페이지 아이템7번으로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
+//        mib1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템1번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템2번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템3번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템4번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템5번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib6.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템6번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        mib7.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //메인페이지 아이템7번으로 가기.
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
 
 /*
         UserInfo user = new UserInfo();
@@ -280,26 +278,24 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
  */
 // 최초 어드민 어카운트
 
-//        Production production = new Production();
-//        production.setItemName("Lenovo P11 64GB");          // 상품이름
-//        production.setPrice(320000);                    // 상품 가격
-//        production.setItemProduction("Lenovo");        // 상품 제조사
-//        production.setSpec1("스냅드래곤662");
-//        production.setSpec2("램 4GB");
-//        production.setSpec3("11인치");
-//        mItemDao.setInsertItem(production);
+        // 상품추가 데이터베이스
+        // 실행시 한번 실행해주길 바람
+//        DefaultItemAdd();
+
+        // 상품 삭제 데이터베이스
+//        삭제하고싶을땐 i대신 숫자를 넣을것
+//        DeleteItem(i);
 
 //        Production editpro = new Production();
 //        editpro.setProducttionCode(1);
 //        editpro.setPrice(320000);
 //        mItemDao.setUpdateItem(editpro);
 
-//        Production delpro = new Production();
-//        delpro.setProducttionCode(1);
-//        mItemDao.setDeleteItem(delpro);
+
 
 
  // 상품 추가코드
+
 
 
 /*
@@ -372,6 +368,52 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             Page = new Intent(getApplicationContext(), mypage.class);
             startActivity(Page);
         }
+
+    }
+
+    private void DefaultItemAdd(){
+
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
+        Production production = new Production();
+        production.setItemName("Lenovo P11 64GB");          // 상품이름
+        production.setPrice(320000);                    // 상품 가격
+        production.setItemProduction("Lenovo");        // 상품 제조사
+        production.setSpec1("스냅드래곤662");
+        production.setSpec2("램 4GB");
+        production.setSpec3("11인치");
+        production.setItemTag("tablet, 태블릿");
+        mItemDao.setInsertItem(production);
+
+        Production production2 = new Production();
+        production2.setItemName("IPadPro 11인치 3세대");          // 상품이름
+        production2.setPrice(920000);                    // 상품 가격
+        production2.setItemProduction("Apple");        // 상품 제조사
+        production2.setSpec1("APPLE M1");
+        production2.setSpec2("램 8GB");
+        production2.setSpec3("11인치");
+        production2.setItemTag("tablet, 태블릿");
+        mItemDao.setInsertItem(production2);
+    }
+
+    private void DeleteItem(int i){
+        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+                .build();
+
+        // 데이터베이스 객체 생성
+        mItemDao = itemDB.productionDAO();
+
+        Production delpro = new Production();
+        delpro.setProducttionCode(i);
+        mItemDao.setDeleteItem(delpro);
 
     }
 }

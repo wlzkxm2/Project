@@ -51,8 +51,22 @@ public class ItemlistView extends AppCompatActivity {
         // 데이터베이스 객체 생성
         mItemDao = itemDB.productionDAO();
 
+        // 상품의 데이터를 List에 삽입
         List<Production> DBitemList = mItemDao.getAllItemData();
-//        List<String> Itemlist = null;
+        // 상품의 이미지를 대입
+        List<Integer> Imagelist = Arrays.asList(R.drawable.lenovo, R.drawable.ipad);
+
+        // 상품의 갯수만큼 출력
+        for (int i = 0; i < DBitemList.size(); i++) {
+
+            ItemData data = new ItemData();
+            data.setItemName(DBitemList.get(i).getItemName());
+            data.setItemPrice(Integer.toString(DBitemList.get(i).getPrice()) + "원");
+            data.setResources(Imagelist.get(i));
+
+            adapter.addItem(data);
+
+ //        List<String> Itemlist = null;
 //        List<String> Pricelists = null;
 //        List<Integer> Imagelist = null;
 //        for (int i = 0; i < DBitemList.size(); i++) {
@@ -64,18 +78,8 @@ public class ItemlistView extends AppCompatActivity {
 //        }
 
 
-        List<String> Itemlist = Arrays.asList("아이패드", "레노버 p11");
-        List<String> Pricelists = Arrays.asList("870,000", "250,000");
-        List<Integer> Imagelist = Arrays.asList(R.drawable.ipad, R.drawable.lenovo);
-
-        for (int i = 0; i < Itemlist.size(); i++) {
-
-            ItemData data = new ItemData();
-            data.setItemName(DBitemList.get(i).getItemName());
-            data.setItemPrice(Integer.toString(DBitemList.get(i).getPrice()) + "원");
-            data.setResources(Imagelist.get(i));
-
-            adapter.addItem(data);
+//        List<String> Itemlist = Arrays.asList("아이패드", "레노버 p11");
+//        List<String> Pricelists = Arrays.asList("870,000", "250,000");
 
         }
 
