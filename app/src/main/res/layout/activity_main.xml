@@ -53,7 +53,7 @@
             android:id="@+id/btn_mainSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#00FFFFFF"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/searchbtn" />
 
