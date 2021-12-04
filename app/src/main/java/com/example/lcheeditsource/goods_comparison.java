@@ -40,7 +40,7 @@ public class goods_comparison extends Activity {
     Intent Page;
 
     public ProductionDAO mItemDao;
-
+//t수정
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
