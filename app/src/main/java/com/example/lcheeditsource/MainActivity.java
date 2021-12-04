@@ -191,9 +191,23 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
         notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //알림 페이지로 가기.
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
+                if(LoginCheack == false){
+                    Page = new Intent(getApplicationContext(), Login.class);
+                    Page.putExtra("Login", LoginCheack);
+                    startActivityForResult(Page, 100);
+//                    startActivity(Page);
+                } else{
+                    if(AdminCheack == true){
+                        // 하단 팝업이 나오게끔
+                        Mypageadminchoice itemaddchoice = new Mypageadminchoice();
+                        itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
+                    }else{
+                        Page = new Intent(getApplicationContext(), notice.class);
+                        startActivity(Page);
+                    }
+
+                }
+
             }
         });
 
@@ -368,7 +382,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 //        mib6.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                //메인페이지 아이템6번으로 가기.
+//               //메인페이지 메뉴으로 가기.
 //                Page = new Intent(getApplicationContext(), Register.class);
 //                startActivity(Page);
 //            }
@@ -379,7 +393,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 //            public void onClick(View view) {
 //                //메인페이지 아이템7번으로 가기.
 //                Page = new Intent(getApplicationContext(), Register.class);
-//                startActivity(Page);
+//               startActivity(Page);
 //            }
 //        });
 

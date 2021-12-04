@@ -13,25 +13,17 @@ package com.example.lcheeditsource;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.service.autofill.UserData;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.room.Room;
 
-import com.example.lcheeditsource.DataBase.UserInfo;
-import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
 import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
-
-import java.util.List;
 
 
 public class notice extends Activity {
@@ -39,14 +31,16 @@ public class notice extends Activity {
 
     Button nb1, nb2, nb3, nb4, nb5;
     ImageButton back;
-    EditText nt;
+    EditText nt3;
+    TextView nt1, nt2;
+    ImageView ni1;
 
     Intent Page;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.search);
+        setContentView(R.layout.notice);
 
         back = (ImageButton) findViewById(R.id.back3);
         nb1 = (Button) findViewById(R.id.noticebutton1);
@@ -54,14 +48,16 @@ public class notice extends Activity {
         nb3 = (Button) findViewById(R.id.noticebutton3);
         nb4 = (Button) findViewById(R.id.noticebutton4);
         nb5 = (Button) findViewById(R.id.noticebutton5);
-        nt = (EditText) findViewById(R.id.noticetext);
+        nt1 = (TextView) findViewById(R.id.noticetext1);
+        nt2 = (TextView) findViewById(R.id.noticetext2);
+        nt3 = (EditText) findViewById(R.id.noticetext3);
+        ni1 = (ImageView) findViewById(R.id.noticeimage1);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //뒤로가기
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
+                finish();
             }
         });
         nb1.setOnClickListener(new View.OnClickListener() {
