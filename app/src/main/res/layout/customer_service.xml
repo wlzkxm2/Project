@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/CustomerServiceText"
+        android:id="@+id/text_CustomerService"
         android:layout_width="120dp"
         android:layout_height="31dp"
         android:layout_marginStart="10dp"
@@ -31,7 +31,7 @@
         tools:layout_editor_absoluteY="-24dp">
 
         <ImageButton
-            android:id="@drawable/back"
+            android:id="@+id/img_back"
             android:layout_width="58dp"
             android:layout_height="53dp"
             android:layout_marginTop="28dp"
@@ -41,7 +41,7 @@
             app:srcCompat="@drawable/back" />
 
         <ImageView
-            android:id="@+id/loginLogo5"
+            android:id="@+id/imgv_logo"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@drawable/rounded_rectangle"
+        android:id="@+id/imgv_rectangle"
         android:layout_width="397dp"
         android:layout_height="266dp"
         android:scaleType="fitXY"
@@ -64,7 +64,7 @@
         tools:srcCompat="@drawable/rounded_rectangle" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/img_user"
         android:layout_width="100dp"
         android:layout_height="137dp"
         android:scaleType="fitXY"
@@ -73,7 +73,7 @@
         tools:layout_editor_absoluteY="167dp" />
 
     <TextView
-        android:id="@+id/TextboxView"
+        android:id="@+id/text_sentence"
         android:layout_width="181dp"
         android:layout_height="104dp"
         android:text="LCHE 이용시 불편한 점 궁금한 점을 말씀해 주세요!"
@@ -83,7 +83,7 @@
         tools:layout_editor_absoluteY="182dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_inquiry"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="1:1문의"
@@ -91,7 +91,7 @@
         tools:layout_editor_absoluteY="372dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_qna"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="QnA"
@@ -99,7 +99,7 @@
         tools:layout_editor_absoluteY="415dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_notice"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="공지사항"
@@ -107,7 +107,7 @@
         tools:layout_editor_absoluteY="537dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_termsofuse"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="이용약관"
@@ -115,7 +115,7 @@
         tools:layout_editor_absoluteY="457dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_introduce"
         android:layout_width="403dp"
         android:layout_height="39dp"
         android:text="LCHE 소개"
@@ -123,7 +123,7 @@
         tools:layout_editor_absoluteY="498dp" />
 
     <TextView
-        android:id="@+id/TextView1"
+        android:id="@+id/text_alliance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="입점 제휴문의"
@@ -134,32 +134,23 @@
 
     <TextView
         android:id="@+id/TextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="16dp"
         android:text="광고문의"
         android:textColor="@color/black"
         android:textSize="10dp"
         tools:layout_editor_absoluteX="74dp"
         tools:layout_editor_absoluteY="579dp" />
 
-    <TextView
-        android:id="@+id/TextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이용약관"
-        android:textColor="@color/black"
-        android:textSize="10dp"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="579dp" />
 
     <TextView
-        android:id="@+id/TextView4"
+        android:id="@+id/text_privacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="개인정보 처리방침"
         android:textColor="@color/black"
         android:textSize="10dp"
-        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteX="123dp"
         tools:layout_editor_absoluteY="579dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
