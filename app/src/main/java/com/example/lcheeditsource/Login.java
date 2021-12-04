@@ -69,6 +69,7 @@ public class Login extends Activity {
                     String DBID = userData.get(i).getUserId();
                     String DBPassword = userData.get(i).getPassword();
                     Boolean Admin = userData.get(i).getAdmin();
+                    int UserCode = userData.get(i).getDefaultUserCode();
                     
                     // 아이디가 같은지 다른지부터 체크
                     if(DBID.equals(inputId)){
@@ -80,6 +81,7 @@ public class Login extends Activity {
                                 Page.putExtra("Bool_LoginCheack", LoginCheack);     // MainActivity에 LoginCheack값 전송
                                 Page.putExtra("Bool_AdminCheack", AdminCheack);     // MainActivity에 AdminCheack값 전송
                                 setResult(101, Page);
+                                Page.putExtra("Usercode", UserCode);
                                 finish();
 
                                 // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
@@ -89,6 +91,7 @@ public class Login extends Activity {
                                 Page = new Intent();
                                 LoginCheack = true;
                                 Page.putExtra("Bool_LoginCheack", LoginCheack);
+                                Page.putExtra("Usercode", UserCode);
                                 setResult(101, Page);
                                 finish();
 
@@ -98,11 +101,9 @@ public class Login extends Activity {
                             }
 
                         }
-                        // Login EV
-                    }else{
-                        // 만약 아이디와 패스워드가 다르다면 나오는 이벤트
-                        Toast.makeText(getApplicationContext(), "LoginFail", Toast.LENGTH_SHORT).show();
                     }
+                    // 로그인이 실패하면 나오는 Toast
+                    Toast.makeText(getApplicationContext(), "LoginFail", Toast.LENGTH_SHORT).show();
                 }
             }
         });

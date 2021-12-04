@@ -95,6 +95,7 @@ public class ItemlistView extends AppCompatActivity {
             ItemData data = new ItemData();
             data.setItemName(DBitemList.get(i).getItemName());
             data.setItemPrice(Integer.toString(DBitemList.get(i).getPrice()) + "원");
+            data.setItemTag(DBitemList.get(i).getItemTag());
             data.setResources(Imagelist.get(i));
 
             adapter.addItem(data);

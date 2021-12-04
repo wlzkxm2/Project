@@ -52,7 +52,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
                 Context context = v.getContext();
                 Intent Page;
                 Page = new Intent(v.getContext(), goods_comparison.class);
+                // 상품의 태그를 전송하여 어떤상품인지를 보여줌
+                Page.putExtra("아이템 종류", getItem(position));
                 // Login.class를 변경하여 클래스 이동
+                Log.v("로그", "포지션" + position + "\n아이템이름 : " + getItem(position));
 
                 context.startActivity(Page);
             }
@@ -64,6 +67,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     public int getItemCount() {
         // item의 총갯수
         return itemdata.size();
+    }
+
+    public String getItem(int pos){
+        return itemdata.get(pos).getItemTag();
     }
     
     // 아이템을 추가한다

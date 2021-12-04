@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/back23"
+            android:id="@+id/btn_backGoods"
             android:layout_width="46dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,10 +46,10 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/UserImage"
+                android:id="@+id/image_firstItemImage"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ipad" />
+                android:src="@drawable/ipad" />
 
             <TextView
                 android:id="@+id/VSText"
@@ -61,10 +61,10 @@
                 android:translationY="70dp" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/image_secondItemImage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/lenovo" />
+                android:src="@drawable/lenovo" />
         </LinearLayout>
 
         <LinearLayout
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/ipadView"
+                android:id="@+id/text_fitsrtItemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="아이패드 미니6"
@@ -90,7 +90,7 @@
                 android:layout_weight="0" />
 
             <TextView
-                android:id="@+id/lenovoView"
+                android:id="@+id/text_secondItemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lenovo Tab P11"
@@ -123,7 +123,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/GoodsExplainView"
+                android:id="@+id/text_firstItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="11번가 813,820원 무료배송"
@@ -136,7 +136,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/GoodsExplainView2"
+                android:id="@+id/text_secondItemPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="11번가 170,250원 무료배송"
@@ -199,353 +199,301 @@
                     android:textColor="@color/black"
                     android:textSize="20dp" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="331dp">
+                    android:layout_height="335dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="4dp"
-                        android:gravity="center"
-                        android:text="램"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView11"
-                        app:layout_constraintEnd_toStartOf="@+id/First_bar"
-                        app:layout_constraintStart_toEndOf="@+id/textView23"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="9dp"
-                        android:gravity="center"
-                        android:text="디스플레이"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView16"
-                        app:layout_constraintEnd_toStartOf="@+id/textView19"
-                        app:layout_constraintStart_toEndOf="@+id/first_bar"
-                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginBottom="7dp"
-                        android:gravity="center"
-                        android:text="내장메모리"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView17"
-                        app:layout_constraintEnd_toStartOf="@+id/textView20"
-                        app:layout_constraintStart_toEndOf="@+id/first_bar3"
-                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="4dp"
-                        android:gravity="center"
-                        android:text="카메라 화소"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView18"
-                        app:layout_constraintEnd_toStartOf="@+id/first_bar2"
-                        app:layout_constraintStart_toEndOf="@+id/textView24"
-                        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="32dp"
-                        android:gravity="center"
-                        android:text="주사율"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView25"
-                        app:layout_constraintEnd_toStartOf="@+id/textView21"
-                        app:layout_constraintStart_toEndOf="@+id/first_bar4"
-                        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-                    <TextView
-                        android:id="@+id/textView25"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="40dp"
-                        android:gravity="center"
-                        android:text="장점"
-                        android:textColor="@color/black"
-                        android:textSize="17dp"
-                        app:layout_constraintBottom_toTopOf="@+id/textView26"
-                        app:layout_constraintEnd_toStartOf="@+id/textView27"
-                        app:layout_constraintStart_toEndOf="@+id/textView29"
-                        app:layout_constraintTop_toBottomOf="@+id/textView18" />
-
-                    <TextView
-                        android:id="@+id/textView26"
-                        android:layout_width="80dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="50dp"
-                        android:gravity="center"
-                        android:text="단점"
-                        android:textColor="@color/black"
-                        android:textSize="17dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView30"
-                        app:layout_constraintStart_toEndOf="@+id/textView28"
-                        app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-                    <TextView
-                        android:id="@+id/first_bar"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="65dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="9dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FF00"
-                        android:gravity="center"
-                        android:text="60%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/first_bar3"
-                        app:layout_constraintEnd_toStartOf="@+id/textView11"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView23" />
-
-                    <TextView
-                        android:id="@+id/first_bar2"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginEnd="66dp"
-                        android:layout_marginBottom="4dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FF00"
-                        android:gravity="center"
-                        android:text="60%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView21"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView17"
-                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-                    <TextView
-                        android:id="@+id/first_bar3"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="65dp"
-                        android:layout_marginBottom="7dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FF00"
-                        android:gravity="center"
-                        android:text="60%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView24"
-                        app:layout_constraintEnd_toStartOf="@+id/textView16"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/first_bar" />
-
-                    <TextView
-                        android:id="@+id/first_bar4"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="65dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginBottom="11dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FF00"
-                        android:gravity="center"
-                        android:text="60%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView29"
-                        app:layout_constraintEnd_toStartOf="@+id/textView18"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView24" />
-
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="70dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="95dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="4dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FFFF"
-                        android:gravity="center"
-                        android:text="40%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/first_bar"
-                        app:layout_constraintEnd_toStartOf="@+id/textView5"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="70dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="96dp"
-                        android:layout_marginBottom="9dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FFFF"
-                        android:gravity="center"
-                        android:text="40%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView20"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView11"
-                        app:layout_constraintTop_toBottomOf="@+id/First_bar" />
-
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="70dp"
-                        android:layout_height="20dp"
-                        android:layout_marginEnd="96dp"
-                        android:layout_marginBottom="7dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FFFF"
-                        android:gravity="center"
-                        android:text="40%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/first_bar2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView16"
-                        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-                    <TextView
-                        android:id="@+id/textView24"
-                        android:layout_width="70dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="95dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="4dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FFFF"
-                        android:gravity="center"
-                        android:text="40%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/first_bar4"
-                        app:layout_constraintEnd_toStartOf="@+id/textView17"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/first_bar3" />
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="70dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginEnd="96dp"
-                        android:layout_marginBottom="11dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FFFF"
-                        android:gravity="center"
-                        android:text="40%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView27"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView18"
-                        app:layout_constraintTop_toBottomOf="@+id/first_bar2" />
-
-                    <TextView
-                        android:id="@+id/textView27"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginEnd="47dp"
-                        android:layout_marginBottom="19dp"
-                        android:gravity="left"
-                        android:text="가격대비 최고 성능 \n넷플릭스 지원 \n탁트인 대칭화면"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView30"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView25"
-                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView30"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/text_firstItemSpec1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/text_Spec01"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="램"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemSpec1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="65dp"
+                            android:layout_marginRight="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="60%"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="46dp"
-                        android:gravity="left"
-                        android:text="성능이 아쉬운 CPU \n게임하기에 불편한 주사율"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView26"
-                        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView29"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/text_firstItemSpec2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="60%"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/text_Spec02"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="디스플레이"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemSpec2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginTop="11dp"
-                        android:layout_marginBottom="20dp"
-                        android:gravity="right"
-                        android:text="전문가에게 완벽한 사양\n 높은 주사율\n 완벽한 사양"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView28"
-                        app:layout_constraintEnd_toStartOf="@+id/textView25"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/first_bar4" />
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/textView28"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/text_firstItemSpec3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="60%"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/text_Spec03"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="내장메모리"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemSpec3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginBottom="47dp"
-                        android:gravity="right"
-                        android:text="다소 비싼가격\n 가격대비 아쉬운 내장메모리"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView26"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/First_bar"
-                        android:layout_width="100dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="65dp"
-                        android:layout_marginBottom="4dp"
-                        android:width="150dp"
-                        android:height="30dp"
-                        android:background="#00FF00"
-                        android:gravity="center"
-                        android:text="60%"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/textView19"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView5"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <TextView
+                            android:id="@+id/text_firstItemSpec4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/black" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/text_Spec04"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="카메라 화소"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemSpec4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="60%"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_firstItemSpec5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="60%"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/text_Spec05"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="주사율"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemSpec5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="37.5dp"
+                            android:layout_marginRight="10dp"
+                            android:width="150dp"
+                            android:height="25dp"
+                            android:background="#9C9C9C"
+                            android:gravity="center"
+                            android:text="40%"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_firstItemAdv"
+                            android:layout_width="153dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="right"
+                            android:text="전문가에게 완벽한 사양\n 높은 주사율\n 완벽한 사양"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="장점"
+                            android:textColor="@color/black"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemAdv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="left"
+                            android:text="가격대비 최고 성능 \n넷플릭스 지원 \n탁트인 대칭화면"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_firstItemdisAdv"
+                            android:layout_width="154dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="right"
+                            android:text="다소 비싼가격\n 가격대비 아쉬운 내장메모리"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="단점"
+                            android:textColor="@color/black"
+                            android:textSize="17dp" />
+
+                        <TextView
+                            android:id="@+id/text_secondItemdisAdv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginRight="10dp"
+                            android:gravity="left"
+                            android:text="성능이 아쉬운 CPU \n게임하기에 불편한 주사율"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>

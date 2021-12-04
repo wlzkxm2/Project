@@ -63,17 +63,6 @@
         android:id="@+id/img_user"
         android:layout_width="104dp"
         android:layout_height="112dp"
-        android:layout_constraintBottom_toTopOf="parent"
-        android:layout_constraintEnd_toStartOf="parent"
-        android:layout_constraintTop_toBottomOf="parent"
-        android:layout_constraintStart_toStartOf="parent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294"
         app:srcCompat="@drawable/account" />
 
     <ImageView

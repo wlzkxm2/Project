@@ -45,19 +45,19 @@ public class category extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
 
-        CategoryText = (TextView) findViewById(R.id.CategoryText);
+        CategoryText = (TextView) findViewById(R.id.text_category);
         loginlogo2 = (ImageView) findViewById(R.id.loginLogo2);
         imageView5 = (ImageView) findViewById(R.id.imageView5);
-        back2 = (ImageButton) findViewById(R.id.back2);
-        electronics = (ImageButton) findViewById(R.id.electronics);
-        fashion = (ImageButton) findViewById(R.id.fashion);
-        car = (ImageButton) findViewById(R.id.car);
-        pet = (ImageButton) findViewById(R.id.pet);
-        books = (ImageButton) findViewById(R.id.books);
-        sport = (ImageButton) findViewById(R.id.sport);
-        outdoor = (ImageButton) findViewById(R.id.outdoor);
-        dailynecessities = (ImageButton) findViewById(R.id.dailynecessities);
-        food = (ImageButton) findViewById(R.id.food);
+        back2 = (ImageButton) findViewById(R.id.image_back);
+        electronics = (ImageButton) findViewById(R.id.img_electronics);
+        fashion = (ImageButton) findViewById(R.id.img_fashion);
+        car = (ImageButton) findViewById(R.id.img_car);
+        pet = (ImageButton) findViewById(R.id.img_pet);
+        books = (ImageButton) findViewById(R.id.img_books);
+        sport = (ImageButton) findViewById(R.id.img_sport);
+        outdoor = (ImageButton) findViewById(R.id.img_outdoor);
+        dailynecessities = (ImageButton) findViewById(R.id.img_dailynecessities);
+        food = (ImageButton) findViewById(R.id.img_food);
 
         back2.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,7 +4,10 @@ package com.example.lcheeditsource;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -30,6 +33,7 @@ public class goods_comparison extends Activity {
             firstItemSpec2, secondItemSpec2,             // 아이템 스펙2
             firstItemSpec3, secondItemSpec3,             // 아이템 스펙3
             firstItemSpec4, secondItemSpec4,             // 아이템 스펙4
+            firstItemSpec5, secondItemSpec5,                 // 아이템 스펙 5
             firstItemAdvantage, secondItemAdvantage,     // 아이템 장점
             firstItemDisAdvantage, seconItemDisAdvantage;     // 아이템 점
 
@@ -56,7 +60,7 @@ public class goods_comparison extends Activity {
         mItemDao = itemDB.productionDAO();
 
         // 버튼과 텍스트뷰 셋
-//        ViewSet();
+        ViewSet();
 
         List<Production> ItemListCall = mItemDao.getAllItemData();
 
@@ -64,91 +68,103 @@ public class goods_comparison extends Activity {
         ItemdetailSet(ItemListCall);
 
 
-
-
-
     }
-/*
+
     private void ViewSet() {
-        firstItemName = findViewById(R.id.);            // 상품 이름
-        firstItemPrice = findViewById(R.id.);       // 상품 가격
-        btn_FirstItemBuy = findViewById(R.id.);      // 상품 구매 버튼
-        SecondItemName = findViewById(R.id);            // 두번째 상품 이름
-        secondItemPrice = findViewById(R.id.);      // 두번째 상픔 가격
-        btn_SecondItemBuy = findViewById(R.id.);     // 두번째 상품 구매 버튼
+        firstItemName = findViewById(R.id.text_fitsrtItemName);            // 상품 이름
+        firstItemPrice = findViewById(R.id.text_firstItemPrice);       // 상품 가격
+        btn_FirstItemBuy = findViewById(R.id.btn_FirstItemBuy);      // 상품 구매 버튼
+        SecondItemName = findViewById(R.id.text_secondItemName);            // 두번째 상품 이름
+        secondItemPrice = findViewById(R.id.text_secondItemPrice);      // 두번째 상픔 가격
+        btn_SecondItemBuy = findViewById(R.id.btn_SecondItemBuy);     // 두번째 상품 구매 버튼
 
-        Specone = findViewById(R.id);               // 무슨 스펙인가?
-        Spectwo = findViewById(R.id);
-        Specthree = findViewById(R.id);
-        Specfour = findViewById(R.id);
-        Specfive = findViewById(R.id);
+        Specone = findViewById(R.id.text_Spec01);               // 무슨 스펙인가?
+        Spectwo = findViewById(R.id.text_Spec02);
+        Specthree = findViewById(R.id.text_Spec03);
+        Specfour = findViewById(R.id.text_Spec04);
+        Specfive = findViewById(R.id.text_Spec05);
 
-        firstItemSpec1 = findViewById(R.id);         // 첫번째 아이템 스펙 1
-        firstItemSpec2 = findViewById(R.id);         // 두번재 아이템 스펙 2
-        firstItemSpec3 = findViewById(R.id);
-        firstItemSpec4 = findViewById(R.id);
+        firstItemSpec1 = findViewById(R.id.text_firstItemSpec1);         // 첫번째 아이템 스펙 1
+        firstItemSpec2 = findViewById(R.id.text_firstItemSpec2);         // 두번재 아이템 스펙 2
+        firstItemSpec3 = findViewById(R.id.text_firstItemSpec3);
+        firstItemSpec4 = findViewById(R.id.text_firstItemSpec4);
+        firstItemSpec5 = findViewById(R.id.text_firstItemSpec5);
 
-        secondItemSpec1 = findViewById(R.id);
-        secondItemSpec2 = findViewById(R.id);
-        secondItemSpec3 = findViewById(R.id);
-        secondItemSpec4 = findViewById(R.id);
+        secondItemSpec1 = findViewById(R.id.text_secondItemSpec1);
+        secondItemSpec2 = findViewById(R.id.text_secondItemSpec2);
+        secondItemSpec3 = findViewById(R.id.text_secondItemSpec3);
+        secondItemSpec4 = findViewById(R.id.text_secondItemSpec4);
+        secondItemSpec5 = findViewById(R.id.text_secondItemSpec5);
 
-        firstItemAdvantage = findViewById(R.id);
-        firstItemDisAdvantage = findViewById(R.id);
+        firstItemAdvantage = findViewById(R.id.text_firstItemAdv);
+        firstItemDisAdvantage = findViewById(R.id.text_firstItemdisAdv);
 
-        secondItemAdvantage = findViewById(R.id);
-        seconItemDisAdvantage = findViewById(R.id.);
+        secondItemAdvantage = findViewById(R.id.text_secondItemAdv);
+        seconItemDisAdvantage = findViewById(R.id.text_secondItemdisAdv);
 
-        firstItemImage = findViewById(R.id);        // 첫번째 이미지 이름
-        secondItemImage = findViewById(R.id);       // 두번째 이미지 이름
+        firstItemImage = findViewById(R.id.image_firstItemImage);        // 첫번째 이미지 이름
+        secondItemImage = findViewById(R.id.image_secondItemImage);       // 두번째 이미지 이름
 
-        back_goods = findViewById(R.id);        // 뒤로가기
-
+        back_goods = findViewById(R.id.btn_backGoods);        // 뒤로가기
 
 
     }
- */
 
-    private void ItemdetailSet(List<Production> ItemListCall){
+    private void ItemdetailSet(List<Production> ItemListCall) {
+
+        Log.v("로그", "불러옴");
+
         for (int i = 0; i < ItemListCall.size(); i++) {
-            if(i == 0){
+            if (i == 0) {
                 // 첫번째 아이템에 관한 setText
                 // 이를 통해 아이템 이름과 정보가 표시됨
                 firstItemName.setText(ItemListCall.get(i).getItemName());
-                firstItemPrice.setText(ItemListCall.get(i).getPrice());
-                firstItemSpec1.setText(ItemListCall.get(i).getSpec1());
-                firstItemSpec2.setText(ItemListCall.get(i).getSpec2());
+                firstItemPrice.setText(Integer.toString(ItemListCall.get(i).getPrice()) + "원");
+                firstItemSpec1.setText(ItemListCall.get(i).getSpec1() + " : 60");
+                firstItemSpec1.setBackgroundColor(Color.YELLOW);        // 텍스트의 백그라운드 컬러
+                firstItemSpec2.setText(ItemListCall.get(i).getSpec2() + " : 55");
+                firstItemSpec2.setBackgroundColor(Color.YELLOW);
                 firstItemSpec3.setText(ItemListCall.get(i).getSpec3());
-                firstItemSpec4.setText(ItemListCall.get(i).getSpec4());
+                firstItemSpec3.setBackgroundColor(Color.GREEN);
+                firstItemSpec4.setText("64GB : 50");
+                firstItemSpec4.setBackgroundColor(Color.YELLOW);
+                firstItemSpec5.setText("60Hz : 50");
+                firstItemSpec5.setBackgroundColor(Color.YELLOW);
 
                 firstItemAdvantage.setText("");
                 firstItemDisAdvantage.setText("");
 
-                if(ItemListCall.get(i).getItemName().contains("P11")){
+                if (ItemListCall.get(i).getItemName().contains("P11")) {
                     firstItemImage.setImageResource(R.drawable.lenovo);
-                }else if(ItemListCall.get(i).getItemName().contains("IPad")){
+                } else if (ItemListCall.get(i).getItemName().contains("IPad")) {
                     firstItemImage.setImageResource(R.drawable.ipad);
-                }else{
+                } else {
                     firstItemImage.setImageResource(R.drawable.product);
                 }
-            } else if(i == 1){
+            } else if (i == 1) {
                 // 첫번째 아이템에 관한 setText
                 // 이를 통해 아이템 이름과 정보가 표시됨
                 SecondItemName.setText(ItemListCall.get(i).getItemName());
-                secondItemPrice.setText(ItemListCall.get(i).getPrice());
-                secondItemSpec1.setText(ItemListCall.get(i).getSpec1());
-                secondItemSpec2.setText(ItemListCall.get(i).getSpec2());
-                secondItemSpec3.setText(ItemListCall.get(i).getSpec3());
-                secondItemSpec4.setText(ItemListCall.get(i).getSpec4());
+                secondItemPrice.setText(Integer.toString(ItemListCall.get(i).getPrice()) + "원");
+                secondItemSpec1.setText("APLLE M1 : 80");
+                secondItemSpec1.setBackgroundColor(Color.GREEN);
+                secondItemSpec2.setText("램8GB : 75");
+                secondItemSpec2.setBackgroundColor(Color.GREEN);
+                secondItemSpec3.setText("11인치");
+                secondItemSpec3.setBackgroundColor(Color.GREEN);
+                secondItemSpec4.setText("128GB : 70");
+                secondItemSpec4.setBackgroundColor(Color.GREEN);
+                secondItemSpec5.setText("120Hz : 100");
+                secondItemSpec5.setBackgroundColor(Color.GREEN);
 
                 secondItemAdvantage.setText("");
                 seconItemDisAdvantage.setText("");
 
-                if(ItemListCall.get(i).getItemName().contains("P11")){
+                if (ItemListCall.get(i).getItemName().contains("P11")) {
                     secondItemImage.setImageResource(R.drawable.lenovo);
-                }else if(ItemListCall.get(i).getItemName().contains("IPad")){
+                } else if (ItemListCall.get(i).getItemName().contains("IPad")) {
                     secondItemImage.setImageResource(R.drawable.ipad);
-                }else{
+                } else {
                     secondItemImage.setImageResource(R.drawable.product);
                 }
             }
@@ -156,5 +172,6 @@ public class goods_comparison extends Activity {
 
         }
     }
+
 
 }

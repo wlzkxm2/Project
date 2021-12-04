@@ -36,58 +36,58 @@ public class customer_service extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer_service);
 
-        CustomerServiceText = (TextView) findViewById(R.id.CustomerServiceText);
-        TextboxView = (TextView) findViewById(R.id.TextboxView);
-        TextView1 = (TextView) findViewById(R.id.TextView1);
-        TextView2 = (TextView) findViewById(R.id.TextView2);
-        TextView3 = (TextView) findViewById(R.id.TextView3);
-        TextView4 = (TextView) findViewById(R.id.TextView4);
-        loginlogo5 = (ImageView) findViewById(R.id.loginLogo5);
-        imageButton = (ImageButton) findViewById(R.id.imageButton);
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //뒤로가기
-                Page = new Intent(getApplicationContext(), Register.class);
-                startActivity(Page);
-            }
-        });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //1:1문의 페이지로 이동
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //QnA 페이지로 이동
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //이용약관 페이지로 이동
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //LCHE 소개 페이지로 이동
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //공지사항 페이지로 이동
-            }
-        });
+        CustomerServiceText = (TextView) findViewById(R.id.text_sentence);
+//        TextboxView = (TextView) findViewById(R.id.TextboxView);
+//        TextView1 = (TextView) findViewById(R.id.TextView1);
+//        TextView2 = (TextView) findViewById(R.id.TextView2);
+//        TextView3 = (TextView) findViewById(R.id.TextView3);
+//        TextView4 = (TextView) findViewById(R.id.TextView4);
+//        loginlogo5 = (ImageView) findViewById(R.id.loginLogo5);
+//        imageButton = (ImageButton) findViewById(R.id.imageButton);
+//        button = (Button) findViewById(R.id.button);
+//        button2 = (Button) findViewById(R.id.button2);
+//        button3 = (Button) findViewById(R.id.button3);
+//        button4 = (Button) findViewById(R.id.button4);
+//        button5 = (Button) findViewById(R.id.button5);
+//
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //뒤로가기
+//                Page = new Intent(getApplicationContext(), Register.class);
+//                startActivity(Page);
+//            }
+//        });
+//
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //1:1문의 페이지로 이동
+//            }
+//        });
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //QnA 페이지로 이동
+//            }
+//        });
+//        button3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //이용약관 페이지로 이동
+//            }
+//        });
+//        button4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //LCHE 소개 페이지로 이동
+//            }
+//        });
+//        button5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //공지사항 페이지로 이동
+//            }
+//        });
     }
 }

@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
     // 로그인 여부를 확인할 bool함수
     Boolean LoginCheack = false;
     Boolean AdminCheack = false;
+
+    // 유저의 정보를 확인할수있는 유저 고유 번호
+    int UserCode;
+
     private int wherePage = 3;
 
 
@@ -92,15 +97,18 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 //                });
 //        adLoader.loadAd(new AdRequest.Builder().build());
 
+
+        // 메인 화면에 광고를 삽입 하는 코드
+        // 네이티브 광고를 삽입해줌
         AdLoader adLoader = new AdLoader.Builder(MainActivity.this, "ca-app-pub-3940256099942544/2247696110")
                 .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
                     @Override
                     public void onNativeAdLoaded(NativeAd nativeAd) {
                         NativeTemplateStyle styles = new
-                                NativeTemplateStyle.Builder().build();
-                        TemplateView template = findViewById(R.id.templead);
-                        template.setStyles(styles);
-                        template.setNativeAd(nativeAd);
+                                NativeTemplateStyle.Builder().build();      // 광고의 스타일을 정해줌
+                        TemplateView template = findViewById(R.id.templead);        // 광고의 템플릿을 지정해준다
+                        template.setStyles(styles);         // 지정한 템플릿에 지정한 스타일을 삽입
+                        template.setNativeAd(nativeAd);     // 템블릿에 광고를 삽입
                     }
                 })
                 .withAdListener(new AdListener() {
@@ -171,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
                         itemaddchoice.show(getSupportFragmentManager(), "MyPageOrItemadd");
                     }else{
                         Page = new Intent(getApplicationContext(), myprofile.class);
+                        Page.putExtra("UserCodeCall", UserCode);
                         startActivity(Page);
                     }
 
@@ -222,6 +231,9 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             if(resultCode == 101){
                 LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
                 AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
+                // 유저 코드를 삽입 받는데 기본값은 9999로 해서 존재할 수 없는 값으로 지정해줌
+                UserCode = data.getIntExtra("UserCode", 9999);
+                Log.v("로그", "메인에서 받은 user Code : " + UserCode);
                 if(AdminCheack.equals(true))
                     Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();
             }
@@ -239,6 +251,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             startActivity(Page);
         }else if(wherePage == 0){
             Page = new Intent(getApplicationContext(), myprofile.class);
+            Page.putExtra("UserCodeCall", UserCode);
             startActivity(Page);
         }
 
