@@ -69,19 +69,86 @@
             android:text=" LCHE 이용시 불편한 점 궁금
             한 점을 말씀해 주세요!"
             android:textColor="@color/black"
-            android:textSize="24dp"
-            tools:layout_editor_absoluteX="169dp"
-            tools:layout_editor_absoluteY="182dp" />
+            android:textSize="20dp"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="229dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="25dp">
+
+
+            <TextView
+                android:id="@+id/text_userEmailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="1:1문의"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="25dp">
+
+
+            <TextView
+                android:id="@+id/text_userPhonecallView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="QnA"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="25dp">
+
+
+            <TextView
+                android:id="@+id/text_userShopView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="이용약관"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="25dp">
+
+            <TextView
+                android:id="@+id/text_userMessageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="LCHE 소개"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
-
-
-
-
-
-
-
-
 </LinearLayout>
