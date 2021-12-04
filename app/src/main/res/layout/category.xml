@@ -25,7 +25,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/back2"
+                android:id="@+id/image_back"
                 android:layout_width="46dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -33,7 +33,7 @@
                 app:srcCompat="@drawable/back2" />
 
             <ImageView
-                android:id="@+id/loginLogo2"
+                android:id="@+id/image_lche"
                 android:layout_width="360dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="20dp"
@@ -48,7 +48,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/CategoryText"
+            android:id="@+id/text_category"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:text="카테고리"
@@ -62,7 +62,7 @@
             android:layout_height="462dp">
 
             <ImageButton
-                android:id="@+id/electronics"
+                android:id="@+id/img_electronics"
                 android:layout_width="100dp"
                 android:layout_height="105dp"
                 android:layout_marginStart="30dp"
@@ -72,17 +72,17 @@
                 app:srcCompat="@drawable/electronics" />
 
             <ImageButton
-                android:id="@+id/fashion"
+                android:id="@+id/img_fashion"
                 android:layout_width="95dp"
                 android:layout_height="115dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@+id/electronics"
+                app:layout_constraintStart_toEndOf="@+id/img_electronics"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/fashion" />
 
             <ImageButton
-                android:id="@+id/car"
+                android:id="@+id/img_car"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginStart="30dp"
@@ -90,73 +90,73 @@
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.59"
-                app:layout_constraintStart_toEndOf="@+id/fashion"
+                app:layout_constraintStart_toEndOf="@+id/img_fashion"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/car" />
 
             <ImageButton
-                android:id="@+id/pet"
+                android:id="@+id/img_pet"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toStartOf="@+id/books"
+                app:layout_constraintEnd_toStartOf="@+id/img_books"
                 app:layout_constraintHorizontal_bias="0.361"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/electronics"
+                app:layout_constraintTop_toBottomOf="@+id/img_electronics"
                 app:srcCompat="@drawable/pet" />
 
             <ImageButton
-                android:id="@+id/books"
+                android:id="@+id/img_books"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toStartOf="@+id/sport"
-                app:layout_constraintTop_toBottomOf="@+id/fashion"
+                app:layout_constraintEnd_toStartOf="@+id/img_sport"
+                app:layout_constraintTop_toBottomOf="@+id/img_fashion"
                 app:srcCompat="@drawable/books" />
 
             <ImageButton
-                android:id="@+id/sport"
+                android:id="@+id/img_sport"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/car"
+                app:layout_constraintTop_toBottomOf="@+id/img_car"
                 app:srcCompat="@drawable/sport" />
 
             <ImageButton
-                android:id="@+id/outdoor"
+                android:id="@+id/img_outdoor"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toStartOf="@+id/dailynecessities"
+                app:layout_constraintEnd_toStartOf="@+id/img_dailynecessities"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pet"
+                app:layout_constraintTop_toBottomOf="@+id/img_pet"
                 app:srcCompat="@drawable/outdoor" />
 
             <ImageButton
-                android:id="@+id/dailynecessities"
+                android:id="@+id/img_dailynecessities"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
-                app:layout_constraintEnd_toStartOf="@+id/food"
-                app:layout_constraintTop_toBottomOf="@+id/books"
+                app:layout_constraintEnd_toStartOf="@+id/img_food"
+                app:layout_constraintTop_toBottomOf="@+id/img_books"
                 app:srcCompat="@drawable/dailynecessities" />
 
             <ImageButton
-                android:id="@+id/food"
+                android:id="@+id/img_food"
                 android:layout_width="100dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sport"
+                app:layout_constraintTop_toBottomOf="@+id/img_sport"
                 app:srcCompat="@drawable/food" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
