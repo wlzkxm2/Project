@@ -59,8 +59,8 @@
         android:layout_width="397dp"
         android:layout_height="266dp"
         android:scaleType="fitXY"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="106dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="95dp"
         tools:srcCompat="@drawable/rounded_rectangle" />
 
     <ImageButton
