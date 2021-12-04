@@ -34,4 +34,6 @@ public interface ProductionDAO {
     @Query("SELECT * FROM itemTable WHERE ItemTag LIKE '%' || :finditem || '%'")
     List<Production> getItemFind(String finditem);
 
+
+
 }

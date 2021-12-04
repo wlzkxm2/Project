@@ -3,6 +3,7 @@ package com.example.lcheeditsource.DataBaseSetting;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.lcheeditsource.DataBase.ItemDetail;
@@ -18,4 +19,5 @@ public interface ItemDetailDao {
 
     @Delete // 데이터 삭제
     void setDeleteUser(ItemDetail itemDetail);
+
 }
