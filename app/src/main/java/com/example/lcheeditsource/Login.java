@@ -80,8 +80,8 @@ public class Login extends Activity {
                                 AdminCheack = true;
                                 Page.putExtra("Bool_LoginCheack", LoginCheack);     // MainActivity에 LoginCheack값 전송
                                 Page.putExtra("Bool_AdminCheack", AdminCheack);     // MainActivity에 AdminCheack값 전송
+                                Page.putExtra("UserCode", UserCode);
                                 setResult(101, Page);
-                                Page.putExtra("Usercode", UserCode);
                                 finish();
 
                                 // 아이디와 패스워드가 같다면 로그인이 가능하다는 이벤트
@@ -91,7 +91,7 @@ public class Login extends Activity {
                                 Page = new Intent();
                                 LoginCheack = true;
                                 Page.putExtra("Bool_LoginCheack", LoginCheack);
-                                Page.putExtra("Usercode", UserCode);
+                                Page.putExtra("UserCode", UserCode);
                                 setResult(101, Page);
                                 finish();
 

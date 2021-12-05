@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
                 LoginCheack = data.getBooleanExtra("Bool_LoginCheack", false);
                 AdminCheack = data.getBooleanExtra("Bool_AdminCheack", false);
                 // 유저 코드를 삽입 받는데 기본값은 9999로 해서 존재할 수 없는 값으로 지정해줌
-                UserCode = data.getIntExtra("UserCode", 9999);
+                UserCode = data.getIntExtra("UserCode", 0);
                 Log.v("로그", "메인에서 받은 user Code : " + UserCode);
                 if(AdminCheack.equals(true))
                     Toast.makeText(getApplicationContext(), "어드민로그인", Toast.LENGTH_SHORT).show();

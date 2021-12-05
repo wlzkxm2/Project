@@ -103,22 +103,22 @@ public class ClothDetails extends AppCompatActivity {
         ArrayAdapter<String> BleachingAdap =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, BleachingArr);
         WashAdap.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        Bleaching.setAdapter(WashAdap);
+        Bleaching.setAdapter(BleachingAdap);
 
         ArrayAdapter<String> SteamAdap =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, SteamArr);
         WashAdap.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        Steam.setAdapter(WashAdap);
+        Steam.setAdapter(SteamAdap);
 
         ArrayAdapter<String> DryAdap =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, DryArr);
         WashAdap.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        Dry.setAdapter(WashAdap);
+        Dry.setAdapter(DryAdap);
 
         ArrayAdapter<String> DryerAdap =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, DryerArr);
         WashAdap.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        Dryer.setAdapter(WashAdap);
+        Dryer.setAdapter(DryerAdap);
 
 
         Wash.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

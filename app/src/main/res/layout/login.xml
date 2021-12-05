@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#C364B3C1"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/LoginLogo"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:background="#FFFFFF"
+        android:layout_height="115dp"
+        android:background="#678FCD"
         android:backgroundTint="#00FAFAFA"
-        android:src="@drawable/logo"
+        android:src="@drawable/backgroudremovelogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,16 @@
         android:id="@+id/btn_Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/buttonstyle"
+        android:backgroundTint="#618FDF"
+        android:backgroundTintMode="src_in"
+        android:foregroundTint="#0C0000"
+        android:foregroundTintMode="multiply"
         android:text="Login"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_LoginID" />
 
@@ -53,7 +62,13 @@
         android:id="@+id/btn_SignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/buttonstyle"
+        android:backgroundTint="#5E72D8"
         android:text="SignUp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Login" />
 

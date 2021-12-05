@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="62dp"
         android:background="#FFFFFF"
         android:orientation="horizontal">
 
@@ -24,15 +24,15 @@
             android:id="@+id/loginLogo4"
             android:layout_width="360dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="40dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:rotationX="0"
             android:scaleType="centerInside"
+            android:src="@drawable/backgroudremovelogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_settingBack"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/logo" />
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 

@@ -1,7 +1,6 @@
 package com.example.lcheeditsource;
 
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.room.Room;
 
 import android.content.Intent;
+
 import com.example.lcheeditsource.DataBase.UserInfo;
+
 import android.view.View;
 
 import com.example.lcheeditsource.DataBaseSetting.DataBaseAbs;
@@ -22,7 +24,6 @@ import com.example.lcheeditsource.DataBaseSetting.DataBaseDao;
 import java.util.List;
 
 public class myprofile extends Activity {
-    private DataBaseDao mDataBaseDao;
 
     public DataBaseDao mDatabaseDao;       // Dao 객체 생성
     Button back, ps;
@@ -31,7 +32,7 @@ public class myprofile extends Activity {
     TextView email, phone, shop, message, UserName;
     // text_userEmailView, text_userMessageView,text_userShopView
 
-    Intent Page ;
+    Intent Page;
 
     // 메인 엑티비티에서 불러오는 기본 유저 코드
     // 이를 통해 유저를 특정
@@ -60,11 +61,11 @@ public class myprofile extends Activity {
         message = (TextView) findViewById(R.id.text_userShopView);
 
         Page = getIntent();
-//        UserCode = Page.getExtras().getInt("UserCodeCall");
+        UserCode = Page.getExtras().getInt("UserCodeCall");
 
-        Log.v("로그", "유저 코드" + UserCode);
+        Log.v("로그", "유저 코드 : " + UserCode);
 
-        List<UserInfo> userData = mDataBaseDao.getUserAll();
+        List<UserInfo> userData = mDatabaseDao.getUserAll();
 
         getUser(userData);
 
@@ -112,16 +113,21 @@ public class myprofile extends Activity {
         });
 
 
-
     }
 
     private void getUser(List<UserInfo> userData) {
 
-//        UserName.setText();
-//        email
-//                phone
-//        shop
-//                message
+        for (int i = 0; i < userData.size(); i++) {
+            int DBUserCode = userData.get(i).getDefaultUserCode();
+            if(DBUserCode == UserCode){
+                UserName.setText(userData.get(i).getName());
+                email.setText(userData.get(i).getEmail());
+                phone.setText(userData.get(i).getPhoneNumber());
+                shop.setText("즐겨찾는 상점");
+                message.setText("메세지 확인");
+            }
+        }
+
 
 
     }

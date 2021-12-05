@@ -8,12 +8,27 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="682dp">
+        android:layout_height="match_parent"
+        android:background="#7F8CCC">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                style="@android:style/Widget.Holo.Light.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:background="#4E71C8"
+                android:freezesText="false"
+                android:gravity="center"
+                android:shadowColor="#95A9E4"
+                android:text="상품추가"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/ItemPicture"
@@ -25,7 +40,8 @@
                     android:id="@+id/image_ItemImage"
                     android:layout_width="10dp"
                     android:layout_height="200dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:background="@drawable/product" />
 
                 <Button
                     android:id="@+id/btn_itemPictureAdd"
@@ -46,7 +62,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="상품이름" />
+                    android:gravity="center"
+                    android:text="상품이름"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edit_ItemName"
@@ -69,8 +88,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="상품가격
-        " />
+                    android:gravity="center"
+                    android:text="상품 가격"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edit_ItemPrice"
@@ -92,7 +113,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
-                    android:text="제조사" />
+                    android:gravity="center"
+                    android:text="제조사"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edit_ItemProduction"
@@ -113,37 +137,47 @@
                     android:id="@+id/textItemTag"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="5"
-                    android:text="상품 분류" />
+                    android:gravity="center"
+                    android:text="상품 분류"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/box_ItemTag"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_ItemaddSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="다음" />
+
+                <Button
+                    android:id="@+id/btn_itemaddCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="취소" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_ItemaddSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="다음" />
-
-        <Button
-            android:id="@+id/btn_itemaddCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="취소" />
-    </LinearLayout>
 
 </LinearLayout>

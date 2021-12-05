@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#EFE2C7">
 
     <ImageView
         android:id="@+id/loginLogo"
@@ -13,11 +13,11 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="30dp"
+        android:src="@drawable/backgroudremovelogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="379dp"
@@ -38,7 +38,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="아이디" />
+                android:gravity="center"
+                android:text="아이디"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerID"
@@ -47,7 +50,9 @@
                 android:ems="10"
                 android:hint="Input Id"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_IDcheackButton"
@@ -59,6 +64,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="33dp"
+            android:layout_marginRight="50dp"
             android:orientation="horizontal">
 
             <TextView
@@ -67,8 +73,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="4dp"
+                android:gravity="center"
                 android:text="중복확인을 해주세요"
-                android:textSize="12sp" />
+                android:textColor="#594949"
+                android:textSize="13sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,7 +90,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="비밀번호" />
+                android:gravity="center"
+                android:text="비밀번호"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerPassword"
@@ -90,7 +102,9 @@
                 android:ems="10"
                 android:hint="password"
                 android:inputType="textPassword"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button8"
@@ -110,8 +124,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="비밀번호확인"
-                android:textSize="13dp" />
+                android:textColor="#594949"
+                android:textSize="13dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerPasswordC"
@@ -120,7 +137,9 @@
                 android:ems="10"
                 android:hint="passwordCheack"
                 android:inputType="textPassword"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button9"
@@ -140,7 +159,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="이메일" />
+                android:gravity="center"
+                android:text="이메일"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerEmail"
@@ -149,7 +171,9 @@
                 android:ems="10"
                 android:hint="Email"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button10"
@@ -169,7 +193,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="이름" />
+                android:gravity="center"
+                android:text="이름"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerName"
@@ -178,7 +205,9 @@
                 android:ems="10"
                 android:hint="UserName"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button11"
@@ -198,7 +227,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="생년월일" />
+                android:gravity="center"
+                android:text="생년월일"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_Birth"
@@ -206,7 +238,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Year / Month / Days"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_choiceBirth"
@@ -226,7 +259,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="전화번호" />
+                android:gravity="center"
+                android:text="전화번호"
+                android:textColor="#594949"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_registerPhoneCall"
@@ -235,7 +271,9 @@
                 android:ems="10"
                 android:hint="PhoneCallNumber"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/button13"
@@ -254,6 +292,7 @@
                 android:id="@+id/btn_SingComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/buttonstyle"
                 android:ellipsize="marquee"
                 android:text="SIGN UP"
                 app:layout_constraintStart_toStartOf="parent" />

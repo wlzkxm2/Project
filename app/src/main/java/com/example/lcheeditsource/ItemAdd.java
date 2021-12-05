@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -104,10 +106,12 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
         // 스피너 객체에 어댑터 삽입
         spinner.setAdapter(ItemTag);
 
+        // 스피너 객체를 보여줌
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             // 선택되면
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView)parent.getChildAt(0)).setTextColor(Color.WHITE);
                 Tag = itemTagArr[position].toString();
                 Toast.makeText(getApplicationContext(), Tag, Toast.LENGTH_SHORT).show();
             }
@@ -119,6 +123,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
             }
         });
 
+        // 사용자에게 이미지를 선택받는 함수들~
         // 사용자에게 이미지를 입력받을코드
         try {
             String imgpath = getCacheDir() + "/" + ImageName;       // 내부 저장소에 저장되어있는 이미지경로
@@ -143,6 +148,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
 ////                    // 저장버튼
                     case R.id.btn_ItemaddSave:
+                        // 만약 태그가 의류라면 ClothDetails에서 옷에 대한 상세 정보를 기록 하게끔 함
                         if (Tag.equals("의류")) {
                             Page = new Intent(getApplicationContext(), ClothDetails.class);
                             startActivityForResult(Page, 201);
@@ -167,6 +173,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
         _itemCancel.setOnClickListener(btn);
     }
 
+    // 이미지 전달받은 값에 대한 반응
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -240,6 +247,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
     public void onButtonClicked(Boolean ItemAddQus) {
         this.ItemAddQus = ItemAddQus;
 
+        // 만약에 아이템을 추가한다고 전달 받았을때
         if (this.ItemAddQus == true) {
             Page = new Intent(getApplicationContext(), MainActivity.class);
             Toast.makeText(getApplicationContext(), "아이템을 추가하였습니다", Toast.LENGTH_SHORT).show();
@@ -253,11 +261,18 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                 productionAdd.setItemName(_ItemNameStr);
                 productionAdd.setPrice(_ItemPriceInt);
                 productionAdd.setItemProduction(_ItemProductStr);
+                productionAdd.setWashSpec(_Wash);
+                productionAdd.setBleaching(_Bleaching);
+                productionAdd.setSteam(_Steam);
+                productionAdd.setDry(_Dry);
+                productionAdd.setDryer(_Dryer);
+                productionAdd.setItemTag("clothes, " + Tag);
 
             }else {
                 productionAdd.setItemName(_ItemNameStr);
                 productionAdd.setPrice(_ItemPriceInt);
                 productionAdd.setItemProduction(_ItemProductStr);
+                productionAdd.setItemTag("electronic, " + Tag);
             }
 
 

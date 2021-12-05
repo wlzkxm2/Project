@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF3CF"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
+        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <ImageButton
@@ -17,20 +19,21 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/white"
-            app:srcCompat="@drawable/back2" />
+            android:src="@drawable/back2" />
 
         <ImageView
             android:id="@+id/loginLogo2"
             android:layout_width="360dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="50dp"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:rotationX="0"
             android:scaleType="centerInside"
+            android:src="@drawable/backgroudremovelogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_settingBack"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </LinearLayout>
@@ -45,16 +48,25 @@
             android:layout_height="188dp"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <ImageView
                 android:id="@+id/image_firstItemImage"
                 android:layout_width="179dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/buttonstyle"
+                android:backgroundTint="#FFFFFF"
                 android:src="@drawable/ipad" />
 
             <TextView
                 android:id="@+id/VSText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="VS"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -64,7 +76,14 @@
                 android:id="@+id/image_secondItemImage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:background="@drawable/buttonstyle"
+                android:backgroundTint="#FFFFFF"
                 android:src="@drawable/lenovo" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -184,11 +203,12 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="400dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -207,14 +227,17 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/text_firstItemSpec1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="25dp"
                             android:width="150dp"
                             android:height="25dp"
                             android:background="#9C9C9C"
@@ -226,7 +249,8 @@
                             android:id="@+id/text_Spec01"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="35dp"
                             android:gravity="center"
                             android:text="램"
                             android:textAlignment="center"
@@ -237,7 +261,8 @@
                             android:id="@+id/text_secondItemSpec1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="65dp"
+                            android:layout_gravity="end"
+                            android:layout_marginLeft="40dp"
                             android:layout_marginRight="10dp"
                             android:width="150dp"
                             android:height="25dp"
@@ -251,14 +276,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/text_firstItemSpec2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="25dp"
                             android:width="150dp"
                             android:height="25dp"
                             android:background="#9C9C9C"
@@ -270,6 +297,7 @@
                             android:id="@+id/text_Spec02"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:gravity="center"
                             android:text="디스플레이"
@@ -294,14 +322,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/text_firstItemSpec3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="25dp"
                             android:width="150dp"
                             android:height="25dp"
                             android:background="#9C9C9C"
@@ -313,6 +343,7 @@
                             android:id="@+id/text_Spec03"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:gravity="center"
                             android:text="내장메모리"
@@ -337,14 +368,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/text_firstItemSpec4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="25dp"
                             android:width="150dp"
                             android:height="25dp"
                             android:background="#9C9C9C"
@@ -356,6 +389,7 @@
                             android:id="@+id/text_Spec04"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:gravity="center"
                             android:text="카메라 화소"
@@ -380,14 +414,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginTop="10dp"
+                        android:gravity="start"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/text_firstItemSpec5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="25dp"
                             android:width="150dp"
                             android:height="25dp"
                             android:background="#9C9C9C"
@@ -399,7 +435,8 @@
                             android:id="@+id/text_Spec05"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="25dp"
                             android:gravity="center"
                             android:text="주사율"
                             android:textAlignment="center"
@@ -410,7 +447,7 @@
                             android:id="@+id/text_secondItemSpec5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="37.5dp"
+                            android:layout_marginLeft="23dp"
                             android:layout_marginRight="10dp"
                             android:width="150dp"
                             android:height="25dp"
@@ -439,7 +476,7 @@
                             android:id="@+id/textView25"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:text="장점"
@@ -476,7 +513,7 @@
                             android:id="@+id/textView26"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="50dp"
                             android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:text="단점"
