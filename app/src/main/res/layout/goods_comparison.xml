@@ -10,15 +10,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="#FFFFFF"
-        android:orientation="horizontal">
+        android:background="@drawable/buttonstyle"
+        android:orientation="horizontal"
+        >
 
         <ImageButton
             android:id="@+id/btn_backGoods"
             android:layout_width="46dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="#00FFFFFF"
             android:src="@drawable/back2" />
 
         <ImageView
@@ -27,7 +28,6 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="50dp"
             android:layout_weight="1"
-            android:background="#FFFFFF"
             android:rotationX="0"
             android:scaleType="centerInside"
             android:src="@drawable/backgroudremovelogo"
@@ -40,7 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="657dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -203,12 +203,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="400dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:background="@drawable/buttonstyle"
                 android:orientation="vertical">
 
                 <TextView
