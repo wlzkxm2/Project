@@ -123,30 +123,33 @@ public class Register extends Activity {
                 // debug
 //                Toast.makeText(getApplicationContext(), "중복검사중입니다", Toast.LENGTH_SHORT).show();
 
-                if(userList.size() <= 0){
-                    IDCheack_textView.setText("사용가능한 아이디 입니다.");
-                    IdCheack_bool = true;
+                // 이용자가 입력한
 
-                }else{
-                    for (int count = 0; count < userList.size(); count++) {
-                        // 데이터베이스 count 번째 데이터의 아이디를 ListId에 저장
-                        String ListId = userList.get(count).getUserId();
+                for (int count = 0; count < userList.size(); count++) {
+                    // 데이터베이스 count 번째 데이터의 아이디를 ListId에 저장
+                    String ListId = userList.get(count).getUserId();
 
-                        // debug
-//                    Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
+                    // debug
+//                  Toast.makeText(getApplicationContext(), "ListId", Toast.LENGTH_SHORT).show();
 
-                        // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
-                        if(ListId.equals(_registerId)){
-                            // 만약 같다면 아이디가 존재한다는 팝업이벤트
-                            IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
-                            IdCheack_bool = false;
-                            break;
-                        }else {
+                    // ListId의 데이터(데이터베이스 Count번재 데이터)가 유저가 입력한 데이터과 같을 경우 검사
+                    if(ListId.equals(_registerId)){
+                        // 만약 같다면 아이디가 존재한다는 팝업이벤트
+                        IDCheack_textView.setText("아이디가 존재합니다. 다른 아이디로 해주세요");
+                        IdCheack_bool = false;
+                        break;
+                    }else {
+                        if(_registerId.length() <= 0)
+                            // 이용자가 아이디를 입력하지 않았을때 나오는 텍스트
+                            IDCheack_textView.setText("아이디를 입력해주세요");
+                        else{
                             // 같지 않다면 회원가입이 가능하다는 팝업 이벤트
                             IDCheack_textView.setText("사용가능한 아이디 입니다.");
                             // bool 값을 통해 중복검사를 하지 않고 회원가입 하는 행위를 차단
                             IdCheack_bool = true;
                         }
+
+
                     }
                 }
                 // 데이터베이스 데이터 수만큼 반복
@@ -174,9 +177,13 @@ public class Register extends Activity {
                                 _registerBirthYear = Integer.toString(year);
                                 _registerBirthMonth = Integer.toString(month+1);
                                 _registerBirthDay = Integer.toString(dayOfMonth);
-                                Toast.makeText(getApplicationContext() , _registerBirthYear + " " +
-                                        _registerBirthMonth + " " +
-                                        _registerBirthDay, Toast.LENGTH_SHORT).show();
+
+                                // 생년월일을 입력한다면 보여주는 함수
+                                // 디버그용
+//                                Toast.makeText(getApplicationContext() , _registerBirthYear + " " +
+//                                        _registerBirthMonth + " " +
+//                                        _registerBirthDay, Toast.LENGTH_SHORT).show();
+
                                 _registerBirth = _registerBirthYear + "-" + _registerBirthMonth + "-" + _registerBirthDay;
                                 Toast.makeText(getApplicationContext(), _registerBirth, Toast.LENGTH_SHORT).show();
                             }
@@ -202,6 +209,7 @@ public class Register extends Activity {
                 String getTime = dateFormat.format(date);
 
 
+                // 데이터베이스에 데이터를 삽입하기 위해 이용자가 입력한 모든 내용을 변수에 대입
                 _registerId = registerID.getText().toString();
                 _registerPassword = registerPassword.getText().toString();
                 _registerPasswordCheack = registerPasswordCheack.getText().toString();
@@ -216,6 +224,7 @@ public class Register extends Activity {
                 else
                     IdEmptyCheack_bool = true;
 
+                // 패스워드가 비어져 있는지 여부 검사
                 if(_registerPassword.equals(""))
                     PasswordEmptyCheack_bool = false;
                 else {
@@ -227,17 +236,20 @@ public class Register extends Activity {
                     }else
                         PasswordCheack_bool = false;
                 }
-//
+
+                // 이메일이 비어져있는지 여부 검사
                 if(_registerEmail.equals(""))
                     EmailEmptyCheack_bool = false;
                 else
                     EmailEmptyCheack_bool = true;
 
+                // 이용자의 아이디가 비워져있는지 여부 검사
                 if(_registerName.equals(""))
                     NameEmptyCheack_bool = false;
                 else
                     NameEmptyCheack_bool = true;
 
+                // 이용자의 전화번호가 비워져있는지 여부 검사
                 if(_registerPhoncall.equals(""))
                     PhoneCallEmptyCheack_bool = false;
                 else
@@ -250,28 +262,29 @@ public class Register extends Activity {
 //                        "이메일체크" + EmailEmptyCheack_bool + "\n" +
 //                        "이름체크" + NameEmptyCheack_bool + "\n" +
 //                        "전화번호체크" + PhoneCallEmptyCheack_bool);
+
                 // 가입 데이터 DB에 저장
+                // 중복검사와 각종 입력란에 제대로 입력했을시 분기
                 if(IdCheack_bool == true &&
                         PasswordCheack_bool == true &&
                         EmailEmptyCheack_bool == true &&
                         NameEmptyCheack_bool == true &&
                         PhoneCallEmptyCheack_bool == true){
+                    // 이용자에게 회원가입이 성송하였다는 메시지를 전송
                     Toast.makeText(getApplicationContext(), "회원가입이 성공하였습니다", Toast.LENGTH_SHORT).show();
                     Toast.makeText(getApplicationContext(), "다시 로그인해주세요", Toast.LENGTH_SHORT).show();
 
+                    // 유저 데이터베이스를 객체에 담는다
                     UserInfo registerUser = new UserInfo();
-                    registerUser.setUserId(_registerId);
-                    registerUser.setPassword(_registerPassword);
-                    registerUser.setEmail(_registerEmail);
-                    registerUser.setName(_registerName);
-                    registerUser.setRigisterDate(getTime);
-                    registerUser.setBirth_Day(_registerBirth);
-                    registerUser.setPhoneNumber(_registerPhoncall);
-                    registerUser.setAdmin(false);
-//                    registerUser.setUserAddressDefault();
-//                    registerUser.setUserAddressMore();
-//                    registerUser.setUserAddressNumber();
-                    mDatabaseDao.setInsertUser(registerUser);
+                    registerUser.setUserId(_registerId);                // 아이디를 삽입
+                    registerUser.setPassword(_registerPassword);        // 비밀번호를 삽입
+                    registerUser.setEmail(_registerEmail);              // 이메일을 삽입
+                    registerUser.setName(_registerName);                // 이름을 삽입
+                    registerUser.setRigisterDate(getTime);              // 회원가입 날짜를 삽입(회원가입 날짜는 지금)
+                    registerUser.setBirth_Day(_registerBirth);          // 입력한 생일을 삽입
+                    registerUser.setPhoneNumber(_registerPhoncall);     // 전화번호를 삽입
+                    registerUser.setAdmin(false);                       // 일반 회원가입 유저는 어드민이 아니니 false
+                    mDatabaseDao.setInsertUser(registerUser);           // insertUser를 통해 유저 정보를 저장
 
                     startActivity(GotoLogin);
                 }else{

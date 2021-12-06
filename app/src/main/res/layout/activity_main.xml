@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="733dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,12 +61,12 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="565dp">
+            android:layout_height="616dp">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,19 +107,19 @@
                 </LinearLayout>
 
                 <!--                <ImageButton-->
-<!--                    android:id="@+id/imageButton7"-->
-<!--                    android:layout_width="362dp"-->
-<!--                    android:layout_height="187dp"-->
-<!--                    android:layout_marginStart="34dp"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:layout_marginEnd="15dp"-->
-<!--                    android:layout_marginBottom="1dp"-->
-<!--                    android:background="@color/white"-->
-<!--                    app:layout_constraintBottom_toTopOf="@+id/imageButton9"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/mib03"-->
-<!--                    app:srcCompat="@drawable/squidgame" />-->
+                <!--                    android:id="@+id/imageButton7"-->
+                <!--                    android:layout_width="362dp"-->
+                <!--                    android:layout_height="187dp"-->
+                <!--                    android:layout_marginStart="34dp"-->
+                <!--                    android:layout_marginTop="5dp"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:layout_marginBottom="1dp"-->
+                <!--                    android:background="@color/white"-->
+                <!--                    app:layout_constraintBottom_toTopOf="@+id/imageButton9"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/mib03"-->
+                <!--                    app:srcCompat="@drawable/squidgame" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -130,7 +130,7 @@
                         android:id="@+id/templead"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:gnt_template_type="@layout/gnt_small_template_view"/>
+                        app:gnt_template_type="@layout/gnt_small_template_view" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -192,30 +192,31 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:layout_gravity="center|end"
+            android:background="#00FFFFFF"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/mib06"
                 android:layout_width="58dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
-                android:background="@color/white"
+                android:background="#00FFFFFF"
                 android:outlineAmbientShadowColor="@color/white"
                 app:srcCompat="@drawable/event" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="#00FFFFFF" />
 
             <ImageButton
                 android:id="@+id/mib07"
                 android:layout_width="58dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0"
-                android:background="@color/white"
+                android:background="#00FFFFFF"
                 android:outlineAmbientShadowColor="@color/white"
                 app:srcCompat="@drawable/menu" />
         </LinearLayout>

@@ -46,6 +46,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
     String Tag;
 
+    // 상품의 분류를 보여줄 배열 선언
     String[] itemTagArr = {"가전제품", "의류", "자동차", "반려동물",
             "도서음반", "스포츠", "아웃도어", "생화용품", "식품"};
 
@@ -108,12 +109,12 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
         // 스피너 객체를 보여줌
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            // 선택되면
+            // 선택됫을경우
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ((TextView)parent.getChildAt(0)).setTextColor(Color.WHITE);
-                Tag = itemTagArr[position].toString();
-                Toast.makeText(getApplicationContext(), Tag, Toast.LENGTH_SHORT).show();
+                Tag = itemTagArr[position].toString();      // Tag 변수를 선택된 스피너 객체로 초기화
+                Toast.makeText(getApplicationContext(), Tag, Toast.LENGTH_SHORT).show();    // 선택된 태그를 이용자에게 메세지로 전달함
             }
 
             // 아무것도 선택되지 않은 상태일 때
@@ -211,17 +212,6 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
     }
 
     public String saveBitmapToJpeg(Bitmap bitmap) {   // 선택한 이미지 내부 저장소에 저장
-//        File tempFile = new File(getCacheDir(), ImageName);    // 파일 경로와 이름 넣기
-//        try {
-//            tempFile.createNewFile();   // 자동으로 빈 파일을 생성하기
-//            FileOutputStream out = new FileOutputStream(tempFile);  // 파일을 쓸 수 있는 스트림을 준비하기
-//            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);   // compress 함수를 사용해 스트림에 비트맵을 저장하기
-//            out.close();    // 스트림 닫아주기
-//            Toast.makeText(getApplicationContext(), "파일 저장 성공", Toast.LENGTH_SHORT).show();
-//        } catch (Exception e) {
-//            Toast.makeText(getApplicationContext(), "파일 저장 실패", Toast.LENGTH_SHORT).show();
-//        }
-
 
         File storage = getCacheDir(); //  path = /data/user/0/YOUR_PACKAGE_NAME/cache
         String fileName = ImageName + ".jpg";

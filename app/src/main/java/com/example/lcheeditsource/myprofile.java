@@ -54,6 +54,7 @@ public class myprofile extends Activity {
         back = (Button) findViewById(R.id.btn_profilesBack);
         ps = (Button) findViewById(R.id.btn_profilesSetting);
 
+        // 유저에 대한 정보를 나타낼 TextView를 지정
         UserName = (TextView) findViewById(R.id.text_UserName);
         email = (TextView) findViewById(R.id.text_userEmailView);
         phone = (TextView) findViewById(R.id.text_userPhonecallView);
@@ -61,12 +62,16 @@ public class myprofile extends Activity {
         message = (TextView) findViewById(R.id.text_userShopView);
 
         Page = getIntent();
+        // MainActivity 에서 전달 받은 유저의 기본 고유 코드를 받아온다
         UserCode = Page.getExtras().getInt("UserCodeCall");
 
+        // 유저 정보확인을 위한 디버그 코드
         Log.v("로그", "유저 코드 : " + UserCode);
 
+        // 데이터베이스에서 유저의 모든 정보를 가져와 객체에 담는다
         List<UserInfo> userData = mDatabaseDao.getUserAll();
 
+        // getUser클래스를 통해 전달받은 유저의 기본 고유 코드를 확인하여 그에 맞는 유저의 정보를 보여줌
         getUser(userData);
 
 
@@ -118,8 +123,11 @@ public class myprofile extends Activity {
     private void getUser(List<UserInfo> userData) {
 
         for (int i = 0; i < userData.size(); i++) {
+            // DB내부에 유저 기본 고유 코드를 DBUserCode에 저장
             int DBUserCode = userData.get(i).getDefaultUserCode();
-            if(DBUserCode == UserCode){
+
+            // 만약 MainActivity로부터 전달받은 유저의 고유코드와 맞다면 해당 유저의 정보를 불러옴옴
+           if(DBUserCode == UserCode){
                 UserName.setText(userData.get(i).getName());
                 email.setText(userData.get(i).getEmail());
                 phone.setText(userData.get(i).getPhoneNumber());
