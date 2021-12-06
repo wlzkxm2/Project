@@ -242,11 +242,15 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
             Page = new Intent(getApplicationContext(), MainActivity.class);
             Toast.makeText(getApplicationContext(), "아이템을 추가하였습니다", Toast.LENGTH_SHORT).show();
 
-            String _ItemNameStr = _itemName.getText().toString();
-            int _ItemPriceInt = Integer.parseInt(_itemPrice.getText().toString());
-            String _ItemProductStr = _itemProduction.getText().toString();
+
+            String _ItemNameStr = _itemName.getText().toString();                        // _ItemNameStr 변수를 유저가 입력한 상품 이름으로 초기화
+            int _ItemPriceInt = Integer.parseInt(_itemPrice.getText().toString());      // _ItemPriceInt 변수를 유저가 입력한 상품 가격으로 초기화
+            String _ItemProductStr = _itemProduction.getText().toString();              // _ItemProductStr 변수를 유저가 입력한 제조사이름으로 초기화
+
+            // 상품 추가를 위한 상품 데이터베이스 호출
             Production productionAdd = new Production();
 
+            // 만약에 태그가 의류일경우 spec이 아닌 옷의 드라이 여부를 삽입
             if(Tag.equals("의류")){
                 productionAdd.setItemName(_ItemNameStr);
                 productionAdd.setPrice(_ItemPriceInt);
@@ -259,6 +263,7 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                 productionAdd.setItemTag("clothes, " + Tag);
 
             }else {
+                // 만약에 태그가 의류가 아닐경우 rmsid tkqdlq
                 productionAdd.setItemName(_ItemNameStr);
                 productionAdd.setPrice(_ItemPriceInt);
                 productionAdd.setItemProduction(_ItemProductStr);

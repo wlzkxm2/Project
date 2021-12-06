@@ -33,6 +33,7 @@ public class ItemAddOne extends BottomSheetDialogFragment {
             }
         });
 
+        // 아이템을 추가하지 않는다고 했을때
         _ItemAddCheackNO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

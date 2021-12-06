@@ -52,16 +52,17 @@ public class search extends Activity {
         sb5 = (Button) findViewById(R.id.searchbutton5);
         sb6 = (Button) findViewById(R.id.searchbutton6);
 
-        // 서치뷰 추가 이지원
+        // 서치뷰 추가
         Sv = findViewById(R.id.searchv_SearchBtn);
         Sv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 서치뷰의 어떤 부분이든 출력되는 함수
+                // 서치뷰의 어떤 부분이든 터치해도 출력되는 함수
                 Sv.setIconified(false);
             }
         });
 
+        // sv 즉 서치뷰에 데이터를 입력하고 확인을 눌렀을때 나오는 이벤트
         Sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

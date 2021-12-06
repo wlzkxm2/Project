@@ -37,6 +37,7 @@ public class ItemlistView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.itemlistview);
 
+        // 리스트뷰의 레이아웃을 설정하여 어댑터를 설정한다
         init();
 
         SearchBtn = findViewById(R.id.btn_listSearch);
@@ -46,6 +47,7 @@ public class ItemlistView extends AppCompatActivity {
         Page = getIntent();
         String SearchTxt = Page.getStringExtra("SearchData");
 
+        // getData 클래스에 검색된 데이터를 보내서 출력할수 있게끔 해줌
         getData(SearchTxt);
 
         SearchBtn.setOnClickListener(new View.OnClickListener() {
