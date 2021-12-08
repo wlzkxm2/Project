@@ -130,9 +130,8 @@ public class goods_comparison extends Activity {
                 firstItemSpec4.setBackgroundColor(Color.YELLOW);
                 firstItemSpec5.setText("60Hz : 50");
                 firstItemSpec5.setBackgroundColor(Color.YELLOW);
-
-                firstItemAdvantage.setText("");
-                firstItemDisAdvantage.setText("");
+                firstItemAdvantage.setText("저렴한 가격 \n2K 디스플레이 \n넷플릭스 FHD 지원");
+                firstItemDisAdvantage.setText("게이밍엔 부족한 성능 \n영상 시청외엔 적합하지 않은 성능");
 
                 if (ItemListCall.get(i).getItemName().contains("P11")) {
                     firstItemImage.setImageResource(R.drawable.lenovo);
@@ -157,8 +156,8 @@ public class goods_comparison extends Activity {
                 secondItemSpec5.setText("120Hz : 100");
                 secondItemSpec5.setBackgroundColor(Color.GREEN);
 
-                secondItemAdvantage.setText("");
-                seconItemDisAdvantage.setText("");
+                secondItemAdvantage.setText("전문가에게 대체불가능한 성능\n최고의 퍼포먼스\n11인치의 넓은 대화면\n잘구축된 생태계");
+                seconItemDisAdvantage.setText("높은가격\n영상만 시청하기엔 과스펙");
 
                 if (ItemListCall.get(i).getItemName().contains("P11")) {
                     secondItemImage.setImageResource(R.drawable.lenovo);

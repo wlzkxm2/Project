@@ -469,7 +469,7 @@
                             android:layout_width="153dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:gravity="right"
+                            android:gravity="center"
                             android:text="전문가에게 완벽한 사양\n 높은 주사율\n 완벽한 사양"
                             android:textColor="@color/black" />
 
@@ -490,7 +490,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="45dp"
                             android:layout_marginRight="10dp"
-                            android:gravity="left"
+                            android:gravity="center"
                             android:text="가격대비 최고 성능 \n넷플릭스 지원 \n탁트인 대칭화면"
                             android:textColor="@color/black" />
                     </LinearLayout>
@@ -506,7 +506,6 @@
                             android:layout_width="154dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:gravity="right"
                             android:text="다소 비싼가격\n 가격대비 아쉬운 내장메모리"
                             android:textColor="@color/black" />
 
@@ -527,7 +526,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="45dp"
                             android:layout_marginRight="10dp"
-                            android:gravity="left"
                             android:text="성능이 아쉬운 CPU \n게임하기에 불편한 주사율"
                             android:textColor="@color/black" />
                     </LinearLayout>
