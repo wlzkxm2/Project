@@ -286,7 +286,7 @@ public class Register extends Activity {
                     registerUser.setAdmin(false);                       // 일반 회원가입 유저는 어드민이 아니니 false
                     mDatabaseDao.setInsertUser(registerUser);           // insertUser를 통해 유저 정보를 저장
 
-                    startActivity(GotoLogin);
+                    finish();
                 }else{
 
                     // 가입실패

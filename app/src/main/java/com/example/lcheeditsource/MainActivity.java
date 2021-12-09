@@ -194,19 +194,33 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
             }
         });
 
-        mib4.setOnClickListener(new View.OnClickListener() {
+        notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(apkcount == 4){
                     Toast.makeText(getApplicationContext(), "기본데이터 삽입완료", Toast.LENGTH_SHORT).show();
                     DefaultItemAdd();
                     addUserAdmin();
-                }else
+                }else if(apkcount < 4 && apkcount > 4)
                     Toast.makeText(getApplicationContext(), "기본데이터 삽입 " + apkcount+1 + "단계", Toast.LENGTH_SHORT).show();
 
                 apkcount += 1;
             }
         });
+
+//        mib4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(apkcount == 4){
+//                    Toast.makeText(getApplicationContext(), "기본데이터 삽입완료", Toast.LENGTH_SHORT).show();
+//                    DefaultItemAdd();
+//                    addUserAdmin();
+//                }else
+//                    Toast.makeText(getApplicationContext(), "기본데이터 삽입 " + apkcount+1 + "단계", Toast.LENGTH_SHORT).show();
+//
+//                apkcount += 1;
+//            }
+//        });
 
         // 미구현
 //        notice.setOnClickListener(new View.OnClickListener() {

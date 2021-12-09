@@ -131,7 +131,7 @@ public class goods_comparison extends Activity {
                 firstItemSpec5.setText("60Hz : 50");
                 firstItemSpec5.setBackgroundColor(Color.YELLOW);
                 firstItemAdvantage.setText("저렴한 가격 \n2K 디스플레이 \n넷플릭스 FHD 지원");
-                firstItemDisAdvantage.setText("게이밍엔 부족한 성능 \n영상 시청외엔 적합하지 않은 성능");
+                firstItemDisAdvantage.setText("게이밍엔 부족한\n성능 \n영상 시청외엔 적합하지 않은 성능");
 
                 if (ItemListCall.get(i).getItemName().contains("P11")) {
                     firstItemImage.setImageResource(R.drawable.lenovo);
