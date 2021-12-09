@@ -61,7 +61,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="616dp">
+            android:layout_height="616dp"
+            android:layout_gravity="bottom|center|start|top|end">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,6 +78,7 @@
                         android:id="@+id/mib01"
                         android:layout_width="150dp"
                         android:layout_height="200dp"
+                        android:layout_gravity="center"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="17dp"
@@ -94,6 +96,7 @@
                         android:id="@+id/mib02"
                         android:layout_width="212dp"
                         android:layout_height="200dp"
+                        android:layout_gravity="center|right"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
@@ -193,7 +196,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_gravity="center|end"
+            android:layout_gravity="bottom|center|end"
             android:background="#00FFFFFF"
             android:orientation="horizontal">
 

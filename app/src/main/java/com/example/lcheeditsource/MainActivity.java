@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
 
     private int wherePage = 3;
 
+    int apkcount = 0;
+
 
     // 이미지를 불러오는데 필요한 권한을 유저에게 요청함
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -189,6 +191,20 @@ public class MainActivity extends AppCompatActivity implements Mypageadminchoice
                 // 서치 버튼을 클릭했을때는 검색을 할 수 있도록 서치 클래스로 이동
                 Page = new Intent(getApplicationContext(), search.class);
                 startActivity(Page);
+            }
+        });
+
+        mib4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(apkcount == 4){
+                    Toast.makeText(getApplicationContext(), "기본데이터 삽입완료", Toast.LENGTH_SHORT).show();
+                    DefaultItemAdd();
+                    addUserAdmin();
+                }else
+                    Toast.makeText(getApplicationContext(), "기본데이터 삽입 " + apkcount+1 + "단계", Toast.LENGTH_SHORT).show();
+
+                apkcount += 1;
             }
         });
 
