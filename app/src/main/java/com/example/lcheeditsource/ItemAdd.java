@@ -235,11 +235,19 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
 
     @Override
     public void onButtonClicked(Boolean ItemAddQus) {
+//        ProductionAbs itemDB = Room.databaseBuilder(getApplicationContext(), ProductionAbs.class, "Item.db")
+//                .fallbackToDestructiveMigration()           // 데이터 베이스 버전에 대해 변경 가능
+//                .allowMainThreadQueries()                   // MainThread 에서 DB에 Input Output이 가능함
+//                .build();
+//
+//        // 데이터베이스 객체 생성
+//        mItemDao = itemDB.productionDAO();
+
         this.ItemAddQus = ItemAddQus;
 
         // 만약에 아이템을 추가한다고 전달 받았을때
-        if (this.ItemAddQus == true) {
-            Page = new Intent(getApplicationContext(), MainActivity.class);
+        if (this.ItemAddQus.equals(true)) {
+            Page = new Intent();
             Toast.makeText(getApplicationContext(), "아이템을 추가하였습니다", Toast.LENGTH_SHORT).show();
 
 
@@ -260,7 +268,8 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                 productionAdd.setSteam(_Steam);
                 productionAdd.setDry(_Dry);
                 productionAdd.setDryer(_Dryer);
-                productionAdd.setItemTag("clothes, " + Tag);
+                productionAdd.setItemTag("cloths, " + Tag);
+                mItemDao.setInsertItem(productionAdd);
 
             }else {
                 // 만약에 태그가 의류가 아닐경우 rmsid tkqdlq
@@ -268,13 +277,14 @@ public class ItemAdd extends AppCompatActivity implements ItemAddOne.ItemAddDone
                 productionAdd.setPrice(_ItemPriceInt);
                 productionAdd.setItemProduction(_ItemProductStr);
                 productionAdd.setItemTag("electronic, " + Tag);
+                mItemDao.setInsertItem(productionAdd);
             }
 
 
-            mItemDao.setInsertItem(productionAdd);
 
-            startActivity(Page);
-        } else if (this.ItemAddQus == false) {
+
+            finish();
+        } else if (this.ItemAddQus.equals(false)) {
 //            finish();
         }
 
